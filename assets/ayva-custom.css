@@ -1767,50 +1767,195 @@ a.header__menu-item {
   display: none;
 }
 
-/* HIDE FILTERS toggle button */
+/* ── COLLECTION SIDEBAR FILTERS (matching AYVA exactly) ── */
+
+/* HIDE FILTERS toggle: icon + uppercase text */
+.facets-vertical .facets__form .facets__summary,
 .facets__disclosure-vertical summary,
 .mobile-facets__open {
   font-family: var(--ayva-font-body) !important;
   font-size: 1.1rem !important;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: var(--ayva-ls-wide);
+  letter-spacing: 0.12em;
   color: var(--ayva-black);
+  padding: 1rem 0;
+  border: none;
 }
 
-/* Sidebar filter headings */
-.facets__heading,
-.facets__summary span {
+/* Filter icon next to HIDE FILTERS */
+.facets-vertical .facets__form .facets__summary .icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.6rem;
+}
+
+/* Sidebar container */
+@media screen and (min-width: 990px) {
+  .facets-vertical .facets-wrapper,
+  .facets-vertical .facets-wrapper--no-filters {
+    max-width: 230px;
+    min-width: 200px;
+    padding-right: 3rem;
+    flex-shrink: 0;
+  }
+
+  .facets-vertical .product-grid-container {
+    flex: 1;
+  }
+}
+
+/* Each filter group (Main menu, Availability, Price) */
+.facets__disclosure-vertical {
+  border-bottom: none;
+  padding: 0;
+}
+
+.facets__disclosure-vertical + .facets__disclosure-vertical {
+  margin-top: 0;
+}
+
+/* Filter group headings: "Main menu", "Availability", "Price" */
+.facets__summary,
+.facets__heading {
   font-family: var(--ayva-font-body) !important;
-  font-size: 1.3rem !important;
-  font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0.02em;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+  color: var(--ayva-black) !important;
+  padding: 1.4rem 0 !important;
+  border-bottom: 1px solid var(--ayva-gray-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Collapse/expand icon (minus/plus) */
+.facets__summary .icon-caret,
+.facets__summary::after {
+  font-size: 1.6rem;
   color: var(--ayva-black);
 }
 
-/* Sidebar filter checkboxes/labels */
+/* Filter options list */
+.facets__display-vertical {
+  padding: 1rem 0 1.6rem;
+}
+
+/* Checkbox filters (ALL BAGS, NEW, ACCESSORIES, In stock, Out of stock) */
+.facet-checkbox {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.facet-checkbox input[type="checkbox"] {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--ayva-gray-400);
+  border-radius: 0 !important;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.facet-checkbox input[type="checkbox"]:checked {
+  background-color: var(--ayva-black);
+  border-color: var(--ayva-black);
+}
+
+.facet-checkbox input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
 .facet-checkbox__text,
 .facets__label {
   font-family: var(--ayva-font-body) !important;
-  font-size: 1.2rem !important;
-  color: var(--ayva-gray-600);
+  font-size: 1.3rem !important;
+  font-weight: 400;
+  color: var(--ayva-black);
+  letter-spacing: 0.01em;
+}
+
+/* Grayed out items (Out of stock) */
+.facet-checkbox--disabled .facet-checkbox__text {
+  color: var(--ayva-gray-400) !important;
 }
 
 /* Price range slider */
-.facets__price .field__input {
-  font-family: var(--ayva-font-body) !important;
-  font-size: 1.2rem !important;
-  border: 1px solid var(--ayva-gray-400) !important;
+.facets__price {
+  padding: 1rem 0 1.6rem;
+}
+
+.facets__price .field {
   border-radius: 0 !important;
 }
 
-/* Sidebar width */
-@media screen and (min-width: 990px) {
-  .facets-vertical .facets-wrapper {
-    max-width: 220px;
-    padding-right: 2rem;
-  }
+.facets__price .field__input {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.3rem !important;
+  border: 1px solid var(--ayva-gray-400) !important;
+  border-radius: 0 !important;
+  padding: 0.8rem !important;
+  text-align: center;
+  color: var(--ayva-black);
+}
+
+.facets__price .field__label {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.3rem;
+  color: var(--ayva-gray-600);
+}
+
+/* Price range track */
+.facets__price input[type="range"] {
+  accent-color: var(--ayva-black);
+}
+
+.facets__price .price-filter__range-group {
+  margin-bottom: 1.2rem;
+}
+
+/* € symbol prefix in price inputs */
+.facets__price .field__currency {
+  font-family: var(--ayva-font-body);
+  font-size: 1.3rem;
+  color: var(--ayva-black);
+}
+
+/* Dash between price fields */
+.facets__price .field-currency--separator {
+  font-size: 1.3rem;
+  color: var(--ayva-gray-500);
+  padding: 0 0.4rem;
+}
+
+/* Active filter count badges */
+.facets__selected {
+  font-family: var(--ayva-font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--ayva-black);
+  color: var(--ayva-white);
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Product grid next to sidebar */
@@ -1818,22 +1963,21 @@ a.header__menu-item {
   flex: 1;
 }
 
-/* Remove all borders from filter sections */
-.facets__disclosure-vertical {
-  border-bottom: 1px solid var(--ayva-gray-border);
-  padding: 1.2rem 0;
-}
-
-/* Color swatches in product cards */
-.card-information .color-swatch {
+/* Color swatches below product cards */
+.card-information .color-swatch,
+.card-information .swatch {
   width: 1.4rem;
   height: 1.4rem;
   border-radius: 50%;
   border: 1px solid var(--ayva-gray-300);
+  display: inline-block;
+  margin-right: 0.3rem;
 }
 
-/* +1 more colors indicator */
-.card-information .color-swatch--more {
+/* +1 more colors text */
+.card-information .color-swatch--more,
+.card-information .variant-count {
+  font-family: var(--ayva-font-body);
   font-size: 1rem;
   color: var(--ayva-gray-500);
 }
