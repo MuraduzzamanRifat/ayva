@@ -1,0 +1,419 @@
+<!-- AYVA About Us Page -->
+{%- style -%}
+  .ayva-about {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+  @media screen and (max-width: 749px) {
+    .ayva-about {
+      padding: 0 1.5rem;
+    }
+  }
+
+  /* Hero */
+  .ayva-about__hero {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+    margin-bottom: 4rem;
+    background: #f0ede8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ayva-about__hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Brand Story */
+  .ayva-about__section {
+    padding: 4rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .ayva-about__section--wide {
+    max-width: 100%;
+  }
+  .ayva-about__label {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #999;
+    margin-bottom: 1.2rem;
+  }
+  .ayva-about__heading {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #000;
+    line-height: 1.15;
+    margin-bottom: 2.4rem;
+  }
+  .ayva-about__text {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.6rem;
+  }
+  .ayva-about__text em {
+    font-style: italic;
+    color: #333;
+  }
+
+  /* Two Column Image + Text */
+  .ayva-about__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 4rem 0;
+  }
+  @media screen and (max-width: 749px) {
+    .ayva-about__split {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  .ayva-about__split--reverse {
+    direction: rtl;
+  }
+  .ayva-about__split--reverse > * {
+    direction: ltr;
+  }
+  .ayva-about__image {
+    width: 100%;
+    overflow: hidden;
+  }
+  .ayva-about__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Collection Grid */
+  .ayva-about__collections {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 4rem 0;
+  }
+  @media screen and (max-width: 749px) {
+    .ayva-about__collections {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+  .ayva-about__col-card {
+    text-decoration: none;
+    color: #000;
+    display: block;
+  }
+  .ayva-about__col-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: #f0f0f0;
+  }
+  .ayva-about__col-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .ayva-about__col-card:hover .ayva-about__col-image img {
+    transform: scale(1.05);
+  }
+  .ayva-about__col-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+  }
+
+  /* CTA Button */
+  .ayva-about__btn {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: #000;
+    border: 2px solid #000;
+    padding: 1.2rem 3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+  }
+  .ayva-about__btn:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  /* Divider */
+  .ayva-about__divider {
+    width: 60px;
+    height: 1px;
+    background: #ddd;
+    margin: 3rem 0;
+  }
+{%- endstyle -%}
+
+<div class="ayva-about">
+
+  <!-- Hero Image -->
+  <div class="ayva-about__hero">
+    {%- if section.settings.hero_image != blank -%}
+      <img src="{{ section.settings.hero_image }}" alt="About AYVA" loading="eager">
+    {%- else -%}
+      <div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#f0ede8;">
+        <h1 style="font-family:'Inter',sans-serif;font-size:4rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#000;">AYVA</h1>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <!-- Brand Story -->
+  <div class="ayva-about__section">
+    <p class="ayva-about__label">{{ section.settings.section1_label | default: 'Our Story' }}</p>
+    <h2 class="ayva-about__heading">{{ section.settings.section1_heading | default: 'AYVA BAGS' }}</h2>
+    <p class="ayva-about__text">
+      {{ section.settings.section1_text1 | default: "We're not just another bag brand. AYVA was born from a simple belief — that what you carry says something about who you are. Not louder than you, but alongside you." }}
+    </p>
+    <p class="ayva-about__text">
+      {{ section.settings.section1_text2 | default: "Rooted in the clean lines of Scandinavian design and the energy of European street culture, every AYVA piece is made for real life. For the woman who moves between meetings and markets, city blocks and countryside roads — and wants a bag that keeps up without trying too hard." }}
+    </p>
+    <p class="ayva-about__text">
+      {{ section.settings.section1_text3 | default: "No mass production. No trend-chasing. Just thoughtful design, honest materials, and a little bit of attitude." }}
+    </p>
+  </div>
+
+  <div class="ayva-about__divider"></div>
+
+  <!-- Mission Section -->
+  <div class="ayva-about__section">
+    <p class="ayva-about__label">{{ section.settings.section2_label | default: 'What We Stand For' }}</p>
+    <h2 class="ayva-about__heading">{{ section.settings.section2_heading | default: 'Our Mission' }}</h2>
+    <p class="ayva-about__text">
+      {{ section.settings.section2_text1 | default: "At AYVA, we design for <em>you</em> — not a trend report, not an algorithm, not a runway. Every buckle, stitch, and strap is chosen because it adds something real: comfort, beauty, or a quiet kind of confidence." }}
+    </p>
+    <p class="ayva-about__text">
+      {{ section.settings.section2_text2 | default: "We believe style is personal. It's the woman who pairs vintage denim with something new. Who carries a bag that feels like it was made for her — because it was. Our mission is to create accessories that help you express yourself without saying a word." }}
+    </p>
+    <p class="ayva-about__text">
+      {{ section.settings.section2_text3 | default: "100% vegan. Thoughtfully sourced. Designed in Stockholm. Made to last longer than a season." }}
+    </p>
+  </div>
+
+  <!-- Collections -->
+  <div class="ayva-about__section ayva-about__section--wide">
+    <div class="ayva-about__collections">
+      {% for block in section.blocks %}
+        {%- if block.type == 'collection_card' -%}
+          <a href="{{ block.settings.link | default: '#' }}" class="ayva-about__col-card" {{ block.shopify_attributes }}>
+            <div class="ayva-about__col-image">
+              {%- if block.settings.image_url != blank -%}
+                <img src="{{ block.settings.image_url }}" alt="{{ block.settings.title }}" loading="lazy" width="400" height="533">
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag }}
+              {%- endif -%}
+            </div>
+            <p class="ayva-about__col-title">{{ block.settings.title }}</p>
+          </a>
+        {%- endif -%}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Contact CTA -->
+  <div class="ayva-about__section" style="text-align:center;padding-bottom:6rem;">
+    <p class="ayva-about__label">Get in Touch</p>
+    <h2 class="ayva-about__heading">{{ section.settings.contact_heading | default: 'We\'d Love to Hear From You' }}</h2>
+    <p class="ayva-about__text" style="text-align:center;">
+      {{ section.settings.contact_text | default: 'Whether you have a question, a suggestion, or just want to say hey — we\'re here.' }}
+    </p>
+    <p class="ayva-about__text" style="text-align:center;color:#000;font-weight:600;">
+      Email us anytime: <a href="mailto:{{ section.settings.contact_email | default: 'hey@ayvaofficial.com' }}" style="color:#000;text-decoration:underline;">{{ section.settings.contact_email | default: 'hey@ayvaofficial.com' }}</a>
+    </p>
+    <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="ayva-about__btn">
+      {{ section.settings.cta_text | default: 'EXPLORE OUR COLLECTION' }}
+    </a>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "AYVA About Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "text",
+      "id": "hero_image",
+      "label": "Hero image URL (leave blank for text-only)"
+    },
+    {
+      "type": "header",
+      "content": "Brand Story"
+    },
+    {
+      "type": "text",
+      "id": "section1_label",
+      "label": "Section 1 label",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "section1_heading",
+      "label": "Section 1 heading",
+      "default": "AYVA BAGS"
+    },
+    {
+      "type": "textarea",
+      "id": "section1_text1",
+      "label": "Paragraph 1"
+    },
+    {
+      "type": "textarea",
+      "id": "section1_text2",
+      "label": "Paragraph 2"
+    },
+    {
+      "type": "textarea",
+      "id": "section1_text3",
+      "label": "Paragraph 3"
+    },
+    {
+      "type": "header",
+      "content": "Mission"
+    },
+    {
+      "type": "text",
+      "id": "section2_label",
+      "label": "Section 2 label",
+      "default": "What We Stand For"
+    },
+    {
+      "type": "text",
+      "id": "section2_heading",
+      "label": "Section 2 heading",
+      "default": "Our Mission"
+    },
+    {
+      "type": "textarea",
+      "id": "section2_text1",
+      "label": "Mission paragraph 1"
+    },
+    {
+      "type": "textarea",
+      "id": "section2_text2",
+      "label": "Mission paragraph 2"
+    },
+    {
+      "type": "textarea",
+      "id": "section2_text3",
+      "label": "Mission paragraph 3"
+    },
+    {
+      "type": "header",
+      "content": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Contact heading",
+      "default": "We'd Love to Hear From You"
+    },
+    {
+      "type": "text",
+      "id": "contact_text",
+      "label": "Contact text"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "hey@ayvaofficial.com"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA button text",
+      "default": "EXPLORE OUR COLLECTION"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Image URL"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AYVA About Page",
+      "blocks": [
+        {
+          "type": "collection_card",
+          "settings": {
+            "title": "New Arrivals"
+          }
+        },
+        {
+          "type": "collection_card",
+          "settings": {
+            "title": "All bags"
+          }
+        },
+        {
+          "type": "collection_card",
+          "settings": {
+            "title": "Bag charms"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
