@@ -1,0 +1,2341 @@
+/* ==========================================================================
+   AYVA Official -- Custom Theme CSS
+   Shopify Dawn Theme Customization
+   Scandinavian Minimalist Bag E-commerce
+   ========================================================================== */
+
+/* ==========================================================================
+   TABLE OF CONTENTS
+   --------------------------------------------------------------------------
+   1.  Google Fonts Import
+   2.  CSS Custom Properties (Design Tokens)
+   3.  Global Resets & Base Styles
+   4.  Typography
+   5.  Buttons & Interactive Elements
+   6.  Announcement Bar
+   7.  Header & Navigation
+   8.  Hero / Image Banner
+   9.  Product Cards & Grid
+   10. Bestsellers / Featured Collection Section
+   11. Brand Messaging & Rich Text Sections
+   12. Collection Category Grid
+   13. Image With Text Sections
+   14. Newsletter / Email Signup
+   15. Footer
+   16. Cart Drawer
+   17. Product Page
+   18. Collection Page
+   19. Badges & Labels
+   20. Forms & Inputs
+   21. Utility Classes
+   22. Animations & Transitions
+   23. Responsive -- Tablet
+   24. Responsive -- Mobile
+   25. Reduced Motion & High Contrast
+   26. Print Styles
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. GOOGLE FONTS IMPORT
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+
+/* ==========================================================================
+   2. CSS CUSTOM PROPERTIES (Design Tokens)
+   ========================================================================== */
+
+:root {
+  /* -- Color Palette -- */
+  --ayva-white: #FFFFFF;
+  --ayva-black: #000000;
+  --ayva-dark: #1a1a1a;
+  --ayva-gray-100: #f8f8f8;
+  --ayva-gray-200: #f0f0f0;
+  --ayva-gray-300: #e5e5e5;
+  --ayva-gray-400: #cccccc;
+  --ayva-gray-500: #999999;
+  --ayva-gray-600: #666666;
+  --ayva-gray-700: #333333;
+  --ayva-gray-border: #e8e8e8;
+  --ayva-sale-red: #c0392b;
+  --ayva-success-green: #27ae60;
+
+  /* -- Typography -- */
+  --ayva-font-heading: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  --ayva-font-body: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --ayva-font-nav: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+
+  /* -- Font Sizes -- */
+  --ayva-fs-xs: 1rem;
+  --ayva-fs-sm: 1.1rem;
+  --ayva-fs-base: 1.3rem;
+  --ayva-fs-md: 1.4rem;
+  --ayva-fs-lg: 1.6rem;
+  --ayva-fs-xl: 2rem;
+  --ayva-fs-2xl: 2.4rem;
+  --ayva-fs-3xl: 3.2rem;
+  --ayva-fs-4xl: 4rem;
+  --ayva-fs-5xl: 5.6rem;
+
+  /* -- Letter Spacing -- */
+  --ayva-ls-tight: 0.02em;
+  --ayva-ls-normal: 0.05em;
+  --ayva-ls-wide: 0.1em;
+  --ayva-ls-wider: 0.15em;
+  --ayva-ls-widest: 0.2em;
+
+  /* -- Spacing -- */
+  --ayva-space-xs: 0.8rem;
+  --ayva-space-sm: 1.2rem;
+  --ayva-space-md: 2rem;
+  --ayva-space-lg: 3.2rem;
+  --ayva-space-xl: 4.8rem;
+  --ayva-space-2xl: 6.4rem;
+  --ayva-space-3xl: 9.6rem;
+
+  /* -- Transitions -- */
+  --ayva-transition-fast: 0.15s ease;
+  --ayva-transition-base: 0.25s ease;
+  --ayva-transition-slow: 0.4s ease;
+  --ayva-transition-smooth: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* -- Layout -- */
+  --ayva-max-width: 1440px;
+  --ayva-header-height: 64px;
+  --ayva-announcement-height: 40px;
+}
+
+
+/* ==========================================================================
+   3. GLOBAL RESETS & BASE STYLES
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 400;
+  font-size: var(--ayva-fs-md);
+  line-height: 1.6;
+  color: var(--ayva-black);
+  background-color: var(--ayva-white);
+  letter-spacing: 0.03em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--ayva-black);
+  color: var(--ayva-white);
+}
+
+a {
+  color: var(--ayva-black);
+  text-decoration: none;
+  transition: color var(--ayva-transition-fast),
+              opacity var(--ayva-transition-fast);
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove Dawn default section-to-section spacing for precise control */
+.section + .section {
+  margin-top: 0;
+}
+
+/* Override Dawn color scheme variables for pure black/white */
+.color-scheme-1,
+.color-scheme-2,
+.color-scheme-3,
+.color-scheme-4,
+.color-scheme-5 {
+  --color-background: 255, 255, 255;
+  --color-foreground: 0, 0, 0;
+  --gradient-background: #FFFFFF;
+  --color-shadow: 0, 0, 0;
+}
+
+/* Override page width for wider layouts */
+.page-width {
+  max-width: var(--ayva-max-width);
+  padding: 0 4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .page-width {
+    padding: 0 5rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .page-width {
+    padding: 0 6rem;
+  }
+}
+
+
+/* ==========================================================================
+   4. TYPOGRAPHY
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6,
+.h0, .h1, .h2, .h3, .h4, .h5 {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  color: var(--ayva-black);
+  line-height: 1.15;
+  word-break: normal;
+}
+
+.h0 {
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  letter-spacing: var(--ayva-ls-widest);
+}
+
+h1, .h1 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  letter-spacing: var(--ayva-ls-wider);
+}
+
+h2, .h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: var(--ayva-ls-wide);
+}
+
+h3, .h3 {
+  font-size: var(--ayva-fs-xl);
+  letter-spacing: var(--ayva-ls-wide);
+}
+
+h4, .h4 {
+  font-size: var(--ayva-fs-lg);
+  letter-spacing: var(--ayva-ls-wide);
+}
+
+h5, .h5 {
+  font-size: var(--ayva-fs-md);
+  letter-spacing: var(--ayva-ls-wide);
+}
+
+@media screen and (min-width: 750px) {
+  h1, .h1 {
+    font-size: var(--ayva-fs-4xl);
+  }
+
+  h2, .h2 {
+    font-size: var(--ayva-fs-3xl);
+  }
+
+  h3, .h3 {
+    font-size: var(--ayva-fs-2xl);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  h1, .h1 {
+    font-size: var(--ayva-fs-5xl);
+  }
+
+  h2, .h2 {
+    font-size: var(--ayva-fs-4xl);
+  }
+}
+
+/* Heading utility: extra-large display text for brand statements */
+.hxl,
+.hxxl {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-widest);
+  line-height: 1.05;
+}
+
+.rte {
+  font-family: var(--ayva-font-body);
+  font-size: var(--ayva-fs-md);
+  line-height: 1.7;
+  color: var(--ayva-gray-600);
+}
+
+.rte a {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+/* Caption / small text */
+.caption,
+.caption-large,
+.caption-with-letter-spacing {
+  font-family: var(--ayva-font-body);
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+}
+
+/* Inline richtext */
+.inline-richtext {
+  font-family: var(--ayva-font-body);
+}
+
+
+/* ==========================================================================
+   5. BUTTONS & INTERACTIVE ELEMENTS
+   ========================================================================== */
+
+/* Primary button: solid black */
+.button,
+.shopify-challenge__button,
+.customer button,
+button.button,
+button.shopify-payment-button__button--unbranded {
+  font-family: var(--ayva-font-body) !important;
+  font-size: var(--ayva-fs-sm) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+  background-color: var(--ayva-black);
+  color: var(--ayva-white);
+  border: 2px solid var(--ayva-black);
+  border-radius: 0 !important;
+  padding: 1.2rem 3.2rem;
+  cursor: pointer;
+  transition: background-color var(--ayva-transition-base),
+              color var(--ayva-transition-base),
+              border-color var(--ayva-transition-base);
+  min-height: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover,
+.shopify-challenge__button:hover,
+.customer button:hover,
+button.button:hover,
+button.shopify-payment-button__button--unbranded:hover {
+  background-color: var(--ayva-white);
+  color: var(--ayva-black);
+  border-color: var(--ayva-black);
+}
+
+/* Secondary / outline button */
+.button--secondary {
+  background-color: transparent;
+  color: var(--ayva-black);
+  border: 2px solid var(--ayva-black);
+}
+
+.button--secondary:hover {
+  background-color: var(--ayva-black);
+  color: var(--ayva-white);
+}
+
+/* On dark backgrounds -- white outline variant */
+.banner--desktop-transparent .button--secondary,
+.color-scheme-3 .button--secondary {
+  color: var(--ayva-white);
+  border-color: var(--ayva-white);
+}
+
+.banner--desktop-transparent .button--secondary:hover {
+  background-color: var(--ayva-white);
+  color: var(--ayva-black);
+}
+
+/* Tertiary / text link button */
+.button--tertiary,
+.link,
+.underlined-link {
+  font-family: var(--ayva-font-body);
+  font-size: var(--ayva-fs-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  color: var(--ayva-black);
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+  text-decoration-thickness: 1px;
+}
+
+.button--tertiary:hover,
+.link:hover,
+.underlined-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Remove Dawn button radius globally */
+.shopify-payment-button__button,
+.shopify-payment-button__button--unbranded,
+.field__input,
+.select__select,
+.customer .field input,
+.customer select {
+  border-radius: 0 !important;
+}
+
+/* Focus states: WCAG 2.2 compliant (2.4.11 Focus Appearance -- 2px outline) */
+.button:focus-visible,
+.button--secondary:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--ayva-black);
+  outline-offset: 3px;
+}
+
+/* Minimum 24x24 target size (WCAG 2.5.8 Target Size Minimum) */
+.button,
+.header__icon,
+a.header__menu-item {
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+}
+
+
+/* ==========================================================================
+   6. ANNOUNCEMENT BAR
+   ========================================================================== */
+
+/* Base announcement bar styling */
+.utility-bar,
+.announcement-bar-section {
+  background-color: var(--ayva-white);
+  border-bottom: 1px solid var(--ayva-gray-border);
+}
+
+.announcement-bar {
+  font-family: var(--ayva-font-body) !important;
+}
+
+.announcement-bar__message {
+  font-family: var(--ayva-font-body) !important;
+  font-size: var(--ayva-fs-xs) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  padding: 0.8rem 0;
+  min-height: auto;
+  color: var(--ayva-black);
+}
+
+/* Second announcement bar: dark background with green highlight badge */
+.announcement-bar-section:nth-child(2) .utility-bar,
+.announcement-bar-section + .announcement-bar-section .utility-bar {
+  background-color: var(--ayva-dark);
+  border-bottom: none;
+}
+
+.announcement-bar-section:nth-child(2) .announcement-bar__message,
+.announcement-bar-section + .announcement-bar-section .announcement-bar__message {
+  color: var(--ayva-white);
+}
+
+/* Green highlight badge for bold/strong text in dark bar */
+.announcement-bar__message strong,
+.announcement-bar__message b {
+  background-color: var(--ayva-success-green);
+  color: var(--ayva-white);
+  padding: 0.2rem 0.6rem;
+  font-weight: 600;
+  font-size: var(--ayva-fs-xs);
+  display: inline-block;
+  margin: 0 0.3rem;
+}
+
+/* Reset strong/b badge on the first (light) announcement bar */
+.announcement-bar-section:first-child .announcement-bar__message strong,
+.announcement-bar-section:first-child .announcement-bar__message b {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.announcement-bar__link {
+  text-decoration: none !important;
+}
+
+.announcement-bar__link:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 0.3rem;
+}
+
+/* Hide arrow icons on announcement for cleaner look */
+.announcement-bar__link .icon-arrow {
+  display: none !important;
+}
+
+/* Slider buttons: subtle */
+.announcement-bar .slider-button--next,
+.announcement-bar .slider-button--prev {
+  opacity: 0.5;
+  transition: opacity var(--ayva-transition-fast);
+}
+
+.announcement-bar .slider-button--next:hover,
+.announcement-bar .slider-button--prev:hover {
+  opacity: 1;
+}
+
+
+/* ==========================================================================
+   7. HEADER & NAVIGATION
+   ========================================================================== */
+
+/* Sticky header wrapper */
+.section-header.shopify-section-group-header-group {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--ayva-white);
+}
+
+.section-header {
+  border-bottom: 1px solid var(--ayva-gray-border);
+}
+
+.header-wrapper {
+  background-color: var(--ayva-white) !important;
+  transition: box-shadow var(--ayva-transition-base);
+}
+
+.header-wrapper--border-bottom {
+  border-bottom: 1px solid var(--ayva-gray-border) !important;
+}
+
+/* Header grid: logo left, nav center, icons right */
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 1.2rem !important;
+  padding-bottom: 1.2rem !important;
+  min-height: var(--ayva-header-height);
+}
+
+/* Logo: Playfair Display serif, left-aligned */
+.header__heading {
+  justify-self: start;
+  margin: 0;
+  line-height: 0;
+}
+
+.header__heading-link .h2,
+.header__heading-link span.h2,
+.header__heading-link h2,
+.header__heading-link h1 {
+  font-family: var(--ayva-font-heading) !important;
+  font-weight: 700;
+  font-size: 2.6rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--ayva-black) !important;
+  line-height: 1;
+}
+
+.header__heading-link:hover .h2 {
+  color: var(--ayva-black) !important;
+  opacity: 0.7;
+}
+
+/* Navigation: centered */
+.header__inline-menu {
+  justify-self: center;
+  grid-area: navigation;
+}
+
+.header__inline-menu .list-menu--inline {
+  gap: 0;
+}
+
+.header__inline-menu .list-menu__item--link,
+.header__inline-menu .header__menu-item,
+.header__menu-item {
+  font-family: var(--ayva-font-nav) !important;
+  font-size: 1.3rem !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  color: var(--ayva-black);
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+  transition: opacity var(--ayva-transition-fast);
+  position: relative;
+}
+
+.header__inline-menu .list-menu__item--link:hover,
+.header__inline-menu .header__menu-item:hover,
+.header__menu-item:hover {
+  opacity: 0.6;
+  color: var(--ayva-black);
+  text-decoration: none;
+}
+
+/* Underline animation on nav hover */
+.header__menu-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0.2rem;
+  left: 1.6rem;
+  right: 1.6rem;
+  height: 1px;
+  background-color: var(--ayva-black);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--ayva-transition-base);
+}
+
+.header__menu-item:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Active nav item */
+.header__active-menu-item::after {
+  transform: scaleX(1);
+}
+
+/* Header icons: right side */
+.header__icons {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.header__icon {
+  color: var(--ayva-black);
+  padding: 0.6rem;
+  transition: opacity var(--ayva-transition-fast);
+}
+
+.header__icon:hover {
+  color: var(--ayva-black);
+  opacity: 0.6;
+}
+
+.header__icon::after {
+  display: none !important;
+}
+
+.header__icon .svg-wrapper {
+  width: 2rem;
+  height: 2rem;
+}
+
+.header__icon .icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Cart count badge */
+.cart-count-bubble {
+  background-color: var(--ayva-black) !important;
+  color: var(--ayva-white) !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Localization selectors (language/currency) in header */
+.localization-wrapper .disclosure__toggle,
+.localization-wrapper .localization-form__select,
+.localization-form__select {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.1rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ayva-black);
+}
+
+/* Mega menu / dropdown */
+.mega-menu__content,
+.header__submenu {
+  background-color: var(--ayva-white);
+  border: 1px solid var(--ayva-gray-border);
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.mega-menu__link,
+.header__submenu .header__menu-item {
+  font-size: 1.1rem !important;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 2rem;
+}
+
+/* Mobile menu drawer */
+.menu-drawer {
+  background-color: var(--ayva-white);
+  border: none;
+}
+
+.menu-drawer__menu-item {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.6rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--ayva-gray-200);
+}
+
+.menu-drawer__close-button,
+.menu-drawer__utility-links {
+  font-family: var(--ayva-font-body);
+}
+
+/* Hamburger icon */
+.header__icon--menu .icon {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+
+/* ==========================================================================
+   8. HERO / IMAGE BANNER
+   ========================================================================== */
+
+.banner {
+  position: relative;
+  min-height: 60vh;
+}
+
+.banner--large:not(.banner--adapt) {
+  min-height: 65vh;
+}
+
+@media screen and (min-width: 750px) {
+  .banner--large:not(.banner--adapt) {
+    min-height: 85vh;
+  }
+
+  .banner--medium:not(.banner--adapt) {
+    min-height: 70vh;
+  }
+}
+
+/* Content overlay box: white, centered at bottom */
+.banner__content {
+  padding: 0;
+}
+
+.banner__box {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 3rem 5rem !important;
+  max-width: 460px;
+  text-align: center;
+  margin: 0 auto 4rem;
+}
+
+.banner__heading {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+  color: var(--ayva-black) !important;
+  font-size: var(--ayva-fs-2xl);
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .banner__heading {
+    font-size: var(--ayva-fs-3xl);
+  }
+}
+
+.banner__text {
+  font-family: var(--ayva-font-body);
+  font-size: var(--ayva-fs-md);
+  color: var(--ayva-gray-600);
+  line-height: 1.6;
+}
+
+/* SHOP NOW button on hero: outline style */
+.banner__buttons .button,
+.banner .button--secondary,
+.slideshow .button {
+  background-color: transparent !important;
+  color: var(--ayva-black) !important;
+  border: 2px solid var(--ayva-black) !important;
+  padding: 1.2rem 3.6rem !important;
+  font-size: var(--ayva-fs-sm) !important;
+  letter-spacing: var(--ayva-ls-wider);
+  min-width: 18rem;
+}
+
+.banner__buttons .button:hover,
+.banner .button--secondary:hover,
+.slideshow .button:hover {
+  background-color: var(--ayva-black) !important;
+  color: var(--ayva-white) !important;
+}
+
+/* Hero image: crisp cover */
+.banner__media img,
+.slideshow__media img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Remove Dawn banner overlay gradient */
+.banner::after,
+.banner__media::after {
+  display: none !important;
+}
+
+
+/* ==========================================================================
+   9. PRODUCT CARDS & GRID
+   ========================================================================== */
+
+/* Remove all borders, shadows, and rounded corners from cards */
+.card,
+.card--card,
+.card--standard .card__inner {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.card--card:after,
+.card--standard .card__inner:after {
+  display: none !important;
+}
+
+/* Product card wrapper: strip Dawn decorations */
+.product-card-wrapper {
+  --border-radius: 0;
+  --border-width: 0;
+  --border-opacity: 0;
+  --shadow-horizontal-offset: 0;
+  --shadow-vertical-offset: 0;
+  --shadow-blur-radius: 0;
+  --shadow-opacity: 0;
+  --shadow-visible: 0;
+  --image-padding: 0;
+}
+
+.card-wrapper {
+  border: none;
+  border-radius: 0;
+}
+
+.card__inner {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Clean card background */
+.card--standard > .card__inner {
+  background: transparent;
+}
+
+.card--card {
+  background: transparent;
+}
+
+/* Card image: full width, no padding, no radius */
+.card__media {
+  margin: 0 !important;
+  width: 100% !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+.card .card__inner .card__media {
+  border-radius: 0 !important;
+}
+
+.card__media .media img,
+.card__media img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Subtle zoom on product card hover */
+@media screen and (min-width: 990px) {
+  .card-wrapper:hover .card__media .media img,
+  .card-wrapper:hover .card__media img {
+    transform: scale(1.05);
+  }
+
+  /* Second image fade on hover */
+  .card-wrapper .media.media--hover-effect > img + img {
+    transition: opacity 0.4s ease, transform 0.6s ease;
+  }
+
+  .card-wrapper:hover .media.media--hover-effect > img + img {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Remove Dawn's default hover-zoom override */
+.animate--hover-zoom .card-wrapper .card--card .card__inner .media img,
+.animate--hover-zoom .card-wrapper .card--standard .card__inner .media img {
+  transform: none !important;
+}
+
+/* Card content & information */
+.card__content {
+  padding: 1rem 0 0 !important;
+}
+
+.card__information {
+  padding: 1rem 0 !important;
+}
+
+.card--standard > .card__content .card__information {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Product title on card */
+.card__heading {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+  color: var(--ayva-black);
+}
+
+.card__heading a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card__heading a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* Product card price */
+.price {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.2rem !important;
+  font-weight: 400;
+  letter-spacing: var(--ayva-ls-normal);
+  color: var(--ayva-black);
+}
+
+.card-information .price {
+  font-size: 1.2rem !important;
+}
+
+.card-information .price .price-item {
+  font-size: 1.2rem;
+}
+
+/* Compare-at / strikethrough price */
+.price--on-sale .price-item--regular {
+  text-decoration: line-through;
+  color: var(--ayva-gray-500) !important;
+  font-size: 1.1rem !important;
+}
+
+/* Sale price in red */
+.price--on-sale .price-item--sale {
+  color: var(--ayva-sale-red) !important;
+  font-weight: 600;
+}
+
+/* Sale badge: small, top-left */
+.card__badge {
+  margin: 0.8rem !important;
+}
+
+.card__badge .badge {
+  background-color: var(--ayva-black) !important;
+  color: var(--ayva-white) !important;
+  font-family: var(--ayva-font-body) !important;
+  font-size: 0.9rem !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  padding: 0.3rem 0.8rem;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Sold-out badge: muted */
+.badge--soldout {
+  background-color: var(--ayva-gray-500) !important;
+}
+
+/* Quick add button: show on hover */
+.quick-add {
+  opacity: 0;
+  transition: opacity var(--ayva-transition-base);
+}
+
+@media screen and (min-width: 990px) {
+  .card-wrapper:hover .quick-add {
+    opacity: 1;
+  }
+}
+
+/* Always visible on touch devices */
+@media screen and (max-width: 989px) {
+  .quick-add {
+    opacity: 1;
+  }
+}
+
+.quick-add__submit {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.1rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background-color: var(--ayva-white) !important;
+  color: var(--ayva-black) !important;
+  border: 1px solid var(--ayva-black) !important;
+  border-radius: 0 !important;
+  padding: 0.8rem 2rem;
+  transition: background-color var(--ayva-transition-fast),
+              color var(--ayva-transition-fast);
+}
+
+.quick-add__submit:hover {
+  background-color: var(--ayva-black) !important;
+  color: var(--ayva-white) !important;
+}
+
+/* Card information spacing refinement */
+.card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
+  margin-top: 0.4rem;
+}
+
+
+/* ==========================================================================
+   10. BESTSELLERS / FEATURED COLLECTION SECTION
+   ========================================================================== */
+
+/* Section title (featured collection, bestsellers, etc.) */
+.collection .title,
+.featured-collection .title,
+.section-header__title,
+.title,
+.collection__title,
+.title--primary {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+  text-align: center;
+  color: var(--ayva-black);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  margin-bottom: 3rem;
+}
+
+/* "View all" link */
+.section-header__link,
+.collection__view-all a,
+.view-all {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+  text-decoration-thickness: 1px;
+  color: var(--ayva-black);
+}
+
+.section-header__link:hover,
+.collection__view-all a:hover,
+.view-all:hover {
+  text-decoration-thickness: 2px;
+  opacity: 1;
+}
+
+/* Product grid: 4 columns desktop */
+@media screen and (min-width: 990px) {
+  .grid--4-col-desktop .grid__item {
+    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+}
+
+/* Section spacing */
+.spaced-section,
+.spaced-section--full-width {
+  padding-top: var(--ayva-space-2xl);
+  padding-bottom: var(--ayva-space-2xl);
+}
+
+@media screen and (min-width: 750px) {
+  .spaced-section,
+  .spaced-section--full-width {
+    padding-top: var(--ayva-space-3xl);
+    padding-bottom: var(--ayva-space-3xl);
+  }
+}
+
+
+/* ==========================================================================
+   11. BRAND MESSAGING & RICH TEXT SECTIONS
+   ========================================================================== */
+
+/* Rich text: full-width, large centered uppercase text */
+.rich-text {
+  text-align: center;
+}
+
+.rich-text__blocks {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rich-text .rich-text__heading {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+  font-size: var(--ayva-fs-2xl);
+  line-height: 1.3;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 750px) {
+  .rich-text .rich-text__heading {
+    font-size: var(--ayva-fs-3xl);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .rich-text .rich-text__heading {
+    font-size: var(--ayva-fs-4xl);
+    letter-spacing: var(--ayva-ls-widest);
+  }
+}
+
+.rich-text .rich-text__text {
+  font-size: var(--ayva-fs-md);
+  color: var(--ayva-gray-600);
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* Brand statement on image sections */
+.image-with-text .image-with-text__heading {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+}
+
+
+/* ==========================================================================
+   12. COLLECTION CATEGORY GRID
+   ========================================================================== */
+
+/* Collection list cards: clean, minimal */
+.collection-card-wrapper {
+  --border-radius: 0;
+  --border-width: 0;
+  --shadow-horizontal-offset: 0;
+  --shadow-vertical-offset: 0;
+  --shadow-blur-radius: 0;
+  --shadow-opacity: 0;
+}
+
+.collection-card-wrapper .card {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.collection-card-wrapper .card__inner {
+  border-radius: 0 !important;
+}
+
+/* Collection card content */
+.collection-card-wrapper .card__content {
+  padding: 0 !important;
+}
+
+.collection-card-wrapper .card__information {
+  padding: 1.2rem 0;
+}
+
+.collection-card-wrapper .card__heading {
+  font-size: 1.4rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+}
+
+/* Collection list items: hover zoom */
+.collection-list__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.collection-list__item img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.collection-list__item:hover img {
+  transform: scale(1.05);
+}
+
+/* Collection list title */
+.collection-list-title {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+  text-align: center;
+}
+
+/* Collection hero */
+.collection-hero {
+  padding: var(--ayva-space-xl) 0;
+}
+
+.collection-hero__title {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+  font-size: var(--ayva-fs-3xl);
+}
+
+@media screen and (min-width: 750px) {
+  .collection-hero__title {
+    font-size: var(--ayva-fs-4xl);
+  }
+}
+
+.collection-hero__description {
+  font-family: var(--ayva-font-body);
+  font-size: var(--ayva-fs-md);
+  color: var(--ayva-gray-600);
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   13. IMAGE WITH TEXT SECTIONS
+   ========================================================================== */
+
+.image-with-text {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.image-with-text__content {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (min-width: 750px) {
+  .image-with-text__content {
+    padding: var(--ayva-space-xl);
+  }
+}
+
+.image-with-text .image-with-text__media-item {
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+.image-with-text .image-with-text__media-item img {
+  border-radius: 0;
+  transition: transform 0.8s ease;
+}
+
+.image-with-text:hover .image-with-text__media-item img {
+  transform: scale(1.02);
+}
+
+.image-with-text .image-with-text__heading {
+  font-size: var(--ayva-fs-2xl);
+  margin-bottom: var(--ayva-space-sm);
+}
+
+@media screen and (min-width: 750px) {
+  .image-with-text .image-with-text__heading {
+    font-size: var(--ayva-fs-3xl);
+  }
+}
+
+.image-with-text .image-with-text__text {
+  font-size: var(--ayva-fs-md);
+  color: var(--ayva-gray-600);
+  line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   14. NEWSLETTER / EMAIL SIGNUP
+   ========================================================================== */
+
+.newsletter-form__field-wrapper {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.newsletter-form .field__input {
+  font-family: var(--ayva-font-body) !important;
+  font-size: var(--ayva-fs-md);
+  border: 1px solid var(--ayva-gray-400) !important;
+  border-radius: 0 !important;
+  padding: 1.2rem 1.6rem;
+  background-color: var(--ayva-white) !important;
+  color: var(--ayva-black);
+}
+
+.newsletter-form .field__input:focus {
+  border-color: var(--ayva-black) !important;
+  box-shadow: none !important;
+}
+
+.newsletter-form .field__input::placeholder {
+  color: var(--ayva-gray-500);
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+  font-size: 1.1rem;
+}
+
+.newsletter-form .newsletter-form__button {
+  background-color: var(--ayva-black) !important;
+  color: var(--ayva-white) !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Email signup banner */
+.email-signup-banner {
+  background-color: var(--ayva-gray-100) !important;
+}
+
+.email-signup-banner .banner__heading {
+  font-size: var(--ayva-fs-2xl);
+}
+
+
+/* ==========================================================================
+   15. FOOTER
+   ========================================================================== */
+
+.footer {
+  background-color: var(--ayva-white) !important;
+  border-top: 1px solid var(--ayva-gray-border) !important;
+  padding-top: var(--ayva-space-xl);
+  margin-top: 0;
+}
+
+.footer:not(.color-scheme-1) {
+  border-top: 1px solid var(--ayva-gray-border) !important;
+}
+
+/* Footer headings */
+.footer-block__heading {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.2rem !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ayva-black);
+  margin-bottom: 1.6rem;
+}
+
+/* Footer content top */
+.footer__content-top {
+  padding-bottom: 2rem;
+}
+
+/* Footer links: uppercase, small */
+.footer-block__details-content .list-menu__item--link,
+.footer-block .list-menu__item--link {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.2rem !important;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--ayva-gray-600) !important;
+  transition: color var(--ayva-transition-fast);
+  padding: 0.3rem 0;
+}
+
+.footer-block__details-content .list-menu__item--link:hover,
+.footer-block .list-menu__item--link:hover {
+  color: var(--ayva-black) !important;
+  text-decoration: underline;
+}
+
+/* Footer bottom: payment icons, copyright */
+.footer__content-bottom {
+  border-top: 1px solid var(--ayva-gray-border) !important;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: var(--ayva-gray-600);
+}
+
+.footer__copyright {
+  font-family: var(--ayva-font-body);
+  font-size: 1rem;
+  color: var(--ayva-gray-500);
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+}
+
+.copyright__content {
+  font-size: 1rem !important;
+  color: var(--ayva-gray-500);
+}
+
+.copyright__content a {
+  color: var(--ayva-gray-500);
+  text-decoration: none;
+}
+
+.copyright__content a:hover {
+  color: var(--ayva-black);
+}
+
+/* Payment icons row */
+.footer__payment {
+  margin-top: 2rem;
+}
+
+.footer__payment .list-payment {
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.footer__payment .list-payment__item {
+  opacity: 0.6;
+  transition: opacity var(--ayva-transition-fast);
+}
+
+.footer__payment .list-payment__item:hover {
+  opacity: 1;
+}
+
+/* Footer social icons */
+.footer .list-social {
+  gap: 1.2rem;
+}
+
+.footer .list-social__link {
+  color: var(--ayva-black);
+  transition: opacity var(--ayva-transition-fast);
+  padding: 0.4rem;
+}
+
+.footer .list-social__link:hover {
+  opacity: 0.6;
+}
+
+.footer .list-social__link .icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Footer localization selectors */
+.footer__localization .disclosure__toggle,
+.footer__localization .localization-form__select {
+  font-family: var(--ayva-font-body);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+  color: var(--ayva-gray-600);
+}
+
+/* Company registration info / policies */
+.policies li {
+  font-size: 1rem;
+  color: var(--ayva-gray-500);
+}
+
+.policies li a {
+  color: var(--ayva-gray-500);
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+  font-size: 1rem;
+}
+
+.policies li a:hover {
+  color: var(--ayva-black);
+}
+
+
+/* ==========================================================================
+   16. CART DRAWER
+   ========================================================================== */
+
+.cart-drawer {
+  background-color: var(--ayva-white);
+  border: none;
+  border-radius: 0;
+}
+
+.cart-drawer__overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.drawer__header {
+  border-bottom: 1px solid var(--ayva-gray-border);
+  padding: 1.6rem 2.4rem;
+}
+
+.drawer__heading {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  font-size: var(--ayva-fs-lg);
+}
+
+/* Cart items */
+.cart-item__name {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+}
+
+.cart-item__price {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+}
+
+/* Cart totals */
+.cart-drawer__footer {
+  border-top: 1px solid var(--ayva-gray-border);
+}
+
+.totals__subtotal {
+  font-family: var(--ayva-font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+}
+
+/* Checkout button in cart */
+.cart__ctas .button,
+.cart__checkout-button {
+  background-color: var(--ayva-black) !important;
+  color: var(--ayva-white) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+}
+
+.cart__ctas .button:hover,
+.cart__checkout-button:hover {
+  background-color: var(--ayva-gray-700) !important;
+}
+
+/* Free shipping progress bar */
+.cart-drawer .free-shipping-bar {
+  background: var(--ayva-gray-100);
+  height: 4px;
+  border-radius: 0;
+}
+
+/* Quantity selector */
+.quantity {
+  border-radius: 0 !important;
+  border: 1px solid var(--ayva-gray-400);
+}
+
+.quantity__button {
+  color: var(--ayva-black);
+  transition: background-color var(--ayva-transition-fast);
+}
+
+.quantity__button:hover {
+  background-color: var(--ayva-gray-100);
+}
+
+/* Cart notification */
+.cart-notification {
+  border-radius: 0;
+}
+
+
+/* ==========================================================================
+   17. PRODUCT PAGE
+   ========================================================================== */
+
+/* Product title */
+.product__title h1 {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+  font-size: var(--ayva-fs-2xl);
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 750px) {
+  .product__title h1 {
+    font-size: var(--ayva-fs-3xl);
+  }
+}
+
+/* Product price on PDP */
+.product__info-wrapper .price {
+  font-family: var(--ayva-font-body);
+  font-size: var(--ayva-fs-lg);
+  letter-spacing: var(--ayva-ls-normal);
+}
+
+.product__info-wrapper .price--on-sale .price-item--regular {
+  text-decoration: line-through;
+  color: var(--ayva-gray-500);
+}
+
+.product__info-wrapper .price--on-sale .price-item--sale {
+  color: var(--ayva-sale-red);
+}
+
+/* Product description */
+.product__description {
+  font-family: var(--ayva-font-body);
+  font-size: var(--ayva-fs-md);
+  line-height: 1.7;
+  color: var(--ayva-gray-600);
+}
+
+/* Variant picker label */
+.product-form__input label {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+}
+
+/* Variant buttons */
+.product-form__input .swatch-input__label,
+.product-form__input input[type='radio'] + label {
+  border: 1px solid var(--ayva-gray-400) !important;
+  border-radius: 0 !important;
+  font-family: var(--ayva-font-body);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+  padding: 0.8rem 1.6rem;
+  transition: border-color var(--ayva-transition-fast),
+              background-color var(--ayva-transition-fast);
+}
+
+.product-form__input input[type='radio']:checked + label {
+  border-color: var(--ayva-black) !important;
+  background-color: var(--ayva-black) !important;
+  color: var(--ayva-white) !important;
+}
+
+/* Add to cart button */
+.product-form__submit {
+  background-color: var(--ayva-black) !important;
+  color: var(--ayva-white) !important;
+  border: 2px solid var(--ayva-black) !important;
+  border-radius: 0 !important;
+  font-family: var(--ayva-font-body) !important;
+  font-size: var(--ayva-fs-sm) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+  padding: 1.6rem 3.2rem !important;
+  min-height: 5.2rem;
+  width: 100%;
+  transition: background-color var(--ayva-transition-base),
+              color var(--ayva-transition-base);
+}
+
+.product-form__submit:hover {
+  background-color: var(--ayva-white) !important;
+  color: var(--ayva-black) !important;
+}
+
+.product-form__submit[disabled] {
+  background-color: var(--ayva-gray-400) !important;
+  border-color: var(--ayva-gray-400) !important;
+  color: var(--ayva-white) !important;
+  cursor: not-allowed;
+}
+
+/* Buy it now / Shopify Pay */
+.shopify-payment-button__button {
+  border-radius: 0 !important;
+  min-height: 5.2rem;
+}
+
+/* Product media */
+.product__media-item {
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+.product__media-item img {
+  border-radius: 0 !important;
+}
+
+/* Product accordion / collapsible */
+.product__accordion .accordion__title {
+  font-family: var(--ayva-font-body);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+}
+
+.product__accordion .accordion__content {
+  font-family: var(--ayva-font-body);
+  font-size: var(--ayva-fs-md);
+  color: var(--ayva-gray-600);
+  line-height: 1.7;
+}
+
+/* Pickup availability */
+.pickup-availability-preview {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+}
+
+
+/* ==========================================================================
+   18. COLLECTION PAGE
+   ========================================================================== */
+
+/* Facets / filters */
+.facets__heading {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+}
+
+.facets__label,
+.facet-checkbox__text {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+  color: var(--ayva-gray-600);
+}
+
+.facets__disclosure .disclosure__toggle {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+}
+
+/* Active filter pills */
+.active-facets__button {
+  font-family: var(--ayva-font-body);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+  border-radius: 0 !important;
+  border: 1px solid var(--ayva-gray-400);
+}
+
+/* Sort by dropdown */
+.collection-sort .select__select {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+  border-radius: 0 !important;
+}
+
+/* Product count */
+.collection__product-count {
+  font-family: var(--ayva-font-body);
+  font-size: 1.1rem;
+  color: var(--ayva-gray-500);
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+}
+
+/* Pagination */
+.pagination__list .pagination__item a,
+.pagination__list .pagination__item span {
+  font-family: var(--ayva-font-body);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ayva-gray-600);
+  border-radius: 0 !important;
+}
+
+.pagination__list .pagination__item--current {
+  background-color: var(--ayva-black) !important;
+  color: var(--ayva-white) !important;
+  border-radius: 0 !important;
+}
+
+
+/* ==========================================================================
+   19. BADGES & LABELS
+   ========================================================================== */
+
+.badge {
+  font-family: var(--ayva-font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 0 !important;
+  border: none !important;
+  padding: 0.4rem 0.8rem;
+}
+
+.badge--sale {
+  background-color: var(--ayva-sale-red) !important;
+  color: var(--ayva-white) !important;
+}
+
+.badge--soldout {
+  background-color: var(--ayva-gray-500) !important;
+  color: var(--ayva-white) !important;
+}
+
+/* Price badge (sale label next to price) */
+.price .price__badge-sale {
+  background-color: var(--ayva-sale-red) !important;
+  color: var(--ayva-white) !important;
+  border-radius: 0 !important;
+  font-size: 0.9rem !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  padding: 0.2rem 0.6rem;
+}
+
+.price .price__badge-sold-out {
+  background-color: var(--ayva-gray-500) !important;
+  color: var(--ayva-white) !important;
+  border-radius: 0 !important;
+  font-size: 0.9rem !important;
+  padding: 0.2rem 0.6rem;
+}
+
+
+/* ==========================================================================
+   20. FORMS & INPUTS
+   ========================================================================== */
+
+.field__input,
+.select__select,
+.customer .field input,
+.customer input,
+.customer select,
+.form__input,
+textarea {
+  font-family: var(--ayva-font-body) !important;
+  font-size: var(--ayva-fs-md);
+  border: 1px solid var(--ayva-gray-border) !important;
+  border-radius: 0 !important;
+  color: var(--ayva-black);
+  background-color: var(--ayva-white);
+  padding: 1.2rem 1.4rem;
+  transition: border-color var(--ayva-transition-fast);
+}
+
+.field__input:focus,
+.select__select:focus,
+.customer .field input:focus,
+textarea:focus {
+  border-color: var(--ayva-black) !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.field__label {
+  font-family: var(--ayva-font-body);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-normal);
+  color: var(--ayva-gray-500);
+}
+
+/* Search input */
+.search__input {
+  font-family: var(--ayva-font-body) !important;
+  border-radius: 0 !important;
+  border: 1px solid var(--ayva-gray-400) !important;
+}
+
+.search__input:focus {
+  border-color: var(--ayva-black) !important;
+  box-shadow: none !important;
+}
+
+/* Predictive search */
+.predictive-search {
+  border-radius: 0 !important;
+  border: 1px solid var(--ayva-gray-border) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.predictive-search__heading {
+  font-family: var(--ayva-font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  color: var(--ayva-gray-500);
+}
+
+
+/* ==========================================================================
+   21. UTILITY CLASSES
+   ========================================================================== */
+
+/* Override Dawn background */
+.background-secondary {
+  background-color: var(--ayva-gray-100) !important;
+}
+
+/* Content containers: strip Dawn decorations */
+.content-container,
+.contains-content-container {
+  --border-radius: 0;
+  --border-width: 0;
+  --shadow-horizontal-offset: 0;
+  --shadow-vertical-offset: 0;
+  --shadow-blur-radius: 0;
+  --shadow-opacity: 0;
+}
+
+/* Media: strip Dawn decorations */
+.contains-media,
+.global-media-settings {
+  --border-radius: 0;
+  --border-width: 0;
+  --shadow-horizontal-offset: 0;
+  --shadow-vertical-offset: 0;
+  --shadow-blur-radius: 0;
+  --shadow-opacity: 0;
+}
+
+/* Subtitle / caption */
+.subtitle,
+.caption-with-letter-spacing {
+  font-family: var(--ayva-font-body);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  color: var(--ayva-gray-500);
+}
+
+/* Rating stars */
+.rating {
+  color: var(--ayva-black);
+}
+
+/* Disclosure / dropdown */
+.disclosure__list-wrapper {
+  border-radius: 0 !important;
+  border: 1px solid var(--ayva-gray-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ==========================================================================
+   22. ANIMATIONS & TRANSITIONS
+   ========================================================================== */
+
+/* Remove Dawn scroll-trigger animations for clean Scandinavian feel */
+.scroll-trigger.animate--fade-in,
+.scroll-trigger.animate--slide-in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Smooth scroll-triggered animations (if kept enabled) */
+.scroll-trigger:not(.scroll-trigger--offscreen) {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Loading spinner */
+.loading__spinner .spinner {
+  color: var(--ayva-black);
+}
+
+/* Page transitions */
+.shopify-section {
+  transition: opacity 0.3s ease;
+}
+
+
+/* ==========================================================================
+   23. RESPONSIVE -- TABLET (750px - 989px)
+   ========================================================================== */
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .page-width {
+    padding: 0 4rem;
+  }
+
+  .header {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  /* 2-column product grid on tablet */
+  .grid--4-col-tablet .grid__item,
+  .grid--3-col-tablet .grid__item {
+    width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+
+  .banner__box {
+    padding: 2.5rem 3rem !important;
+    max-width: 400px;
+    margin-bottom: 2rem;
+  }
+
+  .banner__heading {
+    font-size: var(--ayva-fs-2xl);
+  }
+
+  .footer .grid {
+    gap: 3rem;
+  }
+}
+
+
+/* ==========================================================================
+   24. RESPONSIVE -- MOBILE (< 750px)
+   ========================================================================== */
+
+@media screen and (max-width: 989px) {
+  .header {
+    grid-template-columns: auto 1fr auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .header__heading-link .h2,
+  .header__heading-link span.h2 {
+    font-size: 2rem !important;
+  }
+
+  .banner--large:not(.banner--adapt) {
+    min-height: 50vh;
+  }
+
+  .banner__box {
+    padding: 2rem 3rem !important;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .page-width {
+    padding: 0 1.5rem;
+  }
+
+  /* Header mobile */
+  .header {
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+
+  .header__heading-link .h2,
+  .header__heading-link h2,
+  .header__heading-link h1 {
+    font-size: 2rem !important;
+  }
+
+  /* Announcement bar mobile */
+  .announcement-bar__message {
+    font-size: 0.9rem !important;
+    padding: 0.6rem 1rem;
+  }
+
+  /* Hero banner mobile */
+  .banner--large:not(.banner--adapt) {
+    min-height: 40vh;
+  }
+
+  .banner__box {
+    padding: 2rem 1.5rem !important;
+    margin: 0 1rem;
+    max-width: calc(100% - 2rem);
+  }
+
+  .banner__heading {
+    font-size: var(--ayva-fs-xl);
+  }
+
+  .banner__buttons .button {
+    padding: 1rem 2.4rem !important;
+    font-size: 1rem !important;
+    min-width: auto;
+    width: 100%;
+  }
+
+  /* Typography mobile */
+  .h0 {
+    font-size: 2rem;
+  }
+
+  h1, .h1 {
+    font-size: var(--ayva-fs-2xl);
+    letter-spacing: var(--ayva-ls-wide);
+  }
+
+  h2, .h2 {
+    font-size: var(--ayva-fs-xl);
+  }
+
+  /* Product cards: 2-column grid */
+  .card__heading {
+    font-size: 1.2rem !important;
+  }
+
+  .card-information .price,
+  .card-information .price .price-item {
+    font-size: 1.1rem !important;
+  }
+
+  .card__information {
+    padding: 0.8rem 0 !important;
+  }
+
+  /* Section spacing mobile */
+  .spaced-section,
+  .spaced-section--full-width {
+    padding-top: var(--ayva-space-xl);
+    padding-bottom: var(--ayva-space-xl);
+  }
+
+  /* Rich text mobile */
+  .rich-text .rich-text__heading {
+    font-size: var(--ayva-fs-xl);
+    letter-spacing: var(--ayva-ls-wide);
+  }
+
+  /* Product page mobile */
+  .product__title h1 {
+    font-size: var(--ayva-fs-xl);
+  }
+
+  .product-form__submit {
+    padding: 1.4rem 2.4rem !important;
+    min-height: 4.8rem;
+  }
+
+  /* Collection hero mobile */
+  .collection-hero__title {
+    font-size: var(--ayva-fs-2xl);
+  }
+
+  /* Image with text mobile */
+  .image-with-text__content {
+    padding: var(--ayva-space-md);
+  }
+
+  .image-with-text .image-with-text__heading {
+    font-size: var(--ayva-fs-xl);
+  }
+
+  /* Footer mobile */
+  .footer {
+    padding-top: var(--ayva-space-lg);
+  }
+
+  .footer-block.grid__item {
+    margin: 2rem 0;
+  }
+
+  .footer-block__heading {
+    font-size: 1.1rem !important;
+  }
+
+  .footer__content-bottom-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  /* Cart drawer mobile */
+  .drawer__heading {
+    font-size: var(--ayva-fs-md);
+  }
+
+  /* Slider controls mobile */
+  .slider-button {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}
+
+
+/* ==========================================================================
+   EXTRA SMALL SCREENS (< 480px)
+   ========================================================================== */
+
+@media screen and (max-width: 479px) {
+  .page-width {
+    padding: 0 1.5rem;
+  }
+
+  .banner__box {
+    padding: 1.6rem 1.2rem !important;
+    margin: 0 0.8rem;
+  }
+
+  .banner__heading {
+    font-size: 1.8rem;
+  }
+
+  .card__heading {
+    font-size: 1rem !important;
+  }
+
+  .card-information .price,
+  .card-information .price .price-item {
+    font-size: 1rem !important;
+  }
+
+  .header__heading-link .h2,
+  .header__heading-link h2,
+  .header__heading-link h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .announcement-bar__message {
+    font-size: 0.8rem !important;
+  }
+}
+
+
+/* ==========================================================================
+   25. REDUCED MOTION & HIGH CONTRAST
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .card__media .media img,
+  .card__media img,
+  .image-with-text .image-with-text__media-item img,
+  .card-wrapper .media.media--hover-effect > img + img,
+  .collection-list__item img {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .button,
+  .button--secondary {
+    border: 2px solid ButtonText;
+  }
+
+  .badge {
+    border: 1px solid ButtonText;
+  }
+}
+
+
+/* ==========================================================================
+   26. PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  .announcement-bar-section,
+  .header-wrapper,
+  .footer,
+  .cart-drawer {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+
+/* ==========================================================================
+   SHOPIFY EDITOR COMPATIBILITY
+   ========================================================================== */
+
+.shopify-section:empty {
+  display: none;
+}
+
+[data-shopify-editor-section] {
+  outline: none;
+}

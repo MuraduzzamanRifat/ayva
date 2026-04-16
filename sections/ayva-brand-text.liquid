@@ -1,0 +1,160 @@
+{{ 'section-ayva-brand-text' | append: '' }}
+
+{%- style -%}
+  #AyvaBrandText-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  #AyvaBrandText-{{ section.id }} .ayva-brand-text__wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  #AyvaBrandText-{{ section.id }} .ayva-brand-text__heading {
+    font-family: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1.15;
+    margin: 0;
+    color: {{ section.settings.text_color }};
+    {% case section.settings.text_size %}
+      {% when 'small' %}
+        font-size: clamp(1.25rem, 3vw, 2rem);
+      {% when 'medium' %}
+        font-size: clamp(1.75rem, 5vw, 3.25rem);
+      {% when 'large' %}
+        font-size: clamp(2.25rem, 7vw, 5rem);
+    {% endcase %}
+  }
+
+  #AyvaBrandText-{{ section.id }} .ayva-brand-text__subheading {
+    font-family: inherit;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    margin: 20px 0 0;
+    color: {{ section.settings.text_color }};
+    opacity: 0.7;
+    {% case section.settings.text_size %}
+      {% when 'small' %}
+        font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+      {% when 'medium' %}
+        font-size: clamp(0.875rem, 1.5vw, 1.0625rem);
+      {% when 'large' %}
+        font-size: clamp(1rem, 1.8vw, 1.25rem);
+    {% endcase %}
+  }
+{%- endstyle -%}
+
+<section
+  id="AyvaBrandText-{{ section.id }}"
+  class="ayva-brand-text"
+  role="region"
+  aria-label="{{ section.settings.heading | escape }}"
+>
+  <div class="ayva-brand-text__wrapper">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ayva-brand-text__heading">
+        {{ section.settings.heading | escape }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.settings.subheading != blank -%}
+      <p class="ayva-brand-text__subheading">
+        {{ section.settings.subheading | escape }}
+      </p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "AYVA Brand Text",
+  "tag": "section",
+  "class": "section-ayva-brand-text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "DESIGNED IN STOCKHOLM"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "info": "Optional smaller text below the heading"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Text size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "AYVA Brand Text",
+      "settings": {
+        "heading": "DESIGNED IN STOCKHOLM",
+        "text_size": "large",
+        "text_alignment": "center"
+      }
+    }
+  ]
+}
+{% endschema %}

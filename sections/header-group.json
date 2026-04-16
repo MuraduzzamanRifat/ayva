@@ -2,22 +2,17 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement-bar-0"
-      ]
+    "ayva-announcements": {
+      "type": "ayva-announcement",
+      "settings": {
+        "bar1_enable": true,
+        "bar1_text": "FREE SHIPPING ON ALL ORDERS!",
+        "bar2_enable": true,
+        "bar2_text_highlight": "LOW STOCK ON BESTSELLERS",
+        "bar2_text_suffix": "Ends today 23:59",
+        "bar2_highlight_color": "#4CAF50",
+        "bar2_bg_color": "#1a1a1a"
+      }
     },
     "header": {
       "type": "header",
@@ -26,19 +21,20 @@
         "logo_position": "middle-left",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
+        "sticky_header_type": "always",
         "show_line_separator": true,
         "enable_country_selector": true,
         "enable_language_selector": true,
+        "enable_customer_avatar": false,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     }
   },
   "order": [
-    "announcement-bar",
+    "ayva-announcements",
     "header"
   ]
 }

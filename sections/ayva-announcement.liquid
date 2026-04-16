@@ -1,0 +1,224 @@
+{{ 'component-ayva-announcement.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .ayva-announcement-bar-2 {
+    background-color: {{ section.settings.bar2_bg_color }};
+  }
+
+  .ayva-announcement-bar-2__badge {
+    background-color: {{ section.settings.bar2_highlight_color }};
+  }
+{%- endstyle -%}
+
+<style>
+  /* ========================================
+     AYVA Announcement Bars
+     Pixel-perfect, minimal Scandinavian style
+     ======================================== */
+
+  .ayva-announcement {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ---- Bar 1: Light / Free Shipping ---- */
+
+  .ayva-announcement-bar-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 16px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+    box-sizing: border-box;
+  }
+
+  .ayva-announcement-bar-1__text {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  /* ---- Bar 2: Dark / Urgency ---- */
+
+  .ayva-announcement-bar-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 16px;
+    box-sizing: border-box;
+  }
+
+  .ayva-announcement-bar-2__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .ayva-announcement-bar-2__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .ayva-announcement-bar-2__suffix {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .ayva-announcement-bar-2__dot {
+    display: inline-block;
+    margin: 0 2px;
+    opacity: 0.5;
+  }
+
+  /* ---- Responsive ---- */
+
+  @media screen and (max-width: 749px) {
+    .ayva-announcement-bar-1 {
+      padding: 8px 12px;
+    }
+
+    .ayva-announcement-bar-1__text {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+    }
+
+    .ayva-announcement-bar-2 {
+      padding: 8px 12px;
+    }
+
+    .ayva-announcement-bar-2__inner {
+      gap: 6px;
+    }
+
+    .ayva-announcement-bar-2__badge {
+      font-size: 9px;
+      padding: 3px 8px;
+    }
+
+    .ayva-announcement-bar-2__suffix {
+      font-size: 11px;
+    }
+  }
+</style>
+
+<div class="ayva-announcement" role="region" aria-label="{{ 'sections.header.announcement' | t }}">
+  {%- if section.settings.bar1_enable -%}
+    <div class="ayva-announcement-bar-1">
+      <p class="ayva-announcement-bar-1__text">
+        {{- section.settings.bar1_text -}}
+      </p>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.bar2_enable -%}
+    <div class="ayva-announcement-bar-2">
+      <div class="ayva-announcement-bar-2__inner">
+        {%- if section.settings.bar2_text_highlight != blank -%}
+          <span class="ayva-announcement-bar-2__badge">
+            {{- section.settings.bar2_text_highlight -}}
+          </span>
+        {%- endif -%}
+        {%- if section.settings.bar2_text_suffix != blank -%}
+          <p class="ayva-announcement-bar-2__suffix">
+            <span class="ayva-announcement-bar-2__dot" aria-hidden="true">&bull;</span>
+            {{ section.settings.bar2_text_suffix }}
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "AYVA Announcements",
+  "tag": "section",
+  "class": "ayva-announcement-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Bar 1 - Top Announcement"
+    },
+    {
+      "type": "checkbox",
+      "id": "bar1_enable",
+      "label": "Enable top announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bar1_text",
+      "label": "Bar 1 text",
+      "default": "FREE SHIPPING ON ALL ORDERS!"
+    },
+    {
+      "type": "header",
+      "content": "Bar 2 - Urgency Announcement"
+    },
+    {
+      "type": "checkbox",
+      "id": "bar2_enable",
+      "label": "Enable urgency announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bar2_text_highlight",
+      "label": "Highlighted badge text",
+      "default": "LOW STOCK ON BESTSELLERS"
+    },
+    {
+      "type": "text",
+      "id": "bar2_text_suffix",
+      "label": "Suffix text (after badge)",
+      "default": "Ends today 23:59"
+    },
+    {
+      "type": "color",
+      "id": "bar2_highlight_color",
+      "label": "Badge highlight color",
+      "default": "#4CAF50"
+    },
+    {
+      "type": "color",
+      "id": "bar2_bg_color",
+      "label": "Bar 2 background color",
+      "default": "#1a1a1a"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AYVA Announcements",
+      "category": "Header"
+    }
+  ]
+}
+{% endschema %}
