@@ -27,7 +27,7 @@
         "color_scheme": "scheme-1",
         "image_behavior": "none",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
+        "stack_images_on_mobile": true,
         "show_text_below": false,
         "padding_top": 0,
         "padding_bottom": 0
@@ -73,8 +73,8 @@
         "padding_bottom": 60
       }
     },
-    "ayva_image_text_1": {
-      "type": "image-with-text",
+    "ayva_more_than_pretty": {
+      "type": "rich-text",
       "blocks": {
         "heading": {
           "type": "heading",
@@ -86,35 +86,21 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Our bags are designed for the modern woman who values both style and practicality. Every detail is carefully considered to create bags that are as functional as they are beautiful.</p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "DISCOVER MORE",
-            "button_link": "shopify://collections/all"
+            "text": "<p>At AYVA, we believe bags should do more than carry your things. They should carry your mood, your memories, your moment.</p>"
           }
         }
       },
       "block_order": [
         "heading",
-        "text",
-        "button"
+        "text"
       ],
       "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "scheme-1",
-        "image_width": "medium",
-        "layout": "image_first",
-        "desktop_image_width": "medium",
-        "height": "auto",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "ayva_brand_text_2": {
@@ -144,24 +130,17 @@
           "settings": {
             "collection": ""
           }
-        },
-        "collection_3": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
         }
       },
       "block_order": [
         "collection_1",
-        "collection_2",
-        "collection_3"
+        "collection_2"
       ],
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 3,
+        "image_ratio": "portrait",
+        "columns_desktop": 2,
         "color_scheme": "scheme-1",
         "show_view_all": false,
         "columns_mobile": "1",
@@ -170,17 +149,106 @@
         "padding_bottom": 52
       }
     },
-    "ayva_brand_text_3": {
-      "type": "ayva-brand-text",
+    "ayva_style_function": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "STYLE MEETS FUNCTION",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "BUILT FOR YOUR EVERYDAY",
+            "text_style": "subtitle"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
-        "heading": "STYLE MEETS FUNCTION",
-        "subheading": "Designed for everyday life. Made to last.",
-        "text_size": "large",
-        "text_alignment": "center",
-        "background_color": "#f7f7f7",
-        "text_color": "#000000",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "ayva_brand_pillars": {
+      "type": "multicolumn",
+      "blocks": {
+        "pillar_1": {
+          "type": "column",
+          "settings": {
+            "title": "Designed in Stockholm",
+            "text": "<p>Every piece is imagined and designed in our Stockholm studio, with love, care, and clean lines.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "pillar_2": {
+          "type": "column",
+          "settings": {
+            "title": "Crafted for Everyday Life",
+            "text": "<p>Built to handle your 9 to 9 — from city streets to slow Sundays. Durable, stylish, and actually useful.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "pillar_3": {
+          "type": "column",
+          "settings": {
+            "title": "Premium Feel, Conscious Materials",
+            "text": "<p>100% vegan and thoughtfully sourced. Luxury shouldn't cost the earth or your peace of mind.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "pillar_1",
+        "pillar_2",
+        "pillar_3"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     },
     "ayva_featured_2": {
@@ -215,10 +283,11 @@
     "ayva_hero_banner",
     "ayva_bestsellers",
     "ayva_brand_text_1",
-    "ayva_image_text_1",
+    "ayva_more_than_pretty",
     "ayva_brand_text_2",
     "ayva_collections",
-    "ayva_brand_text_3",
+    "ayva_style_function",
+    "ayva_brand_pillars",
     "ayva_featured_2"
   ]
 }
