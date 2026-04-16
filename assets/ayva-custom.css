@@ -1760,6 +1760,43 @@ a.header__menu-item {
    18. COLLECTION PAGE
    ========================================================================== */
 
+/* Hide sidebar filters — AYVA uses clean grid, no filters */
+.facets-container,
+.facets__form,
+.collection-hero--with-image .collection-hero__inner,
+.facets-vertical,
+.facets__summary,
+.active-facets-desktop,
+.facets__disclosure-vertical,
+#FacetFiltersForm,
+.facets__wrapper {
+  display: none !important;
+}
+
+/* Collection page: full-width grid without sidebar */
+.collection .collection-product-list,
+.collection .product-grid-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Collection title: centered, uppercase, clean */
+.collection-hero__title,
+.collection__title {
+  font-family: var(--ayva-font-body) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wider);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Hide collection description for cleaner look */
+.collection-hero__description {
+  display: none;
+}
+
 /* Facets / filters */
 .facets__heading {
   font-family: var(--ayva-font-body);
