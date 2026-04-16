@@ -181,7 +181,7 @@
   <!-- Hero Image -->
   <div class="ayva-about__hero">
     {%- if section.settings.hero_image != blank -%}
-      <img src="{{ section.settings.hero_image }}" alt="About AYVA" loading="eager">
+      {{ section.settings.hero_image | image_url: width: 2000 | image_tag: loading: 'eager', widths: '800,1200,1600,2000', sizes: '100vw' }}
     {%- else -%}
       <div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#f0ede8;">
         <h1 style="font-family:'Inter',sans-serif;font-size:4rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#000;">AYVA</h1>
@@ -228,8 +228,8 @@
         {%- if block.type == 'collection_card' -%}
           <a href="{{ block.settings.link | default: '#' }}" class="ayva-about__col-card" {{ block.shopify_attributes }}>
             <div class="ayva-about__col-image">
-              {%- if block.settings.image_url != blank -%}
-                <img src="{{ block.settings.image_url }}" alt="{{ block.settings.title }}" loading="lazy" width="400" height="533">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,400,600', sizes: '(min-width: 750px) 33vw, 100vw' }}
               {%- else -%}
                 {{ 'collection-1' | placeholder_svg_tag }}
               {%- endif -%}
@@ -267,9 +267,9 @@
       "content": "Hero"
     },
     {
-      "type": "text",
+      "type": "image_picker",
       "id": "hero_image",
-      "label": "Hero image URL (leave blank for text-only)"
+      "label": "Hero image (leave blank for text-only)"
     },
     {
       "type": "header",
@@ -378,9 +378,9 @@
           "default": "Collection"
         },
         {
-          "type": "text",
-          "id": "image_url",
-          "label": "Image URL"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Collection image"
         },
         {
           "type": "url",

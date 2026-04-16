@@ -3,8 +3,6 @@
     "ayva_hero": {
       "type": "ayva-hero",
       "settings": {
-        "image_left": "",
-        "image_right": "",
         "button_text": "SHOP NOW"
       }
     },
@@ -38,7 +36,6 @@
           "type": "collection_card",
           "settings": {
             "title": "All bags",
-            "image_url": "",
             "underline": false
           }
         },
@@ -46,7 +43,6 @@
           "type": "collection_card",
           "settings": {
             "title": "NEW",
-            "image_url": "",
             "underline": true
           }
         },
@@ -54,7 +50,6 @@
           "type": "collection_card",
           "settings": {
             "title": "Bag charms",
-            "image_url": "",
             "underline": false
           }
         },
@@ -62,7 +57,6 @@
           "type": "collection_card",
           "settings": {
             "title": "AYVA Everyday",
-            "image_url": "",
             "underline": false
           }
         }
@@ -72,7 +66,6 @@
     "ayva_more_than_pretty": {
       "type": "ayva-image-text",
       "settings": {
-        "image_url": "",
         "image_position": "left",
         "subtitle": "DESIGNED IN STOCKHOLM",
         "heading": "MORE THAN PRETTY BAGS",
@@ -99,15 +92,13 @@
         "col_everyday": {
           "type": "collection_card",
           "settings": {
-            "title": "AYVA Everyday",
-            "image_url": ""
+            "title": "AYVA Everyday"
           }
         },
         "col_mini": {
           "type": "collection_card",
           "settings": {
-            "title": "AYVA Mini",
-            "image_url": ""
+            "title": "AYVA Mini"
           }
         }
       },
@@ -116,7 +107,6 @@
     "ayva_style_function": {
       "type": "ayva-image-text",
       "settings": {
-        "image_url": "",
         "image_position": "left",
         "subtitle": "STYLE MEETS FUNCTION",
         "heading": "BUILT FOR YOUR EVERYDAY",
@@ -127,11 +117,9 @@
     "ayva_shop_the_look": {
       "type": "ayva-shop-the-look",
       "settings": {
-        "lifestyle_image": "",
-        "product_image": "",
         "product_title": "The Brooklyn Bag",
-        "sale_price": "€54,99",
-        "compare_price": "€99,00"
+        "sale_price": "\u20ac54,99",
+        "compare_price": "\u20ac99,00"
       }
     },
     "ayva_brand_pillars": {
