@@ -1,6 +1,6 @@
 /**
  * AYVA Collection Creator
- * Creates all collections matching ayvaofficial.com
+ * Creates all collections for AYVA-style store
  *
  * Usage:
  *   1. Get your Admin API access token (see instructions below)
@@ -23,42 +23,42 @@ const COLLECTIONS = [
     body_html: '<p>Timeless, versatile & modern handbags designed in Stockholm.</p>',
     rules: [{ column: 'type', relation: 'equals', condition: 'Bags' }],
     sort_order: 'best-selling',
-    image_url: 'https://ayvaofficial.com/cdn/shop/collections/Untitled_design_84.png?v=1773014513&width=1080'
+    image_url: ''
   },
   {
     title: 'NEW',
     body_html: '<p>Our latest arrivals — fresh styles, just dropped.</p>',
     rules: [{ column: 'tag', relation: 'equals', condition: 'new' }],
     sort_order: 'created-desc',
-    image_url: 'https://ayvaofficial.com/cdn/shop/collections/14_94f9f338-42de-49d2-b3f8-2adbccbdd0f7.png?v=1773014442&width=1080'
+    image_url: ''
   },
   {
     title: 'Accessories',
     body_html: '<p>Bag charms, hats, and extras to complete your look.</p>',
     rules: [{ column: 'type', relation: 'equals', condition: 'Accessories' }],
     sort_order: 'best-selling',
-    image_url: 'https://ayvaofficial.com/cdn/shop/collections/black_month_sale_4.png?v=1762722286&width=1080'
+    image_url: ''
   },
   {
     title: 'AYVA Everyday',
     body_html: '<p>Your go-to bags for work, weekends, and everything in between.</p>',
     rules: [{ column: 'tag', relation: 'equals', condition: 'everyday' }],
     sort_order: 'best-selling',
-    image_url: 'https://ayvaofficial.com/cdn/shop/collections/TheBriarBagGrayopen.png?v=1762721783&width=1080'
+    image_url: ''
   },
   {
     title: 'AYVA Mini',
     body_html: '<p>Small bags, big style. Compact designs that still make a statement.</p>',
     rules: [{ column: 'tag', relation: 'equals', condition: 'mini' }],
     sort_order: 'best-selling',
-    image_url: 'https://ayvaofficial.com/cdn/shop/collections/CelineBagmatchalifestyle.png?v=1762721721&width=1080'
+    image_url: ''
   },
   {
     title: 'Bag Charms',
     body_html: '<p>Playful charms to personalize your bag.</p>',
     rules: [{ column: 'tag', relation: 'equals', condition: 'charm' }],
     sort_order: 'best-selling',
-    image_url: 'https://ayvaofficial.com/cdn/shop/collections/black_month_sale_4.png?v=1762722286&width=1080'
+    image_url: ''
   },
   {
     title: 'Bestsellers',

@@ -37,10 +37,10 @@ PRODUCTS = [
             {"option1": "Pitch green", "price": "59.00", "compare_at_price": "99.00"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_dae2aabb-546f-4155-a0e4-90bdca36c3e2.jpg"},
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/coffee_d7d608d2-396e-4a93-80b1-15f95845156e.jpg"},
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/brown_d57f214c-b15d-4022-9dcb-bc3cd6bb5954.jpg"},
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/green_a8a117c2-6b7d-4ca2-8e47-1068f8d6d277.jpg"}
+            {"src": ""},
+            {"src": ""},
+            {"src": ""},
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -55,8 +55,8 @@ PRODUCTS = [
             {"option1": "Merlot", "price": "59.99", "compare_at_price": "99.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/1_33024331-befd-451c-bd6b-d8c7275db369.png"},
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/5_90b6eff1-b5b1-4202-84ec-26172e92db1f.png"}
+            {"src": ""},
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -73,8 +73,8 @@ PRODUCTS = [
             {"option1": "Black", "price": "24.99", "compare_at_price": "34.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/2_2ad249a1-f567-48f6-a8ff-70fe7235e43b.png"},
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/3_fac5a2c8-32b6-4bce-b9f3-760163f11751.png"}
+            {"src": ""},
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -93,8 +93,8 @@ PRODUCTS = [
             {"option1": "All-white", "price": "39.95", "compare_at_price": "59.95"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/burgundy_901de445-c643-4f66-a868-dc93bd7454a4.jpg"},
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_4a1488f4-7e7f-4f33-a9d4-21ef5f4047d9.jpg"}
+            {"src": ""},
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -111,8 +111,8 @@ PRODUCTS = [
             {"option1": "Olive green", "price": "39.95", "compare_at_price": "70.00"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/1_1aee658c-802a-440b-ad14-8e99f02bc27b.png"},
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/image00001_311c3a12-4e1e-47ab-890e-5bb9b4eae80c.jpg"}
+            {"src": ""},
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -129,8 +129,8 @@ PRODUCTS = [
             {"option1": "Stockholm white", "price": "49.99", "compare_at_price": "74.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/cherry_color.jpg"},
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_29c15d68-ba98-4543-879a-f337af59e506.jpg"}
+            {"src": ""},
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -147,8 +147,8 @@ PRODUCTS = [
             {"option1": "Gray", "price": "39.99", "compare_at_price": "99.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_b4859f3f-f7a9-491c-b59d-777c8180885c.jpg"},
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/coffee_99b15329-df91-4ac8-96d6-1fbfff728ca9.jpg"}
+            {"src": ""},
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -232,7 +232,7 @@ PRODUCTS = [
             {"option1": "Windsor tan", "price": "119.00", "compare_at_price": "119.00"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/Saria_Bag_Black.png"}
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -251,7 +251,7 @@ PRODUCTS = [
             {"option1": "Burgundy", "price": "69.99", "compare_at_price": "99.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/7_fcd25a76-233b-4655-83ba-e6dfb79c152e.png"}
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -267,7 +267,7 @@ PRODUCTS = [
             {"option1": "Red", "price": "39.99", "compare_at_price": "89.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/Untitleddesign-2025-10-21T000223.978.png"}
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -285,7 +285,7 @@ PRODUCTS = [
             {"option1": "Coffee", "price": "49.99", "compare_at_price": "79.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/H076acb9e999c42749c8b2fa386356da87.jpg"}
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -301,7 +301,7 @@ PRODUCTS = [
             {"option1": "Cocoa", "price": "79.99", "compare_at_price": "129.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_f3386e4c-1b02-49b1-8b0c-de9139b8d56e.jpg"}
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -317,7 +317,7 @@ PRODUCTS = [
             {"option1": "Caramel", "price": "39.99", "compare_at_price": "59.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/13_86f33792-7573-4b60-8812-ee07fec28557.png"}
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -431,7 +431,7 @@ PRODUCTS = [
             {"option1": "All-white", "price": "34.95", "compare_at_price": "54.95"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_1.jpg"}
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -447,7 +447,7 @@ PRODUCTS = [
             {"option1": "Beige", "price": "34.95", "compare_at_price": "54.95"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/3_f77c93f2-593f-4005-bb27-3c898ffc0e71.png"}
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     },
@@ -464,7 +464,7 @@ PRODUCTS = [
             {"option1": "Nude beige", "price": "39.99", "compare_at_price": "99.99"}
         ],
         "images": [
-            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/Petite_Luna_Bag_Black.jpg"}
+            {"src": ""}
         ],
         "options": [{"name": "Color"}]
     }

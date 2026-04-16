@@ -44,7 +44,7 @@
     max-width: 100%;
   }
   .ayva-about__label {
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-family: var(--ayva-font-body);
     font-size: 1.1rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -53,7 +53,7 @@
     margin-bottom: 1.2rem;
   }
   .ayva-about__heading {
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-family: var(--ayva-font-body);
     font-size: clamp(2.4rem, 4vw, 3.6rem);
     font-weight: 700;
     text-transform: uppercase;
@@ -63,7 +63,7 @@
     margin-bottom: 2.4rem;
   }
   .ayva-about__text {
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-family: var(--ayva-font-body);
     font-size: 1.5rem;
     line-height: 1.8;
     color: #555;
@@ -138,7 +138,7 @@
     transform: scale(1.05);
   }
   .ayva-about__col-title {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--ayva-font-body);
     font-size: 1.3rem;
     font-weight: 400;
     margin-top: 1rem;
@@ -149,7 +149,7 @@
   /* CTA Button */
   .ayva-about__btn {
     display: inline-block;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--ayva-font-body);
     font-size: 1.1rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -249,7 +249,7 @@
       {{ section.settings.contact_text | default: 'Whether you have a question, a suggestion, or just want to say hey — we\'re here.' }}
     </p>
     <p class="ayva-about__text" style="text-align:center;color:#000;font-weight:600;">
-      Email us anytime: <a href="mailto:{{ section.settings.contact_email | default: 'hey@ayvaofficial.com' }}" style="color:#000;text-decoration:underline;">{{ section.settings.contact_email | default: 'hey@ayvaofficial.com' }}</a>
+      Email us anytime: <a href="mailto:{{ section.settings.contact_email | default: 'hello@yourstore.com' }}" style="color:#000;text-decoration:underline;">{{ section.settings.contact_email | default: 'hello@yourstore.com' }}</a>
     </p>
     <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="ayva-about__btn">
       {{ section.settings.cta_text | default: 'EXPLORE OUR COLLECTION' }}
@@ -352,7 +352,7 @@
       "type": "text",
       "id": "contact_email",
       "label": "Contact email",
-      "default": "hey@ayvaofficial.com"
+      "default": "hello@yourstore.com"
     },
     {
       "type": "text",

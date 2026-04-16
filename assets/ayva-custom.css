@@ -40,7 +40,7 @@
    1. GOOGLE FONTS IMPORT
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Fonts loaded via <link> in theme.liquid head for better performance */
 
 
 /* ==========================================================================

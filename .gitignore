@@ -8,3 +8,7 @@
 ehthumbs.db
 Thumbs.db
 .shopify
+homepage-images/
+generated-images/
+*.output
+full-diff.txt
