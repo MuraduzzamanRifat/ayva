@@ -1,0 +1,191 @@
+<!-- AYVA Shop The Look: lifestyle image left + featured product right -->
+{%- style -%}
+  .ayva-stl {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 36px 6rem 52px;
+  }
+  @media screen and (max-width: 749px) {
+    .ayva-stl {
+      padding: 36px 1.5rem;
+    }
+  }
+  .ayva-stl__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  @media screen and (max-width: 749px) {
+    .ayva-stl__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  .ayva-stl__image {
+    width: 100%;
+    overflow: hidden;
+  }
+  .ayva-stl__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .ayva-stl__product {
+    padding-top: 2rem;
+  }
+  .ayva-stl__label {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #666;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .ayva-stl__product-image {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+  .ayva-stl__product-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .ayva-stl__sale-badge {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    background: #c0392b;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.8rem;
+  }
+  .ayva-stl__product-info {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .ayva-stl__product-title {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.4rem;
+  }
+  .ayva-stl__product-price {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+  }
+  .ayva-stl__price-sale {
+    color: #c0392b;
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+  .ayva-stl__price-compare {
+    color: #999;
+    text-decoration: line-through;
+  }
+  .ayva-stl__swatches {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.8rem;
+  }
+  .ayva-stl__swatch {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+{%- endstyle -%}
+
+<section class="ayva-stl">
+  <div class="ayva-stl__grid">
+    <div class="ayva-stl__image">
+      <img
+        src="{{ section.settings.lifestyle_image | default: 'https://ayvaofficial.com/cdn/shop/files/AYVA_The_Brooklyn_Bag_Black_Crosswalk_0030807c-be20-469c-91a7-b0d58e319a8f.png?v=1754428473&width=2000' }}"
+        alt="AYVA lifestyle"
+        loading="lazy"
+        width="800"
+        height="1000"
+      >
+    </div>
+    <div class="ayva-stl__product">
+      <p class="ayva-stl__label">SHOP THE LOOK</p>
+      <div class="ayva-stl__product-image">
+        <span class="ayva-stl__sale-badge">Sale</span>
+        <img
+          src="{{ section.settings.product_image | default: 'https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_FRONT_0006.png?v=1774873185&width=1000' }}"
+          alt="{{ section.settings.product_title | default: 'The Brooklyn Bag' }}"
+          loading="lazy"
+          width="500"
+          height="500"
+        >
+      </div>
+      <div class="ayva-stl__product-info">
+        <p class="ayva-stl__product-title">{{ section.settings.product_title | default: 'The Brooklyn Bag' }}</p>
+        <p class="ayva-stl__product-price">
+          <span class="ayva-stl__price-sale">{{ section.settings.sale_price | default: '€54,99' }}</span>
+          <span class="ayva-stl__price-compare">{{ section.settings.compare_price | default: '€99,00' }}</span>
+        </p>
+        <div class="ayva-stl__swatches">
+          <span class="ayva-stl__swatch" style="background:#000"></span>
+          <span class="ayva-stl__swatch" style="background:#8B6914"></span>
+          <span class="ayva-stl__swatch" style="background:#4A3728"></span>
+          <span class="ayva-stl__swatch" style="background:#722F37"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "AYVA Shop The Look",
+  "settings": [
+    {
+      "type": "text",
+      "id": "lifestyle_image",
+      "label": "Lifestyle image URL",
+      "default": "https://ayvaofficial.com/cdn/shop/files/AYVA_The_Brooklyn_Bag_Black_Crosswalk_0030807c-be20-469c-91a7-b0d58e319a8f.png?v=1754428473&width=2000"
+    },
+    {
+      "type": "text",
+      "id": "product_image",
+      "label": "Product image URL",
+      "default": "https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_FRONT_0006.png?v=1774873185&width=1000"
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Product title",
+      "default": "The Brooklyn Bag"
+    },
+    {
+      "type": "text",
+      "id": "sale_price",
+      "label": "Sale price",
+      "default": "€54,99"
+    },
+    {
+      "type": "text",
+      "id": "compare_price",
+      "label": "Compare price",
+      "default": "€99,00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AYVA Shop The Look"
+    }
+  ]
+}
+{% endschema %}

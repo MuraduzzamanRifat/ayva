@@ -1,0 +1,135 @@
+<!-- AYVA Hero Banner: Two images side-by-side with centered SHOP NOW -->
+{%- style -%}
+  .ayva-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .ayva-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 85vh;
+  }
+  @media screen and (max-width: 749px) {
+    .ayva-hero__grid {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+  }
+  .ayva-hero__image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .ayva-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .ayva-hero__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.4rem 4rem;
+    text-align: center;
+  }
+  @media screen and (max-width: 749px) {
+    .ayva-hero__cta {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      padding: 2rem 3rem;
+      margin: -2rem auto 0;
+      width: 80%;
+      z-index: 10;
+    }
+  }
+  .ayva-hero__btn {
+    display: inline-block;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #000;
+    background: transparent;
+    border: 2px solid #000;
+    padding: 1.2rem 3.6rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .ayva-hero__btn:hover {
+    background: #000;
+    color: #fff;
+  }
+{%- endstyle -%}
+
+<section class="ayva-hero">
+  <div class="ayva-hero__grid">
+    <div class="ayva-hero__image">
+      <img
+        src="{{ section.settings.image_left | default: 'https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_FRONT_0006.png?v=1774873185&width=2000' }}"
+        alt="AYVA bags lifestyle"
+        loading="eager"
+        width="1000"
+        height="1200"
+      >
+    </div>
+    <div class="ayva-hero__image">
+      <img
+        src="{{ section.settings.image_right | default: 'https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_Gemini_3.1_Flash_Nano_Banana_2__0003.png?v=1774873709&width=2000' }}"
+        alt="AYVA bags lifestyle"
+        loading="eager"
+        width="1000"
+        height="1200"
+      >
+    </div>
+  </div>
+  <div class="ayva-hero__cta">
+    <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="ayva-hero__btn">
+      {{ section.settings.button_text | default: 'SHOP NOW' }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "AYVA Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "image_left",
+      "label": "Left image URL",
+      "default": "https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_FRONT_0006.png?v=1774873185&width=2000"
+    },
+    {
+      "type": "text",
+      "id": "image_right",
+      "label": "Right image URL",
+      "default": "https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_Gemini_3.1_Flash_Nano_Banana_2__0003.png?v=1774873709&width=2000"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AYVA Hero Banner"
+    }
+  ]
+}
+{% endschema %}

@@ -1,34 +1,11 @@
 {
   "sections": {
     "ayva_hero": {
-      "type": "image-banner",
-      "blocks": {
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": ["button"],
+      "type": "ayva-hero",
       "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "image_left": "https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_FRONT_0006.png?v=1774873185&width=2000",
+        "image_right": "https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_Gemini_3.1_Flash_Nano_Banana_2__0003.png?v=1774873709&width=2000",
+        "button_text": "SHOP NOW"
       }
     },
     "ayva_bestsellers": {
@@ -36,18 +13,14 @@
       "settings": {
         "title": "SHOP OUR BESTSELLERS",
         "heading_size": "h2",
-        "description": "",
-        "show_description": false,
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
         "show_view_all": false,
-        "view_all_style": "link",
         "enable_desktop_slider": false,
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
-        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
@@ -59,210 +32,106 @@
       }
     },
     "ayva_collection_row": {
-      "type": "collection-list",
+      "type": "ayva-collection-row",
       "blocks": {
         "col_allbags": {
-          "type": "featured_collection",
+          "type": "collection_card",
           "settings": {
-            "collection": ""
+            "title": "All bags",
+            "image_url": "https://ayvaofficial.com/cdn/shop/collections/Untitled_design_84.png?v=1773014513&width=1080",
+            "underline": false
           }
         },
         "col_new": {
-          "type": "featured_collection",
+          "type": "collection_card",
           "settings": {
-            "collection": ""
+            "title": "NEW",
+            "image_url": "https://ayvaofficial.com/cdn/shop/collections/14_94f9f338-42de-49d2-b3f8-2adbccbdd0f7.png?v=1773014442&width=1080",
+            "underline": true
           }
         },
         "col_charms": {
-          "type": "featured_collection",
+          "type": "collection_card",
           "settings": {
-            "collection": ""
+            "title": "Bag charms",
+            "image_url": "https://ayvaofficial.com/cdn/shop/collections/black_month_sale_4.png?v=1762722286&width=1080",
+            "underline": false
           }
         },
         "col_everyday": {
-          "type": "featured_collection",
+          "type": "collection_card",
           "settings": {
-            "collection": ""
+            "title": "AYVA Everyday",
+            "image_url": "https://ayvaofficial.com/cdn/shop/collections/TheBriarBagGrayopen.png?v=1762721783&width=1080",
+            "underline": false
           }
         }
       },
-      "block_order": ["col_allbags", "col_new", "col_charms", "col_everyday"],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 52
-      }
+      "block_order": ["col_allbags", "col_new", "col_charms", "col_everyday"]
     },
     "ayva_more_than_pretty": {
-      "type": "image-with-text",
-      "blocks": {
-        "subtitle": {
-          "type": "heading",
-          "settings": {
-            "heading": "DESIGNED IN STOCKHOLM",
-            "heading_size": "h5"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "MORE THAN PRETTY BAGS",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At AYVA, we believe bags should do more than carry your things.<\/p><p>They should carry your mood, your memories, your moment.<\/p><p>Inspired by the effortless charm of European street style, our designs blend soft structure, rich textures, and playful details to bring elegance into your everyday.<\/p><p>From morning coffee runs to late-night walks<\/p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "BESTSELLERS",
-            "button_link": "shopify://collections/all"
-          }
-        }
-      },
-      "block_order": ["subtitle", "heading", "text", "button"],
+      "type": "ayva-image-text",
       "settings": {
-        "color_scheme": "scheme-1",
-        "image_width": "medium",
-        "layout": "image_first",
-        "desktop_image_width": "medium",
-        "height": "auto",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-1",
-        "padding_top": 52,
-        "padding_bottom": 52
+        "image_url": "https://ayvaofficial.com/cdn/shop/files/AYVA_The_Brooklyn_Bag_Black_Crosswalk_0030807c-be20-469c-91a7-b0d58e319a8f.png?v=1754428473&width=2000",
+        "image_position": "left",
+        "subtitle": "DESIGNED IN STOCKHOLM",
+        "heading": "MORE THAN PRETTY BAGS",
+        "text": "<p>At AYVA, we believe bags should do more than carry your things.</p><p>They should carry your mood, your memories, your moment.</p><p>Inspired by the effortless charm of European street style, our designs blend soft structure, rich textures, and playful details to bring elegance into your everyday.</p><p>From morning coffee runs to late-night walks</p>",
+        "button_text": "BESTSELLERS"
       }
     },
     "ayva_big_or_small_heading": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "BIG OR SMALL - WE'VE GOT IT ALL",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": ["heading"],
+      "type": "ayva-brand-text",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
+        "heading": "BIG OR SMALL - WE'VE GOT IT ALL",
+        "subheading": "",
+        "text_size": "large",
+        "text_alignment": "center",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
         "padding_top": 52,
         "padding_bottom": 16
       }
     },
     "ayva_big_small_collections": {
-      "type": "collection-list",
+      "type": "ayva-two-col-collections",
       "blocks": {
         "col_everyday": {
-          "type": "featured_collection",
+          "type": "collection_card",
           "settings": {
-            "collection": ""
+            "title": "AYVA Everyday",
+            "image_url": "https://ayvaofficial.com/cdn/shop/collections/TheBriarBagGrayopen.png?v=1762721783&width=1080"
           }
         },
         "col_mini": {
-          "type": "featured_collection",
+          "type": "collection_card",
           "settings": {
-            "collection": ""
+            "title": "AYVA Mini",
+            "image_url": "https://ayvaofficial.com/cdn/shop/collections/CelineBagmatchalifestyle.png?v=1762721721&width=1080"
           }
         }
       },
-      "block_order": ["col_everyday", "col_mini"],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 16,
-        "padding_bottom": 52
-      }
+      "block_order": ["col_everyday", "col_mini"]
     },
     "ayva_style_function": {
-      "type": "rich-text",
-      "blocks": {
-        "subtitle": {
-          "type": "heading",
-          "settings": {
-            "heading": "STYLE MEETS FUNCTION",
-            "heading_size": "h5"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "BUILT FOR YOUR EVERYDAY",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Every AYVA bag is thoughtfully designed to keep up with real life — not just runway life.<\/p><p>From the stitching to the straps, every detail is made to blend elegance with ease.<\/p><p>We believe in smart beauty: bags that carry your laptop, lip gloss, leftovers and still look chic at dinner.<\/p><p>No fuss. No compromise. Just everyday charm done right.<\/p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "FIND YOUR EVERYDAY FAVORITE",
-            "button_link": "shopify://collections/all"
-          }
-        }
-      },
-      "block_order": ["subtitle", "heading", "text", "button"],
+      "type": "ayva-image-text",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "padding_top": 72,
-        "padding_bottom": 72
+        "image_url": "",
+        "image_position": "left",
+        "subtitle": "STYLE MEETS FUNCTION",
+        "heading": "BUILT FOR YOUR EVERYDAY",
+        "text": "<p>Every AYVA bag is thoughtfully designed to keep up with real life — not just runway life.</p><p>From the stitching to the straps, every detail is made to blend elegance with ease.</p><p>We believe in smart beauty: bags that carry your laptop, lip gloss, leftovers and still look chic at dinner.</p><p>No fuss. No compromise. Just everyday charm done right.</p>",
+        "button_text": "FIND YOUR EVERYDAY FAVORITE"
       }
     },
     "ayva_shop_the_look": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "SHOP THE LOOK",
-            "heading_size": "h5"
-          }
-        }
-      },
-      "block_order": ["heading"],
+      "type": "ayva-shop-the-look",
       "settings": {
-        "color_scheme": "scheme-1",
-        "image_width": "medium",
-        "layout": "image_first",
-        "desktop_image_width": "medium",
-        "height": "auto",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 52
+        "lifestyle_image": "https://ayvaofficial.com/cdn/shop/files/AYVA_The_Brooklyn_Bag_Black_Crosswalk_0030807c-be20-469c-91a7-b0d58e319a8f.png?v=1754428473&width=2000",
+        "product_image": "https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_FRONT_0006.png?v=1774873185&width=1000",
+        "product_title": "The Brooklyn Bag",
+        "sale_price": "€54,99",
+        "compare_price": "€99,00"
       }
     },
     "ayva_brand_pillars": {
@@ -272,7 +141,7 @@
           "type": "column",
           "settings": {
             "title": "Designed in Stockholm",
-            "text": "<p>Every piece is imagined and designed in our Stockholm studio, with love, care, and clean lines.<\/p>",
+            "text": "<p>Every piece is imagined and designed in our Stockholm studio, with love, care, and clean lines.</p>",
             "link_label": "",
             "link": ""
           }
@@ -281,7 +150,7 @@
           "type": "column",
           "settings": {
             "title": "Crafted for Everyday Life",
-            "text": "<p>Built to handle your 9 to 9 - from city streets to slow Sundays. Durable, stylish, and actually useful.<\/p>",
+            "text": "<p>Built to handle your 9 to 9 - from city streets to slow Sundays. Durable, stylish, and actually useful.</p>",
             "link_label": "",
             "link": ""
           }
@@ -290,7 +159,7 @@
           "type": "column",
           "settings": {
             "title": "Premium Feel, Conscious Materials",
-            "text": "<p>100% vegan and thoughtfully sourced. Luxury shouldn't cost the earth or your peace of mind.<\/p>",
+            "text": "<p>100% vegan and thoughtfully sourced. Luxury shouldn't cost the earth or your peace of mind.</p>",
             "link_label": "",
             "link": ""
           }

@@ -1,0 +1,177 @@
+<!-- AYVA Image with Text: lifestyle image left, text content right -->
+{%- style -%}
+  .ayva-iwt {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 52px 6rem;
+  }
+  @media screen and (max-width: 749px) {
+    .ayva-iwt {
+      padding: 36px 1.5rem;
+    }
+  }
+  .ayva-iwt__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media screen and (max-width: 749px) {
+    .ayva-iwt__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  .ayva-iwt__grid--reverse {
+    direction: rtl;
+  }
+  .ayva-iwt__grid--reverse > * {
+    direction: ltr;
+  }
+  .ayva-iwt__image {
+    width: 100%;
+    overflow: hidden;
+  }
+  .ayva-iwt__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+  .ayva-iwt:hover .ayva-iwt__image img {
+    transform: scale(1.02);
+  }
+  .ayva-iwt__content {
+    padding: 2rem 0;
+  }
+  .ayva-iwt__subtitle {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  .ayva-iwt__heading {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #000;
+    line-height: 1.2;
+    margin-bottom: 1.6rem;
+  }
+  .ayva-iwt__text {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  .ayva-iwt__text p {
+    margin-bottom: 0.8rem;
+  }
+  .ayva-iwt__btn {
+    display: inline-block;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: #000;
+    border: 2px solid #000;
+    padding: 1.2rem 2.8rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .ayva-iwt__btn:hover {
+    background: #fff;
+    color: #000;
+  }
+{%- endstyle -%}
+
+<section class="ayva-iwt">
+  <div class="ayva-iwt__grid{% if section.settings.image_position == 'right' %} ayva-iwt__grid--reverse{% endif %}">
+    <div class="ayva-iwt__image">
+      <img
+        src="{{ section.settings.image_url }}"
+        alt="{{ section.settings.heading }}"
+        loading="lazy"
+        width="800"
+        height="1000"
+      >
+    </div>
+    <div class="ayva-iwt__content">
+      {%- if section.settings.subtitle != blank -%}
+        <p class="ayva-iwt__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+      <h2 class="ayva-iwt__heading">{{ section.settings.heading }}</h2>
+      <div class="ayva-iwt__text">{{ section.settings.text }}</div>
+      {%- if section.settings.button_text != blank -%}
+        <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="ayva-iwt__btn">
+          {{ section.settings.button_text }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "AYVA Image + Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Image URL"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "DESIGNED IN STOCKHOLM"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "MORE THAN PRETTY BAGS"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>At AYVA, we believe bags should do more than carry your things.</p><p>They should carry your mood, your memories, your moment.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "BESTSELLERS"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AYVA Image + Text"
+    }
+  ]
+}
+{% endschema %}
