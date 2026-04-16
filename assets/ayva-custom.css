@@ -1762,7 +1762,37 @@ a.header__menu-item {
 
 /* Collection page: vertical sidebar filters like AYVA */
 
-/* Collection banner: hide default, use custom lifestyle strip */
+/* Collection banner: full-width lifestyle collage */
+.ayva-col-hero {
+  width: 100vw !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.ayva-col-hero img {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* Remove padding from custom-liquid section containing the banner */
+.collection .custom-liquid:first-child,
+.collection .shopify-section:first-child {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.collection .custom-liquid:first-child .page-width {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Hide default collection hero */
 .collection-hero__description {
   display: none;
 }

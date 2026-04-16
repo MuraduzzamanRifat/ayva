@@ -3,7 +3,7 @@
     "lifestyle-banner": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<div style=\"width:100%;overflow:hidden;margin-bottom:0;\"><img src=\"https://ayvaofficial.com/cdn/shop/files/2_88ddfe86-e0eb-40cd-a498-28144837ceac.png?v=1762374998&width=3000\" alt=\"AYVA bags lifestyle\" style=\"width:100%;height:auto;display:block;object-fit:cover;\" loading=\"eager\"></div>",
+        "custom_liquid": "<style>.ayva-col-hero{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;overflow:hidden;line-height:0;}.ayva-col-hero img{width:100%;height:auto;display:block;}</style><div class=\"ayva-col-hero\"><img src=\"https://ayvaofficial.com/cdn/shop/files/2_88ddfe86-e0eb-40cd-a498-28144837ceac.png?v=1762374998&width=3000\" alt=\"AYVA bags lifestyle\" loading=\"eager\"></div>",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0
