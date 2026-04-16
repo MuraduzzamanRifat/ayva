@@ -1,12 +1,40 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
-      "settings": {
-        "show_collection_description": false,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
-      }
+    "lifestyle-banner": {
+      "type": "ayva-collection-banner",
+      "blocks": {
+        "img1": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_FRONT_0006.png?v=1774873185&width=800"
+          }
+        },
+        "img2": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://ayvaofficial.com/cdn/shop/files/Product_to_Product_Shoot_Ecom_Gemini_3.1_Flash_Nano_Banana_2__0003.png?v=1774873709&width=800"
+          }
+        },
+        "img3": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://ayvaofficial.com/cdn/shop/files/AYVA_The_Brooklyn_Bag_Black_Crosswalk_0030807c-be20-469c-91a7-b0d58e319a8f.png?v=1754428473&width=800"
+          }
+        },
+        "img4": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://ayvaofficial.com/cdn/shop/files/image00001_311c3a12-4e1e-47ab-890e-5bb9b4eae80c.jpg?v=1770801591&width=800"
+          }
+        },
+        "img5": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://ayvaofficial.com/cdn/shop/files/coffee_d7d608d2-396e-4a93-80b1-15f95845156e.jpg?v=1763833333&width=800"
+          }
+        }
+      },
+      "block_order": ["img1", "img2", "img3", "img4", "img5"]
     },
     "product-grid": {
       "type": "main-collection-product-grid",
@@ -17,18 +45,18 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "enable_quick_add": true,
-        "enable_filtering": false,
-        "filter_type": "horizontal",
+        "enable_quick_add": false,
+        "enable_filtering": true,
+        "filter_type": "vertical",
         "enable_sorting": false,
         "columns_mobile": "2",
-        "padding_top": 28,
+        "padding_top": 8,
         "padding_bottom": 52
       }
     }
   },
   "order": [
-    "banner",
+    "lifestyle-banner",
     "product-grid"
   ]
 }

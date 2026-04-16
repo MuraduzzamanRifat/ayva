@@ -1760,41 +1760,82 @@ a.header__menu-item {
    18. COLLECTION PAGE
    ========================================================================== */
 
-/* Hide sidebar filters — AYVA uses clean grid, no filters */
-.facets-container,
-.facets__form,
-.collection-hero--with-image .collection-hero__inner,
-.facets-vertical,
-.facets__summary,
-.active-facets-desktop,
-.facets__disclosure-vertical,
-#FacetFiltersForm,
-.facets__wrapper {
-  display: none !important;
-}
+/* Collection page: vertical sidebar filters like AYVA */
 
-/* Collection page: full-width grid without sidebar */
-.collection .collection-product-list,
-.collection .product-grid-container {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* Collection title: centered, uppercase, clean */
-.collection-hero__title,
-.collection__title {
-  font-family: var(--ayva-font-body) !important;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: var(--ayva-ls-wider);
-  font-size: clamp(2rem, 4vw, 3.6rem);
-  text-align: center;
-  padding: 2rem 0;
-}
-
-/* Hide collection description for cleaner look */
+/* Collection banner: hide default, use custom lifestyle strip */
 .collection-hero__description {
   display: none;
+}
+
+/* HIDE FILTERS toggle button */
+.facets__disclosure-vertical summary,
+.mobile-facets__open {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.1rem !important;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--ayva-ls-wide);
+  color: var(--ayva-black);
+}
+
+/* Sidebar filter headings */
+.facets__heading,
+.facets__summary span {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--ayva-black);
+}
+
+/* Sidebar filter checkboxes/labels */
+.facet-checkbox__text,
+.facets__label {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.2rem !important;
+  color: var(--ayva-gray-600);
+}
+
+/* Price range slider */
+.facets__price .field__input {
+  font-family: var(--ayva-font-body) !important;
+  font-size: 1.2rem !important;
+  border: 1px solid var(--ayva-gray-400) !important;
+  border-radius: 0 !important;
+}
+
+/* Sidebar width */
+@media screen and (min-width: 990px) {
+  .facets-vertical .facets-wrapper {
+    max-width: 220px;
+    padding-right: 2rem;
+  }
+}
+
+/* Product grid next to sidebar */
+.collection-product-list {
+  flex: 1;
+}
+
+/* Remove all borders from filter sections */
+.facets__disclosure-vertical {
+  border-bottom: 1px solid var(--ayva-gray-border);
+  padding: 1.2rem 0;
+}
+
+/* Color swatches in product cards */
+.card-information .color-swatch {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--ayva-gray-300);
+}
+
+/* +1 more colors indicator */
+.card-information .color-swatch--more {
+  font-size: 1rem;
+  color: var(--ayva-gray-500);
 }
 
 /* Facets / filters */
