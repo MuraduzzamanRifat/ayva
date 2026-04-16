@@ -1,0 +1,532 @@
+"""
+AYVA Product Importer — Adds all AYVA products to Shopify store via Admin API
+Run: python add_products.py
+Requires: pip install requests
+"""
+import requests
+import json
+import time
+import sys
+
+# ── CONFIGURATION ──
+STORE_URL = "pu5du4-az.myshopify.com"
+# You need to create a Custom App in Shopify Admin to get this token
+# Go to: Settings → Apps and sales channels → Develop apps → Create an app
+# Give it: write_products, write_inventory permissions
+# Then install and copy the Admin API access token
+ACCESS_TOKEN = ""  # <-- PASTE YOUR TOKEN HERE
+
+HEADERS = {
+    "X-Shopify-Access-Token": ACCESS_TOKEN,
+    "Content-Type": "application/json"
+}
+API_URL = f"https://{STORE_URL}/admin/api/2024-01"
+
+# ── ALL AYVA PRODUCTS ──
+PRODUCTS = [
+    {
+        "title": "The Côte Bag",
+        "body_html": "<p>Fits laptops up to 13\" | 1 zipped main compartment | 2 internal pockets | Stiffened base — stays upright when packed</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "tote, laptop, everyday",
+        "variants": [
+            {"option1": "Black", "price": "59.00", "compare_at_price": "99.00"},
+            {"option1": "Coffee", "price": "59.00", "compare_at_price": "99.00"},
+            {"option1": "Chocolate brown", "price": "59.00", "compare_at_price": "99.00"},
+            {"option1": "Pitch green", "price": "59.00", "compare_at_price": "99.00"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_dae2aabb-546f-4155-a0e4-90bdca36c3e2.jpg"},
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/coffee_d7d608d2-396e-4a93-80b1-15f95845156e.jpg"},
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/brown_d57f214c-b15d-4022-9dcb-bc3cd6bb5954.jpg"},
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/green_a8a117c2-6b7d-4ca2-8e47-1068f8d6d277.jpg"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Camden Bag",
+        "body_html": "<p>The Camden Bag is your go-to for city days and late-night plans. Sleek and versatile, it's designed to fit a 13-inch laptop.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "new, shoulder, laptop",
+        "variants": [
+            {"option1": "Black", "price": "59.99", "compare_at_price": "99.99"},
+            {"option1": "Merlot", "price": "59.99", "compare_at_price": "99.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/1_33024331-befd-451c-bd6b-d8c7275db369.png"},
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/5_90b6eff1-b5b1-4202-84ec-26172e92db1f.png"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Foldable Makeup Bag",
+        "body_html": "<p>Cute. Compact. Chaos-free. The foldable bag your beauty routine deserves.</p>",
+        "vendor": "AYVA",
+        "product_type": "Accessories",
+        "tags": "accessories, makeup",
+        "variants": [
+            {"option1": "All-white", "price": "24.99", "compare_at_price": "34.99"},
+            {"option1": "Muted pink", "price": "24.99", "compare_at_price": "34.99"},
+            {"option1": "Brown", "price": "24.99", "compare_at_price": "34.99"},
+            {"option1": "Black", "price": "24.99", "compare_at_price": "34.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/2_2ad249a1-f567-48f6-a8ff-70fe7235e43b.png"},
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/3_fac5a2c8-32b6-4bce-b9f3-760163f11751.png"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Bellini Bag",
+        "body_html": "<p>A softly structured shoulder bag with a curved shape and buckle detail. Designed for everyday wear with a relaxed yet refined look.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, everyday",
+        "variants": [
+            {"option1": "Black", "price": "39.95", "compare_at_price": "59.95"},
+            {"option1": "Dark Cherry", "price": "39.95", "compare_at_price": "59.95"},
+            {"option1": "Silver Black", "price": "39.95", "compare_at_price": "59.95"},
+            {"option1": "Silver", "price": "39.95", "compare_at_price": "59.95"},
+            {"option1": "Red", "price": "39.95", "compare_at_price": "59.95"},
+            {"option1": "All-white", "price": "39.95", "compare_at_price": "59.95"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/burgundy_901de445-c643-4f66-a868-dc93bd7454a4.jpg"},
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_4a1488f4-7e7f-4f33-a9d4-21ef5f4047d9.jpg"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Nova Sling",
+        "body_html": "<p>A lightweight, slouchy sling bag designed for everyday movement. Crafted in durable nylon with a relaxed silhouette and multiple pockets.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "sling, everyday, nylon",
+        "variants": [
+            {"option1": "Black", "price": "39.95", "compare_at_price": "70.00"},
+            {"option1": "Brown", "price": "39.95", "compare_at_price": "70.00"},
+            {"option1": "White", "price": "39.95", "compare_at_price": "70.00"},
+            {"option1": "Olive green", "price": "39.95", "compare_at_price": "70.00"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/1_1aee658c-802a-440b-ad14-8e99f02bc27b.png"},
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/image00001_311c3a12-4e1e-47ab-890e-5bb9b4eae80c.jpg"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Verona Bag",
+        "body_html": "<p>The Verona Bag brings effortless shine to any outfit. Its glossy textured finish, silver details and reinforced seams create a durable yet elegant bag.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, glossy",
+        "variants": [
+            {"option1": "Black", "price": "49.99", "compare_at_price": "74.99"},
+            {"option1": "Dark Cherry", "price": "49.99", "compare_at_price": "74.99"},
+            {"option1": "Caramel", "price": "49.99", "compare_at_price": "74.99"},
+            {"option1": "Stockholm white", "price": "49.99", "compare_at_price": "74.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/cherry_color.jpg"},
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_29c15d68-ba98-4543-879a-f337af59e506.jpg"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Milano Bag",
+        "body_html": "<p>The Milano Shoulder Bag blends softness with structure in the perfect everyday silhouette. Finished with elegant silver details.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, silver",
+        "variants": [
+            {"option1": "Black", "price": "39.99", "compare_at_price": "99.99"},
+            {"option1": "Coffee", "price": "39.99", "compare_at_price": "99.99"},
+            {"option1": "Silver", "price": "39.99", "compare_at_price": "99.99"},
+            {"option1": "Gray", "price": "39.99", "compare_at_price": "99.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_b4859f3f-f7a9-491c-b59d-777c8180885c.jpg"},
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/coffee_99b15329-df91-4ac8-96d6-1fbfff728ca9.jpg"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Brooklyn Bag",
+        "body_html": "<p>Soft vegan leather with a slouchy, modern shape. Size: 40 x 25 x 15 cm.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "tote, everyday",
+        "variants": [
+            {"option1": "Black", "price": "54.99", "compare_at_price": "99.00"},
+            {"option1": "Windsor Tan", "price": "54.99", "compare_at_price": "99.00"},
+            {"option1": "Coffee", "price": "54.99", "compare_at_price": "99.00"},
+            {"option1": "Burgundy", "price": "54.99", "compare_at_price": "99.00"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Marseille",
+        "body_html": "<p>Premium vegan leather, finished with antique brass hardware. Size: 38 cm (L), 29 cm (H), 13 cm (W).</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, premium",
+        "variants": [
+            {"option1": "Default", "price": "59.99", "compare_at_price": "99.99"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Clover Bag",
+        "body_html": "<p>Smooth vegan leather with removable heart mirror charm and detachable mini wallet. Size: 26 x 16 x 8 cm.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, mini",
+        "variants": [
+            {"option1": "Black", "price": "48.99", "compare_at_price": "74.99"},
+            {"option1": "Denim Blue", "price": "48.99", "compare_at_price": "74.99"},
+            {"option1": "Stockholm White", "price": "48.99", "compare_at_price": "74.99"},
+            {"option1": "Pink", "price": "48.99", "compare_at_price": "74.99"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Amira Bag",
+        "body_html": "<p>A beautifully crafted everyday bag with a relaxed silhouette and premium vegan leather finish.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, everyday",
+        "variants": [
+            {"option1": "Black", "price": "42.99", "compare_at_price": "79.99"},
+            {"option1": "Coffee", "price": "42.99", "compare_at_price": "79.99"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Vera Bag",
+        "body_html": "<p>A versatile shoulder bag crafted in premium vegan leather with elegant hardware details.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder",
+        "variants": [
+            {"option1": "Black", "price": "59.99", "compare_at_price": "89.99"},
+            {"option1": "Coffee", "price": "59.99", "compare_at_price": "89.99"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Saria Bag",
+        "body_html": "<p>A premium structured bag crafted in luxurious vegan leather.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "premium, structured",
+        "variants": [
+            {"option1": "Black", "price": "119.00", "compare_at_price": "119.00"},
+            {"option1": "Coffee", "price": "119.00", "compare_at_price": "119.00"},
+            {"option1": "Windsor tan", "price": "119.00", "compare_at_price": "119.00"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/Saria_Bag_Black.png"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Sloane Bag",
+        "body_html": "<p>A bold twist on timeless. The Sloane blends vintage Y2K attitude with modern edge — crafted in smooth vegan leather with statement hardware.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, statement",
+        "variants": [
+            {"option1": "Black", "price": "69.99", "compare_at_price": "99.99"},
+            {"option1": "Brown", "price": "69.99", "compare_at_price": "99.99"},
+            {"option1": "Coffee", "price": "69.99", "compare_at_price": "99.99"},
+            {"option1": "Bronze", "price": "69.99", "compare_at_price": "99.99"},
+            {"option1": "Pitch green", "price": "69.99", "compare_at_price": "99.99"},
+            {"option1": "Burgundy", "price": "69.99", "compare_at_price": "99.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/7_fcd25a76-233b-4655-83ba-e6dfb79c152e.png"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Rina Bag",
+        "body_html": "<p>A bold suede shoulder bag accented with silver-tone studs for a modern edge. Soft, structured, and made to stand out this season.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, suede",
+        "variants": [
+            {"option1": "Black", "price": "39.99", "compare_at_price": "89.99"},
+            {"option1": "Chocolate brown", "price": "39.99", "compare_at_price": "89.99"},
+            {"option1": "Red", "price": "39.99", "compare_at_price": "89.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/Untitleddesign-2025-10-21T000223.978.png"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Seoul Bag",
+        "body_html": "<p>A sleek, Korean-inspired shoulder bag with dual front pockets and soft vegan leather finish. Designed for effortless, functional style.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, korean",
+        "variants": [
+            {"option1": "Silver Black", "price": "49.99", "compare_at_price": "79.99"},
+            {"option1": "Glossy Deep Red", "price": "49.99", "compare_at_price": "79.99"},
+            {"option1": "Stockholm white", "price": "49.99", "compare_at_price": "79.99"},
+            {"option1": "Denim Blue", "price": "49.99", "compare_at_price": "79.99"},
+            {"option1": "Coffee", "price": "49.99", "compare_at_price": "79.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/H076acb9e999c42749c8b2fa386356da87.jpg"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Maya Bag",
+        "body_html": "<p>Maya is a compact shoulder bag designed to carry just what you need — and do it in style. With its softly structured silhouette.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, compact",
+        "variants": [
+            {"option1": "Black", "price": "79.99", "compare_at_price": "129.99"},
+            {"option1": "Glossy Deep Red", "price": "79.99", "compare_at_price": "129.99"},
+            {"option1": "Cocoa", "price": "79.99", "compare_at_price": "129.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_f3386e4c-1b02-49b1-8b0c-de9139b8d56e.jpg"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Hayden Bag",
+        "body_html": "<p>For the ones who like it practical without losing polish. The Hayden is your go-to everyday bag — structured yet soft, compact yet spacious.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, everyday",
+        "variants": [
+            {"option1": "Black", "price": "39.99", "compare_at_price": "59.99"},
+            {"option1": "Burgundy", "price": "39.99", "compare_at_price": "59.99"},
+            {"option1": "Caramel", "price": "39.99", "compare_at_price": "59.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/13_86f33792-7573-4b60-8812-ee07fec28557.png"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Briar Bag",
+        "body_html": "<p>A structured everyday bag with a modern silhouette, crafted in premium vegan leather.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "bestseller, everyday",
+        "variants": [
+            {"option1": "Black", "price": "64.99", "compare_at_price": "119.00"},
+            {"option1": "Coffee", "price": "64.99", "compare_at_price": "119.00"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Cleo Soft Weave",
+        "body_html": "<p>Woven-effect vegan leather exterior with organized compartments. Size: 47 cm (W), 32 cm (H), fits laptops up to 14\".</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "tote, laptop, woven",
+        "variants": [
+            {"option1": "Black", "price": "54.99", "compare_at_price": "99.00"},
+            {"option1": "Burgundy", "price": "54.99", "compare_at_price": "99.00"},
+            {"option1": "Coffee", "price": "54.99", "compare_at_price": "99.00"},
+            {"option1": "Olive", "price": "54.99", "compare_at_price": "99.00"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Noir Frame",
+        "body_html": "<p>Suede-textured vegan leather with structured shoulder fit. Size: 40 cm (L), 25 cm (H), 15 cm (W).</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, suede",
+        "variants": [
+            {"option1": "Coffee", "price": "49.00", "compare_at_price": "99.00"},
+            {"option1": "Black", "price": "49.00", "compare_at_price": "99.00"},
+            {"option1": "Espresso", "price": "49.00", "compare_at_price": "99.00"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Archive Bag",
+        "body_html": "<p>Distressed vegan leather for a lived-in look. Size: 27 cm (W) x 37 cm (H) x 11 cm (D).</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, distressed",
+        "variants": [
+            {"option1": "Black", "price": "44.99", "compare_at_price": "69.00"},
+            {"option1": "Dark Cherry", "price": "44.99", "compare_at_price": "69.00"},
+            {"option1": "Windsor Tan", "price": "44.99", "compare_at_price": "69.00"},
+            {"option1": "Beige", "price": "44.99", "compare_at_price": "69.00"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Everyday Petite Tote",
+        "body_html": "<p>Soft-touch premium vegan leather with structured shape with natural give. Size: 33 cm (L) x 25 cm (H) x 12 cm (W).</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "tote, petite, everyday",
+        "variants": [
+            {"option1": "Black", "price": "39.99", "compare_at_price": "79.00"},
+            {"option1": "Beige", "price": "39.99", "compare_at_price": "79.00"}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Soleil Bag",
+        "body_html": "<p>Softly structured silhouette, buttery vegan leather, and striking gold buckle. Size: 31 cm (L), 10 cm (W), 29 cm (H).</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, gold",
+        "variants": [
+            {"option1": "Black", "price": "89.99", "compare_at_price": ""},
+            {"option1": "Chocolate Brown", "price": "89.99", "compare_at_price": ""},
+            {"option1": "Burgundy", "price": "89.99", "compare_at_price": ""}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Siena Bag",
+        "body_html": "<p>Soft vegan leather with structured, minimal shape. Size: 29 x 29.5 x 10 cm.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "shoulder, minimal",
+        "variants": [
+            {"option1": "Black", "price": "74.99", "compare_at_price": ""},
+            {"option1": "Dark Chocolate", "price": "74.99", "compare_at_price": ""}
+        ],
+        "images": [],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Plush Bucket Hat",
+        "body_html": "<p>A soft, plush bucket hat designed to make any outfit feel instantly elevated. Crafted for warmth without bulk.</p>",
+        "vendor": "AYVA",
+        "product_type": "Accessories",
+        "tags": "accessories, hat",
+        "variants": [
+            {"option1": "White", "price": "34.95", "compare_at_price": "54.95"},
+            {"option1": "Beige", "price": "34.95", "compare_at_price": "54.95"},
+            {"option1": "Brown", "price": "34.95", "compare_at_price": "54.95"},
+            {"option1": "All-white", "price": "34.95", "compare_at_price": "54.95"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/black_1.jpg"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "Frost Plush Hat",
+        "body_html": "<p>A timeless winter essential crafted in ultra-soft plush. Designed to keep you warm while elevating any cold-weather look.</p>",
+        "vendor": "AYVA",
+        "product_type": "Accessories",
+        "tags": "accessories, hat, winter",
+        "variants": [
+            {"option1": "Black", "price": "34.95", "compare_at_price": "54.95"},
+            {"option1": "White", "price": "34.95", "compare_at_price": "54.95"},
+            {"option1": "Beige", "price": "34.95", "compare_at_price": "54.95"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/3_f77c93f2-593f-4005-bb27-3c898ffc0e71.png"}
+        ],
+        "options": [{"name": "Color"}]
+    },
+    {
+        "title": "The Petite Luna",
+        "body_html": "<p>Soft, sculpted, and unapologetically petite. The Petite Luna is proof that small still makes a statement.</p>",
+        "vendor": "AYVA",
+        "product_type": "Bags",
+        "tags": "mini, petite",
+        "variants": [
+            {"option1": "Black", "price": "39.99", "compare_at_price": "99.99"},
+            {"option1": "Stockholm white", "price": "39.99", "compare_at_price": "99.99"},
+            {"option1": "Chocolate brown", "price": "39.99", "compare_at_price": "99.99"},
+            {"option1": "Nude beige", "price": "39.99", "compare_at_price": "99.99"}
+        ],
+        "images": [
+            {"src": "https://cdn.shopify.com/s/files/1/0922/5692/8121/files/Petite_Luna_Bag_Black.jpg"}
+        ],
+        "options": [{"name": "Color"}]
+    }
+]
+
+def create_product(product_data):
+    """Create a single product via Shopify Admin API"""
+    payload = {"product": product_data}
+    resp = requests.post(f"{API_URL}/products.json", headers=HEADERS, json=payload)
+    if resp.status_code == 201:
+        title = resp.json()["product"]["title"]
+        pid = resp.json()["product"]["id"]
+        print(f"  ✓ Created: {title} (ID: {pid})")
+        return True
+    else:
+        print(f"  ✗ Failed: {product_data['title']} — {resp.status_code}: {resp.text[:200]}")
+        return False
+
+def main():
+    if not ACCESS_TOKEN:
+        print("=" * 60)
+        print("  AYVA PRODUCT IMPORTER")
+        print("=" * 60)
+        print()
+        print("ERROR: No API access token set!")
+        print()
+        print("To get your token:")
+        print("1. Go to Shopify Admin → Settings → Apps and sales channels")
+        print("2. Click 'Develop apps' → 'Create an app'")
+        print("3. Name it: 'AYVA Importer'")
+        print("4. Configure Admin API scopes:")
+        print("   - write_products")
+        print("   - read_products")
+        print("5. Click 'Install app'")
+        print("6. Copy the 'Admin API access token'")
+        print("7. Paste it in this script (ACCESS_TOKEN variable)")
+        print("8. Run again: python add_products.py")
+        print()
+        sys.exit(1)
+
+    print("=" * 60)
+    print("  AYVA PRODUCT IMPORTER")
+    print(f"  Store: {STORE_URL}")
+    print(f"  Products to add: {len(PRODUCTS)}")
+    print("=" * 60)
+    print()
+
+    success = 0
+    failed = 0
+
+    for i, product in enumerate(PRODUCTS, 1):
+        print(f"[{i}/{len(PRODUCTS)}] Adding {product['title']}...")
+        if create_product(product):
+            success += 1
+        else:
+            failed += 1
+        time.sleep(0.5)  # Rate limiting
+
+    print()
+    print("=" * 60)
+    print(f"  DONE! ✓ {success} created | ✗ {failed} failed")
+    print("=" * 60)
+
+if __name__ == "__main__":
+    main()
