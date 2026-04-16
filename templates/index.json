@@ -36,7 +36,6 @@
           "type": "collection_card",
           "settings": {
             "title": "All bags",
-            "underline": false
           }
         },
         "col_new": {
@@ -50,14 +49,12 @@
           "type": "collection_card",
           "settings": {
             "title": "Bag charms",
-            "underline": false
           }
         },
         "col_everyday": {
           "type": "collection_card",
           "settings": {
             "title": "AYVA Everyday",
-            "underline": false
           }
         }
       },
