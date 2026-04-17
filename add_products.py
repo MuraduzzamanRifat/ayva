@@ -9,7 +9,7 @@ import time
 import sys
 
 # ── CONFIGURATION ──
-STORE_URL = "pu5du4-az.myshopify.com"
+STORE_URL = "pu5duj-az.myshopify.com"
 # You need to create a Custom App in Shopify Admin to get this token
 # Go to: Settings → Apps and sales channels → Develop apps → Create an app
 # Give it: write_products, write_inventory permissions
@@ -37,10 +37,8 @@ PRODUCTS = [
             {"option1": "Pitch green", "price": "59.00", "compare_at_price": "99.00"}
         ],
         "images": [
-            {"src": ""},
-            {"src": ""},
-            {"src": ""},
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -55,8 +53,8 @@ PRODUCTS = [
             {"option1": "Merlot", "price": "59.99", "compare_at_price": "99.99"}
         ],
         "images": [
-            {"src": ""},
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1895019/pexels-photo-1895019.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -73,8 +71,8 @@ PRODUCTS = [
             {"option1": "Black", "price": "24.99", "compare_at_price": "34.99"}
         ],
         "images": [
-            {"src": ""},
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/1895019/pexels-photo-1895019.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -93,8 +91,8 @@ PRODUCTS = [
             {"option1": "All-white", "price": "39.95", "compare_at_price": "59.95"}
         ],
         "images": [
-            {"src": ""},
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/5710085/pexels-photo-5710085.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -111,8 +109,8 @@ PRODUCTS = [
             {"option1": "Olive green", "price": "39.95", "compare_at_price": "70.00"}
         ],
         "images": [
-            {"src": ""},
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/5710085/pexels-photo-5710085.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/7679656/pexels-photo-7679656.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -129,8 +127,8 @@ PRODUCTS = [
             {"option1": "Stockholm white", "price": "49.99", "compare_at_price": "74.99"}
         ],
         "images": [
-            {"src": ""},
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/7679656/pexels-photo-7679656.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -147,8 +145,8 @@ PRODUCTS = [
             {"option1": "Gray", "price": "39.99", "compare_at_price": "99.99"}
         ],
         "images": [
-            {"src": ""},
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -164,7 +162,10 @@ PRODUCTS = [
             {"option1": "Coffee", "price": "54.99", "compare_at_price": "99.00"},
             {"option1": "Burgundy", "price": "54.99", "compare_at_price": "99.00"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -176,7 +177,10 @@ PRODUCTS = [
         "variants": [
             {"option1": "Default", "price": "59.99", "compare_at_price": "99.99"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -191,7 +195,10 @@ PRODUCTS = [
             {"option1": "Stockholm White", "price": "48.99", "compare_at_price": "74.99"},
             {"option1": "Pink", "price": "48.99", "compare_at_price": "74.99"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -204,7 +211,10 @@ PRODUCTS = [
             {"option1": "Black", "price": "42.99", "compare_at_price": "79.99"},
             {"option1": "Coffee", "price": "42.99", "compare_at_price": "79.99"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1895019/pexels-photo-1895019.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -217,7 +227,10 @@ PRODUCTS = [
             {"option1": "Black", "price": "59.99", "compare_at_price": "89.99"},
             {"option1": "Coffee", "price": "59.99", "compare_at_price": "89.99"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/1895019/pexels-photo-1895019.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -232,7 +245,8 @@ PRODUCTS = [
             {"option1": "Windsor tan", "price": "119.00", "compare_at_price": "119.00"}
         ],
         "images": [
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/5710085/pexels-photo-5710085.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -251,7 +265,8 @@ PRODUCTS = [
             {"option1": "Burgundy", "price": "69.99", "compare_at_price": "99.99"}
         ],
         "images": [
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/5710085/pexels-photo-5710085.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/7679656/pexels-photo-7679656.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -267,7 +282,8 @@ PRODUCTS = [
             {"option1": "Red", "price": "39.99", "compare_at_price": "89.99"}
         ],
         "images": [
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/7679656/pexels-photo-7679656.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -285,7 +301,8 @@ PRODUCTS = [
             {"option1": "Coffee", "price": "49.99", "compare_at_price": "79.99"}
         ],
         "images": [
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -301,7 +318,8 @@ PRODUCTS = [
             {"option1": "Cocoa", "price": "79.99", "compare_at_price": "129.99"}
         ],
         "images": [
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -317,7 +335,8 @@ PRODUCTS = [
             {"option1": "Caramel", "price": "39.99", "compare_at_price": "59.99"}
         ],
         "images": [
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -331,7 +350,10 @@ PRODUCTS = [
             {"option1": "Black", "price": "64.99", "compare_at_price": "119.00"},
             {"option1": "Coffee", "price": "64.99", "compare_at_price": "119.00"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -346,7 +368,10 @@ PRODUCTS = [
             {"option1": "Coffee", "price": "54.99", "compare_at_price": "99.00"},
             {"option1": "Olive", "price": "54.99", "compare_at_price": "99.00"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1895019/pexels-photo-1895019.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -360,7 +385,10 @@ PRODUCTS = [
             {"option1": "Black", "price": "49.00", "compare_at_price": "99.00"},
             {"option1": "Espresso", "price": "49.00", "compare_at_price": "99.00"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/1895019/pexels-photo-1895019.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -375,7 +403,10 @@ PRODUCTS = [
             {"option1": "Windsor Tan", "price": "44.99", "compare_at_price": "69.00"},
             {"option1": "Beige", "price": "44.99", "compare_at_price": "69.00"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/5710085/pexels-photo-5710085.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -388,7 +419,10 @@ PRODUCTS = [
             {"option1": "Black", "price": "39.99", "compare_at_price": "79.00"},
             {"option1": "Beige", "price": "39.99", "compare_at_price": "79.00"}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/5710085/pexels-photo-5710085.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/7679656/pexels-photo-7679656.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -402,7 +436,10 @@ PRODUCTS = [
             {"option1": "Chocolate Brown", "price": "89.99", "compare_at_price": ""},
             {"option1": "Burgundy", "price": "89.99", "compare_at_price": ""}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/7679656/pexels-photo-7679656.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -415,7 +452,10 @@ PRODUCTS = [
             {"option1": "Black", "price": "74.99", "compare_at_price": ""},
             {"option1": "Dark Chocolate", "price": "74.99", "compare_at_price": ""}
         ],
-        "images": [],
+        "images": [
+            {"src": "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1200"}
+        ],
         "options": [{"name": "Color"}]
     },
     {
@@ -431,7 +471,8 @@ PRODUCTS = [
             {"option1": "All-white", "price": "34.95", "compare_at_price": "54.95"}
         ],
         "images": [
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -447,7 +488,8 @@ PRODUCTS = [
             {"option1": "Beige", "price": "34.95", "compare_at_price": "54.95"}
         ],
         "images": [
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     },
@@ -464,7 +506,8 @@ PRODUCTS = [
             {"option1": "Nude beige", "price": "39.99", "compare_at_price": "99.99"}
         ],
         "images": [
-            {"src": ""}
+            {"src": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1200"},
+            {"src": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200"}
         ],
         "options": [{"name": "Color"}]
     }
