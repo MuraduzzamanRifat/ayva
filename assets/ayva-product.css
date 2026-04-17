@@ -153,7 +153,6 @@
 }
 .ayva-stars { display: inline-flex; gap: 1px; color: var(--ayva-star); }
 
-/* Price */
 .ayva-info__price {
   display: flex;
   align-items: baseline;
@@ -161,18 +160,22 @@
   flex-wrap: wrap;
   padding: 4px 0 0;
 }
-.ayva-price__sale {
+.ayva-price__sale,
+.ayva-info__price .price-item--sale,
+.ayva-info__price .price-item--regular:not(s) {
   font-size: 24px;
   font-weight: 700;
   color: var(--ayva-fg);
   letter-spacing: -0.01em;
 }
-.ayva-price__compare {
+.ayva-price__compare,
+.ayva-info__price s.price-item--regular {
   font-size: 16px;
   color: var(--ayva-fg-3);
   text-decoration: line-through;
 }
-.ayva-price__off {
+.ayva-price__off,
+.ayva-info__price .price__badge-sale {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -182,6 +185,13 @@
   padding: 3px 8px;
   border-radius: var(--ayva-radius);
 }
+
+.ayva-info__price .price { padding: 0; }
+.ayva-info__price .price dl { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 0; }
+.ayva-info__price .price dt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.ayva-info__price .price dd { margin: 0; }
+.ayva-info__price .price__regular,
+.ayva-info__price .price__sale { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 
 /* Promo strip */
 .ayva-promo-strip {
@@ -198,10 +208,23 @@
 }
 .ayva-promo-strip svg { flex: 0 0 auto; color: var(--ayva-accent); }
 
-/* Variants */
 .ayva-variants { display: flex; flex-direction: column; gap: 14px; padding-top: 4px; }
-.ayva-variants__group { display: flex; flex-direction: column; gap: 8px; }
-.ayva-variants__label { font-size: 13px; color: var(--ayva-fg-2); }
+.ayva-variants__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.ayva-variants__label {
+  font-size: 13px;
+  color: var(--ayva-fg-2);
+  padding: 0;
+  margin: 0;
+  float: none;
+  width: auto;
+}
 .ayva-variants__label strong { color: var(--ayva-fg); font-weight: 600; margin-left: 4px; }
 .ayva-variants__options { display: flex; flex-wrap: wrap; gap: 8px; }
 .ayva-variants input[type="radio"] {

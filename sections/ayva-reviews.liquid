@@ -1,5 +1,3 @@
-{{ 'ayva-product.css' | asset_url | stylesheet_tag }}
-
 {%- liquid
   assign total = section.settings.total_reviews | plus: 0
   assign avg = section.settings.average_rating
