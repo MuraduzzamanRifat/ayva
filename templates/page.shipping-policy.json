@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "shipping": {
+      "type": "ayva-policy-page",
+      "settings": {
+        "eyebrow": "Legal",
+        "heading": "Shipping Policy",
+        "updated_date": "1 April 2026",
+        "content": "<p>We ship worldwide from our fulfilment centre. Here's everything you need to know about how long your order will take, how much it costs, and what to do if something goes wrong.</p><h2>Processing Time</h2><p>Orders are packed and dispatched within <strong>1–2 business days</strong> of being placed. We don't process or ship on weekends or public holidays. During launch weeks, sale events, or holiday peaks, processing may take an extra day or two.</p><h2>Delivery Estimates</h2><p>Once dispatched, standard international delivery typically takes <strong>5–15 business days</strong>. Exact timing depends on your location, local carriers, customs clearance, and seasonal volume. Delivery windows are estimates, not guarantees.</p><h2>Shipping Cost</h2><p>We offer <strong>free standard shipping on every order</strong>, worldwide. No minimum.</p><h2>Tracking</h2><p>As soon as your order ships, we'll email you a tracking number. Allow up to 48 hours after dispatch for the tracking page to show movement — carriers typically scan the parcel for the first time once it reaches their sorting hub.</p><h2>Customs, Duties &amp; Import Taxes</h2><p>Depending on your country's rules, your order may be subject to customs duties, VAT, or other import charges on arrival. These fees are set by your local authorities and are <strong>not</strong> included in the product or shipping price. They are the customer's responsibility. If you're unsure, we recommend checking with your local customs office before ordering.</p><h2>Wrong or Incomplete Address</h2><p>Please double-check your shipping address at checkout. If a parcel is returned to us because the address was incomplete or incorrect, we can re-ship it — the customer is responsible for the additional shipping cost.</p><h2>Lost, Delayed or Stuck in Transit</h2><p>If your tracking hasn't updated in 10 business days or your order hasn't arrived within 15 business days of dispatch, email us at <a href=\"mailto:hello@yourstore.com\">hello@yourstore.com</a>. We'll open a carrier investigation and keep you in the loop.</p><p>Once a parcel has been handed over to the carrier, we're no longer in direct control of it, but we'll always help you resolve issues with the carrier.</p><h2>Damaged Parcels</h2><p>If your parcel arrives visibly damaged, please photograph it before opening and email us within 48 hours of delivery.</p><h2>Contact</h2><p>Shipping question? <a href=\"mailto:hello@yourstore.com\">hello@yourstore.com</a>.</p>"
+      }
+    }
+  },
+  "order": ["shipping"]
+}
