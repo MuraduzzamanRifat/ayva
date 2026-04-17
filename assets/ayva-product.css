@@ -1,6 +1,5 @@
 /* ============================================================
-   AYVA Product Page — pixel-perfect Scandinavian minimalism
-   matches ayvaofficial.com/products/*
+   AYVA Product Page — Scandinavian-minimalist product layout
    ============================================================ */
 
 :root {
@@ -224,6 +223,7 @@
   cursor: pointer;
   transition: border-color .15s, background .15s, color .15s;
   border-radius: var(--ayva-radius);
+  -webkit-user-select: none;
   user-select: none;
 }
 .ayva-variants__pill:hover { border-color: var(--ayva-fg); }

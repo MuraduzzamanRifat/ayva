@@ -22,7 +22,7 @@
       "settings": {
         "collection": "all",
         "products_to_show": 8,
-        "title": "SHOP OUR BESTSELLERS",
+        "title": "THE MOST-LOVED STYLES",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -59,7 +59,7 @@
         "col_new": {
           "type": "collection_card",
           "settings": {
-            "title": "NEW",
+            "title": "Just in",
             "link": "",
             "underline": true
           }
@@ -67,7 +67,7 @@
         "col_charms": {
           "type": "collection_card",
           "settings": {
-            "title": "Bag charms",
+            "title": "Charms",
             "link": "",
             "underline": false
           }
@@ -75,7 +75,7 @@
         "col_everyday": {
           "type": "collection_card",
           "settings": {
-            "title": "AYVA Everyday",
+            "title": "The Everyday Edit",
             "link": "",
             "underline": false
           }
@@ -93,17 +93,17 @@
       "type": "ayva-image-text",
       "settings": {
         "image_position": "left",
-        "subtitle": "DESIGNED IN STOCKHOLM",
-        "heading": "MORE THAN PRETTY BAGS",
-        "text": "<p>At AYVA, we believe bags should do more than carry your things.</p><p>They should carry your mood, your memories, your moment.</p><p>Inspired by the effortless charm of European street style, our designs blend soft structure, rich textures, and playful details to bring elegance into your everyday.</p><p>From morning coffee runs to late-night walks</p>",
-        "button_text": "BESTSELLERS",
+        "subtitle": "FROM STOCKHOLM, WITH INTENTION",
+        "heading": "A BAG WITH SOMETHING TO SAY",
+        "text": "<p>A bag isn't just something you carry — it's a small signature, a daily choice, a quiet way of showing up as yourself.</p><p>We draw on the clean-lined confidence of Scandinavian craft and the lived-in ease of European streetwear. Soft shapes, considered textures, hardware that earns its place — nothing decorative for its own sake.</p><p>Morning, midday, after dark — every piece is made to move with you.</p>",
+        "button_text": "SHOP THE EDIT",
         "button_link": ""
       }
     },
     "ayva_big_or_small_heading": {
       "type": "ayva-brand-text",
       "settings": {
-        "heading": "BIG OR SMALL - WE'VE GOT IT ALL",
+        "heading": "SHAPES FOR EVERY MOMENT",
         "subheading": "",
         "text_size": "large",
         "text_alignment": "center",
@@ -119,7 +119,7 @@
         "col_everyday": {
           "type": "collection_card",
           "settings": {
-            "title": "AYVA Everyday",
+            "title": "The Everyday Edit",
             "image_url": "",
             "link": ""
           }
@@ -127,7 +127,7 @@
         "col_mini": {
           "type": "collection_card",
           "settings": {
-            "title": "AYVA Mini",
+            "title": "The Mini Edit",
             "image_url": "",
             "link": ""
           }
@@ -143,10 +143,10 @@
       "type": "ayva-image-text",
       "settings": {
         "image_position": "left",
-        "subtitle": "STYLE MEETS FUNCTION",
-        "heading": "BUILT FOR YOUR EVERYDAY",
-        "text": "<p>Every AYVA bag is thoughtfully designed to keep up with real life — not just runway life.</p><p>From the stitching to the straps, every detail is made to blend elegance with ease.</p><p>We believe in smart beauty: bags that carry your laptop, lip gloss, leftovers and still look chic at dinner.</p><p>No fuss. No compromise. Just everyday charm done right.</p>",
-        "button_text": "FIND YOUR EVERYDAY FAVORITE",
+        "subtitle": "DESIGNED WITH PURPOSE",
+        "heading": "PIECES THAT KEEP UP",
+        "text": "<p>Every bag begins with one question: does this actually work for the way you live? Not the runway version — the real one. Commutes, errands, long dinners, early starts.</p><p>So we obsess over the quiet things — stitch density, strap drop, how a zip sits in your hand. Beauty you notice first; utility you rely on for years.</p><p>Enough room for the laptop, the gloss, the leftovers — still polished across the table at dinner.</p>",
+        "button_text": "FIND YOUR NEXT FAVOURITE",
         "button_link": ""
       }
     },
@@ -165,7 +165,7 @@
           "type": "column",
           "settings": {
             "title": "Designed in Stockholm",
-            "text": "<p>Every piece is imagined and designed in our Stockholm studio, with love, care, and clean lines.</p>",
+            "text": "<p>Every piece begins on paper in our Stockholm studio. We take our time with shape, proportion, and detail before anything reaches a cutting table.</p>",
             "link_label": "",
             "link": ""
           }
@@ -173,8 +173,8 @@
         "pillar_2": {
           "type": "column",
           "settings": {
-            "title": "Crafted for Everyday Life",
-            "text": "<p>Built to handle your 9 to 9 - from city streets to slow Sundays. Durable, stylish, and actually useful.</p>",
+            "title": "Made for real days",
+            "text": "<p>Built for commutes, coffee runs, late dinners, and everything in between. Hard-wearing hardware, thoughtful pockets, straps that hold up.</p>",
             "link_label": "",
             "link": ""
           }
@@ -182,8 +182,8 @@
         "pillar_3": {
           "type": "column",
           "settings": {
-            "title": "Premium Feel, Conscious Materials",
-            "text": "<p>100% vegan and thoughtfully sourced. Luxury shouldn't cost the earth or your peace of mind.</p>",
+            "title": "Vegan &amp; considered",
+            "text": "<p>100% vegan materials, sourced with care. Quiet luxury that doesn't cost the animals, the planet, or your peace of mind.</p>",
             "link_label": "",
             "link": ""
           }

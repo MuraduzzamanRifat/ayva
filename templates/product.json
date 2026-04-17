@@ -15,7 +15,7 @@
         "show_notify_form": true,
         "show_description": true,
         "money_back_heading": "30-Day Money Back Guarantee",
-        "money_back_text": "<p>Not satisfied? Return your item within 30 days for a full refund — no questions asked. Items must be unused with original packaging. Email <a href=\"mailto:hey@ayvaofficial.com\">hey@ayvaofficial.com</a> to start a return.</p>",
+        "money_back_text": "<p>Not satisfied? Return your item within 30 days for a full refund — no questions asked. Items must be unused with original packaging. Email <a href=\"mailto:hello@yourstore.com\">hello@yourstore.com</a> to start a return.</p>",
         "show_sticky_atc": true
       }
     },
@@ -40,10 +40,10 @@
       "blocks": {
         "q1": { "type": "faq", "settings": { "question": "Does it feel high quality in real life?", "answer": "<p>Yes — we obsess over materials. Every bag is crafted in smooth vegan leather with solid metal hardware. Customers regularly tell us it feels far more premium than the price suggests.</p>" } },
         "q2": { "type": "faq", "settings": { "question": "Will it fit my everyday essentials?", "answer": "<p>Absolutely. Our bags are designed to comfortably hold your phone, wallet, keys, sunglasses, and small makeup pouch — with room to spare.</p>" } },
-        "q3": { "type": "faq", "settings": { "question": "Is AYVA a real and safe brand to order from?", "answer": "<p>100%. AYVA is a registered Swedish company (AOE Ecom AB, Reg# 559458-2925). We ship worldwide, offer a 30-day money-back guarantee, and have served 100,000+ customers.</p>" } },
+        "q3": { "type": "faq", "settings": { "question": "Is this a real and safe place to order from?", "answer": "<p>Yes — we are a registered European business. Every order ships worldwide, is covered by our 30-day money-back guarantee, and is handled by a small human team based in our home studio.</p>" } },
         "q4": { "type": "faq", "settings": { "question": "What if the color looks different in real life?", "answer": "<p>Colors are photographed in natural light and can vary slightly by monitor. If the color isn't what you expected, return within 30 days for a full refund.</p>" } },
         "q5": { "type": "faq", "settings": { "question": "Why is the price this level?", "answer": "<p>We sell direct — no middlemen, no department-store markup. You get designer-level quality at a fraction of the cost.</p>" } },
-        "q6": { "type": "faq", "settings": { "question": "What if I change my mind after ordering?", "answer": "<p>No stress. You have 30 days from delivery to return for a full refund. Reach out to hey@ayvaofficial.com and we'll handle it.</p>" } }
+        "q6": { "type": "faq", "settings": { "question": "What if I change my mind after ordering?", "answer": "<p>No stress. You have 30 days from delivery to return for a full refund. Reach out to hello@yourstore.com and we'll handle it.</p>" } }
       },
       "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
       "settings": {

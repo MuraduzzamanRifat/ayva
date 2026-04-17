@@ -6,10 +6,10 @@
       "type": "ayva-announcement",
       "settings": {
         "bar1_enable": true,
-        "bar1_text": "Free shipping on every order!",
+        "bar1_text": "Complimentary shipping on every order",
         "bar2_enable": true,
-        "bar2_text_highlight": "Bestsellers are almost sold out",
-        "bar2_text_suffix": "ends at 23:59",
+        "bar2_text_highlight": "Final pieces of our bestsellers",
+        "bar2_text_suffix": "offer ends tonight at 23:59",
         "bar2_highlight_color": "#4CAF50",
         "bar2_bg_color": "#1a1a1a"
       }

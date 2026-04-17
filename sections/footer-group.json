@@ -16,14 +16,14 @@
           "type": "text",
           "settings": {
             "heading": "Contact",
-            "subtext": "<p>Questions, concerns, or just wanna say hi?</p><p>Our support team is here for you - fast, friendly, and real humans only!</p><p>Email us anytime: hello@yourstore.com</p>"
+            "subtext": "<p>A question, a kind word, or something you want to tell us?</p><p>Our team reads every message — no bots, no scripts, just humans who care about getting it right.</p><p>Reach us anytime: hello@yourstore.com</p>"
           }
         },
         "footer-company": {
           "type": "text",
           "settings": {
             "heading": "Company",
-            "subtext": "<p>AYVA Official</p><p>Operated by AOE Ecom AB</p><p>Registered in Sweden</p><p>Company registration number: 559458-2925</p><p>Snipvägen 18, 542 66 Sjötorp</p>"
+            "subtext": "<p>[Your brand name]</p><p>[Legal entity name]</p><p>[Country of registration]</p><p>Company number: [registration number]</p><p>[Registered business address]</p>"
           }
         }
       },
