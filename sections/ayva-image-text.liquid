@@ -93,8 +93,8 @@
   }
 {%- endstyle -%}
 
-<section class="ayva-iwt">
-  <div class="ayva-iwt__grid{% if section.settings.image_position == 'right' %} ayva-iwt__grid--reverse{% endif %}">
+<section class="ayva-iwt{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="ayva-iwt__grid{% if section.settings.image_position == 'right' %} ayva-iwt__grid--reverse{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
     <div class="ayva-iwt__image">
       {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600,800,1000,1200', sizes: '(min-width: 750px) 50vw, 100vw' }}

@@ -51,10 +51,10 @@
   }
 {%- endstyle -%}
 
-<section class="ayva-twocol">
-  <div class="ayva-twocol__grid">
+<section class="ayva-twocol{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="ayva-twocol__grid"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
     {% for block in section.blocks %}
-      <a href="{{ block.settings.link | default: '#' }}" class="ayva-twocol__item" {{ block.shopify_attributes }}>
+      <a href="{{ block.settings.link | default: '#' }}" class="ayva-twocol__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}style="--animation-order: {{ forloop.index }};"{% endif %} {{ block.shopify_attributes }}>
         <div class="ayva-twocol__image">
           {%- if block.settings.image != blank -%}
             {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '500,700,1000', sizes: '(min-width: 750px) 50vw, 100vw' }}

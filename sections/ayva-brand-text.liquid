@@ -74,10 +74,10 @@
 
 <section
   id="AyvaBrandText-{{ section.id }}"
-  class="ayva-brand-text"
+  class="ayva-brand-text{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
   aria-label="{{ section.settings.heading | default: 'Brand message' | escape }}"
 >
-  <div class="ayva-brand-text__wrapper">
+  <div class="ayva-brand-text__wrapper"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
     {%- if section.settings.eyebrow != blank -%}
       <p class="ayva-brand-text__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {%- endif -%}

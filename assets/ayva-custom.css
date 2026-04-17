@@ -2663,3 +2663,98 @@ textarea:focus {
 .footer__payment .payment-icon {
   height: 24px;
 }
+
+/* ==========================================================================
+   AYVA SMOOTHNESS — global transitions, image hover zoom, smooth scroll
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Universal hover-zoom on AYVA card/collection images */
+.ayva-collections-row__image,
+.ayva-twocol__image,
+.ayva-iwt__image,
+.ayva-stl__image,
+.ayva-stl__product-image,
+.ayva-ctl__media,
+.ayva-charms__media,
+.ayva-gallery__main {
+  overflow: hidden;
+}
+
+.ayva-collections-row__item img,
+.ayva-twocol__item img,
+.ayva-iwt__image img,
+.ayva-stl__image img,
+.ayva-ctl__media img,
+.ayva-charms__media img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.ayva-collections-row__item:hover img,
+.ayva-twocol__item:hover img,
+.ayva-iwt__image:hover img,
+.ayva-stl__image:hover img,
+.ayva-ctl__media:hover img,
+.ayva-charms__media:hover img {
+  transform: scale(1.04);
+}
+
+/* Smoother hover on product cards + category tiles */
+.ayva-collections-row__item,
+.ayva-twocol__item,
+.ayva-ctl__card,
+.ayva-charms__card {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Smoother link underlines */
+.ayva-collections-row__title--underline,
+.ayva-twocol__title {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: background-size 0.3s ease;
+  text-decoration: none !important;
+}
+.ayva-collections-row__item:hover .ayva-collections-row__title--underline,
+.ayva-twocol__item:hover .ayva-twocol__title {
+  background-size: 100% 2px;
+}
+
+/* Button transitions — make sure all AYVA CTAs animate smoothly */
+.ayva-btn,
+.ayva-hero__btn,
+.ayva-brand-text__btn,
+.ayva-iwt__btn {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease !important;
+}
+.ayva-btn:active,
+.ayva-hero__btn:active,
+.ayva-brand-text__btn:active,
+.ayva-iwt__btn:active {
+  transform: translateY(1px);
+}
+
+/* Dawn scroll-trigger softening — slower + more gentle easing */
+.scroll-trigger.animate--slide-in {
+  transition:
+    transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) var(--animation-delay, 0s),
+    opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) var(--animation-delay, 0s) !important;
+}
+
+/* Cascade: stagger children with a 100ms gap */
+[data-cascade] > *:nth-child(1) { --animation-delay: 0s; }
+[data-cascade] > *:nth-child(2) { --animation-delay: 0.1s; }
+[data-cascade] > *:nth-child(3) { --animation-delay: 0.2s; }
+[data-cascade] > *:nth-child(4) { --animation-delay: 0.3s; }
+[data-cascade] > *:nth-child(5) { --animation-delay: 0.4s; }
+[data-cascade] > *:nth-child(6) { --animation-delay: 0.5s; }
