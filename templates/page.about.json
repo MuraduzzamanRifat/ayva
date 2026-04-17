@@ -3,10 +3,10 @@
     "about": {
       "type": "ayva-about-page",
       "blocks": {
-        "col_new": {
+        "col_urban_muse": {
           "type": "collection_card",
           "settings": {
-            "title": "Just in"
+            "title": "Urban Muse"
           }
         },
         "col_bags": {
@@ -18,27 +18,21 @@
         "col_charms": {
           "type": "collection_card",
           "settings": {
-            "title": "Charms"
+            "title": "Bag charms"
           }
         }
       },
-      "block_order": ["col_new", "col_bags", "col_charms"],
+      "block_order": ["col_urban_muse", "col_bags", "col_charms"],
       "settings": {
-        "hero_image": "",
-        "section1_label": "Our story",
-        "section1_heading": "WHO WE ARE",
-        "section1_text1": "AYVA started with a simple idea: that what you carry every day should feel as considered as what you wear. Bags that aren't loud, but aren't invisible either — pieces with quiet personality.",
-        "section1_text2": "Based in Stockholm, we take cues from Scandinavian craft and the easy rhythm of European city life. Our shapes are soft where they should be and structured where it matters. Our hardware is chosen, not decorative. Our textures are chosen to age well.",
-        "section1_text3": "No mass production. No chasing trends for their own sake. Just thoughtful design, honest materials, and a little bit of attitude.",
-        "section2_label": "What we believe",
-        "section2_heading": "WHY WE MAKE THEM",
-        "section2_text1": "We don't design for a runway or a moodboard. We design for the woman who folds our bag into her day — between meetings and markets, early starts and late dinners — and never has to think about whether it's working for her.",
-        "section2_text2": "Style, for us, is something deeply personal. It's the mix of old and new, soft and sharp, that only you can put together. Our job is to make the supporting piece that quietly helps the rest of it come together.",
-        "section2_text3": "100% vegan. Small-batch. Designed to last longer than a season — because that's what well-made things should do.",
-        "contact_heading": "Say hello",
-        "contact_text": "Questions, ideas, feedback, or nothing in particular — we'd love to hear from you.",
-        "contact_email": "hello@yourstore.com",
-        "cta_text": "BROWSE THE EDIT"
+        "section1_heading": "AYVA BAGS",
+        "section1_text1": "We're not just a brand — we're a mood, a mindset, a reminder that style should feel easy, fun and fully yours. AYVA was born out of Stockholm evenings and slow city walks, inspired by everyday cool girls, vintage archives, and the quiet power of contrast: soft but bold, timeless but now.",
+        "section1_text2": "We make bags and charms that do more than hold your things — they say something. Our mission is to bring you pieces that feel like you. Not fast fashion made in bulk. Not luxury with a thousand-euro price tag. Just well-made things you'll actually want to wear.",
+        "section1_text3": "Designed with love. Styled with attitude. Made to go with you everywhere.",
+
+        "section2_heading": "Our Mission",
+        "section2_text1": "At AYVA, our mission is to make style feel personal again. We believe accessories should spark a small moment of joy, turn a head, and tell a story — without saying a word. We exist to make bags and charms that elevate the everyday; not just trends, but pieces with personality designed to move with you from Monday meetings to midnight walks.",
+        "section2_text2": "We're here for the ones who mix vintage with streetwear, minimalism with a twist, and confidence with a little bit of charm. Our goal is simple: to help you carry yourself, boldly.",
+        "section2_text3": "Designed to be noticed. Made to be loved. Worn your way."
       }
     }
   },
