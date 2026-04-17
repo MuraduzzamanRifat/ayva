@@ -2593,6 +2593,90 @@ textarea:focus {
 }
 
 /* ==========================================================================
+   AYVA FEATURED COLLECTION — bestsellers grid polish (match AYVA)
+   ========================================================================== */
+
+.featured-collection .title-wrapper-with-link,
+.featured-collection .collection__title {
+  text-align: center;
+  margin: 0 auto 40px;
+}
+.featured-collection .title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+@media (min-width: 990px) {
+  .featured-collection .title {
+    font-size: 28px;
+  }
+}
+
+.featured-collection .card__heading {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-top: 12px;
+  color: #111;
+}
+.featured-collection .card__heading a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-collection .card-wrapper .price__sale .price-item--sale,
+.featured-collection .card-wrapper .price__regular .price-item--regular {
+  font-size: 14px;
+  font-weight: 600;
+  color: #b3261e;
+}
+.featured-collection .card-wrapper .price__sale .price-item--regular {
+  font-size: 13px;
+  color: #999;
+  text-decoration: line-through;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+.featured-collection .card__badge .badge {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 0;
+}
+
+.featured-collection .card__media {
+  border-radius: 0;
+  overflow: hidden;
+}
+.featured-collection .card-wrapper .card__media img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+}
+.featured-collection .card-wrapper:hover .card__media img {
+  transform: scale(1.03);
+}
+
+.featured-collection .quick-add__submit {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 18px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  transition: background 0.2s, color 0.2s;
+}
+.featured-collection .quick-add__submit:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ==========================================================================
    AYVA HEADER — remove gap between header and first hero section
    ========================================================================== */
 
