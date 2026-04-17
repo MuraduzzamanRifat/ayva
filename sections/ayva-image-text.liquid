@@ -97,7 +97,9 @@
   <div class="ayva-iwt__grid{% if section.settings.image_position == 'right' %} ayva-iwt__grid--reverse{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
     <div class="ayva-iwt__image">
       {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600,800,1000,1200', sizes: '(min-width: 750px) 50vw, 100vw' }}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600,800,1000,1200', sizes: '(min-width: 750px) 50vw, 100vw', alt: section.settings.heading | escape }}
+      {%- elsif section.settings.image_url != blank -%}
+        <img src="{{ section.settings.image_url }}" alt="{{ section.settings.heading | escape }}" loading="lazy" width="1200" height="1200">
       {%- else -%}
         {{ 'lifestyle-1' | placeholder_svg_tag }}
       {%- endif -%}
@@ -124,7 +126,13 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "Image (preferred — upload to Shopify)"
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Fallback image URL",
+      "info": "Free stock: pexels.com, unsplash.com. Used only when image picker above is empty."
     },
     {
       "type": "select",

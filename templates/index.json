@@ -12,7 +12,7 @@
     "ayva_hero": {
       "type": "ayva-hero",
       "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_Apr_16_2026_07_31_49_PM_1.png",
+        "image_url": "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=2400",
         "button_text": "SHOP NOW",
         "button_link": "/collections/all",
         "min_height_desktop": 85,
@@ -130,16 +130,16 @@
           "type": "collection_card",
           "settings": {
             "title": "The Everyday Edit",
-            "image_url": "",
-            "link": ""
+            "image_url": "https://images.pexels.com/photos/5710085/pexels-photo-5710085.jpeg?auto=compress&cs=tinysrgb&w=1400&h=933&fit=crop",
+            "link": "/collections/all"
           }
         },
         "col_mini": {
           "type": "collection_card",
           "settings": {
             "title": "The Mini Edit",
-            "image_url": "",
-            "link": ""
+            "image_url": "https://images.pexels.com/photos/7679656/pexels-photo-7679656.jpeg?auto=compress&cs=tinysrgb&w=1400&h=933&fit=crop",
+            "link": "/collections/all"
           }
         }
       },
@@ -153,6 +153,7 @@
       "type": "ayva-image-text",
       "settings": {
         "image_position": "left",
+        "image_url": "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200",
         "subtitle": "DESIGNED WITH PURPOSE",
         "heading": "PIECES THAT KEEP UP",
         "text": "<p>Every bag begins with one question: does this actually work for the way you live? Not the runway version — the real one. Commutes, errands, long dinners, early starts.</p><p>So we obsess over the quiet things — stitch density, strap drop, how a zip sits in your hand. Beauty you notice first; utility you rely on for years.</p><p>Enough room for the laptop, the gloss, the leftovers — still polished across the table at dinner.</p>",
@@ -216,6 +217,8 @@
     "ayva_shop_the_look": {
       "type": "ayva-shop-the-look",
       "settings": {
+        "lifestyle_image_url": "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "product_image_url": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800",
         "product_title": "The Brooklyn Bag",
         "sale_price": "€54,99",
         "compare_price": "€99,00"

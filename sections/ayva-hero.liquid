@@ -77,6 +77,8 @@
           sizes: '100vw',
           alt: section.settings.image.alt | default: shop.name | escape
       }}
+    {%- elsif section.settings.image_url != blank -%}
+      <img src="{{ section.settings.image_url }}" alt="{{ shop.name | escape }}" loading="eager" fetchpriority="high" width="2400" height="1350">
     {%- else -%}
       <div class="ayva-hero__placeholder">Upload hero image in theme editor</div>
     {%- endif -%}
@@ -95,7 +97,8 @@
   "name": "AYVA Hero Banner",
   "tag": "section",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Hero image (single full-width)" },
+    { "type": "image_picker", "id": "image", "label": "Hero image (preferred — upload)" },
+    { "type": "text", "id": "image_url", "label": "Fallback hero image URL", "info": "Free stock: pexels.com. Used when no image uploaded." },
     { "type": "text", "id": "button_text", "label": "Button text", "default": "SHOP NOW" },
     { "type": "url", "id": "button_link", "label": "Button link" },
     { "type": "range", "id": "min_height_desktop", "label": "Desktop height (vh)", "min": 50, "max": 100, "step": 5, "default": 85, "unit": "vh" },
