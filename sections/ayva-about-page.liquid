@@ -16,29 +16,42 @@
     object-fit: cover;
     display: block;
   }
+  .ayva-about__hero-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f4ece2 0%, #e8ddd0 100%);
+    color: #999;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 
   .ayva-about__section {
     max-width: 750px;
     margin: 0 auto;
-    padding: 80px 20px;
+    padding: 72px 20px;
     text-align: center;
   }
   @media (min-width: 750px) {
-    .ayva-about__section { padding: 96px 40px; }
+    .ayva-about__section { padding: 88px 40px; }
   }
 
   .ayva-about__heading {
     font-family: inherit;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     line-height: 1.15;
     color: #000;
-    margin: 0 0 32px;
+    margin: 0 0 28px;
   }
   @media (min-width: 750px) {
-    .ayva-about__heading { font-size: 32px; }
+    .ayva-about__heading { font-size: 34px; }
   }
 
   .ayva-about__text {
@@ -46,7 +59,7 @@
     font-size: 15px;
     line-height: 1.8;
     color: #333;
-    margin: 0 0 24px;
+    margin: 0 0 22px;
   }
   .ayva-about__text:last-child { margin-bottom: 0; }
   .ayva-about__text em {
@@ -121,8 +134,8 @@
 
 <div class="ayva-about">
 
-  {%- if section.settings.hero_image != blank -%}
-    <div class="ayva-about__hero">
+  <div class="ayva-about__hero">
+    {%- if section.settings.hero_image != blank -%}
       {{
         section.settings.hero_image
         | image_url: width: 2400
@@ -133,8 +146,12 @@
           sizes: '100vw',
           alt: section.settings.section1_heading | escape
       }}
-    </div>
-  {%- endif -%}
+    {%- else -%}
+      <div class="ayva-about__hero-placeholder">
+        <span>Upload a hero image in the theme customizer</span>
+      </div>
+    {%- endif -%}
+  </div>
 
   <div class="ayva-about__section">
     <h1 class="ayva-about__heading">{{ section.settings.section1_heading | default: 'AYVA BAGS' | escape }}</h1>
