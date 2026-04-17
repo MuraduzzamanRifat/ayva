@@ -1,26 +1,69 @@
 """
-AYVA Product Importer — Adds all AYVA products to Shopify store via Admin API
-Run: python add_products.py
+AYVA Product Importer — Adds all AYVA products to Shopify via Admin API.
+
+Usage:
+    export SHOPIFY_STORE=your-store.myshopify.com
+    export SHOPIFY_TOKEN=shpat_xxx          # Admin API token with write_products
+    python add_products.py
+
 Requires: pip install requests
 """
-import requests
-import json
-import time
+import os
+import re
 import sys
+import time
+import requests
 
-# ── CONFIGURATION ──
-STORE_URL = "pu5duj-az.myshopify.com"
-# You need to create a Custom App in Shopify Admin to get this token
-# Go to: Settings → Apps and sales channels → Develop apps → Create an app
-# Give it: write_products, write_inventory permissions
-# Then install and copy the Admin API access token
-ACCESS_TOKEN = ""  # <-- PASTE YOUR TOKEN HERE
+STORE_URL = os.environ.get("SHOPIFY_STORE", "pu5duj-az.myshopify.com")
+ACCESS_TOKEN = os.environ.get("SHOPIFY_TOKEN", "")
 
 HEADERS = {
     "X-Shopify-Access-Token": ACCESS_TOKEN,
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
 }
 API_URL = f"https://{STORE_URL}/admin/api/2024-01"
+REQUEST_TIMEOUT = 30
+MAX_ATTEMPTS = 4
+
+
+def redact(s):
+    if not s or not ACCESS_TOKEN:
+        return s
+    return str(s).replace(ACCESS_TOKEN, "[REDACTED]")
+
+
+def shopify_request(method, path, payload=None):
+    url = f"{API_URL}{path}"
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            resp = requests.request(
+                method, url, headers=HEADERS, json=payload, timeout=REQUEST_TIMEOUT
+            )
+        except requests.RequestException:
+            if attempt < MAX_ATTEMPTS:
+                time.sleep(2 ** attempt)
+                continue
+            raise
+        if resp.status_code == 429 and attempt < MAX_ATTEMPTS:
+            wait = float(resp.headers.get("Retry-After", 2))
+            time.sleep(wait)
+            continue
+        if 500 <= resp.status_code < 600 and attempt < MAX_ATTEMPTS:
+            time.sleep(2 ** attempt)
+            continue
+        return resp
+    return resp
+
+
+def slugify(title):
+    return re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+
+
+def product_exists(handle):
+    resp = shopify_request("GET", f"/products.json?handle={handle}&fields=id,handle")
+    if resp.status_code == 200:
+        return bool(resp.json().get("products"))
+    return False
 
 # ── ALL AYVA PRODUCTS ──
 PRODUCTS = [
@@ -514,17 +557,18 @@ PRODUCTS = [
 ]
 
 def create_product(product_data):
-    """Create a single product via Shopify Admin API"""
-    payload = {"product": product_data}
-    resp = requests.post(f"{API_URL}/products.json", headers=HEADERS, json=payload)
-    if resp.status_code == 201:
-        title = resp.json()["product"]["title"]
-        pid = resp.json()["product"]["id"]
-        print(f"  ✓ Created: {title} (ID: {pid})")
+    title = product_data["title"]
+    handle = slugify(title)
+    if product_exists(handle):
+        print(f"  [skip] {title} — already exists at /products/{handle}")
         return True
-    else:
-        print(f"  ✗ Failed: {product_data['title']} — {resp.status_code}: {resp.text[:200]}")
-        return False
+    resp = shopify_request("POST", "/products.json", {"product": product_data})
+    if resp.status_code == 201:
+        body = resp.json()["product"]
+        print(f"  ✓ Created: {body['title']} (ID: {body['id']})")
+        return True
+    print(f"  ✗ Failed: {title} — {resp.status_code}: {redact(resp.text)}")
+    return False
 
 def main():
     if not ACCESS_TOKEN:
@@ -532,19 +576,16 @@ def main():
         print("  AYVA PRODUCT IMPORTER")
         print("=" * 60)
         print()
-        print("ERROR: No API access token set!")
+        print("ERROR: SHOPIFY_TOKEN env var not set.")
         print()
-        print("To get your token:")
-        print("1. Go to Shopify Admin → Settings → Apps and sales channels")
-        print("2. Click 'Develop apps' → 'Create an app'")
-        print("3. Name it: 'AYVA Importer'")
-        print("4. Configure Admin API scopes:")
-        print("   - write_products")
-        print("   - read_products")
-        print("5. Click 'Install app'")
-        print("6. Copy the 'Admin API access token'")
-        print("7. Paste it in this script (ACCESS_TOKEN variable)")
-        print("8. Run again: python add_products.py")
+        print("Set these then re-run:")
+        print("  export SHOPIFY_STORE=your-store.myshopify.com")
+        print("  export SHOPIFY_TOKEN=shpat_xxx")
+        print("  python add_products.py")
+        print()
+        print("To get a token: Shopify admin → Settings → Apps → Develop apps")
+        print("  → Create app → Admin API scopes: write_products, read_products")
+        print("  → Install → reveal Admin API access token.")
         print()
         sys.exit(1)
 
@@ -556,19 +597,24 @@ def main():
     print()
 
     success = 0
-    failed = 0
+    failed_titles = []
 
     for i, product in enumerate(PRODUCTS, 1):
         print(f"[{i}/{len(PRODUCTS)}] Adding {product['title']}...")
         if create_product(product):
             success += 1
         else:
-            failed += 1
-        time.sleep(0.5)  # Rate limiting
+            failed_titles.append(product["title"])
+        time.sleep(0.6)  # Shopify REST bucket leaks at 2 req/s
 
     print()
     print("=" * 60)
-    print(f"  DONE! ✓ {success} created | ✗ {failed} failed")
+    print(f"  DONE! ✓ {success} created/skipped | ✗ {len(failed_titles)} failed")
+    if failed_titles:
+        print()
+        print("  Failed products (re-run safe — script is idempotent):")
+        for t in failed_titles:
+            print(f"    - {t}")
     print("=" * 60)
 
 if __name__ == "__main__":

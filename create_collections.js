@@ -14,8 +14,12 @@
 
 const https = require('https');
 
-const STORE = 'pu5du4-az.myshopify.com';
-const ACCESS_TOKEN = ''; // <-- PASTE TOKEN HERE
+// Read from env; fall back to the dev-store handle. Set these in your
+// shell or .env before running:
+//   SHOPIFY_STORE=your-store.myshopify.com
+//   SHOPIFY_TOKEN=shpat_xxx   (Admin API token with write_products)
+const STORE = process.env.SHOPIFY_STORE || 'pu5duj-az.myshopify.com';
+const ACCESS_TOKEN = process.env.SHOPIFY_TOKEN || '';
 
 const COLLECTIONS = [
   {
@@ -132,14 +136,14 @@ async function main() {
     console.log('');
     console.log('ERROR: No API access token set!');
     console.log('');
-    console.log('To get your token:');
-    console.log('1. Go to Shopify Admin → Settings → Apps and sales channels');
-    console.log('2. Click "Develop apps" → "Create an app"');
-    console.log('3. Name: "AYVA Setup"');
-    console.log('4. Admin API scopes: write_products, read_products');
-    console.log('5. Install app → Copy Admin API access token');
-    console.log('6. Paste it in this script (ACCESS_TOKEN variable)');
-    console.log('7. Run: node create_collections.js');
+    console.log('Set these env vars then re-run:');
+    console.log('  export SHOPIFY_STORE=your-store.myshopify.com');
+    console.log('  export SHOPIFY_TOKEN=shpat_xxx');
+    console.log('  node create_collections.js');
+    console.log('');
+    console.log('To get a token: Shopify admin → Settings → Apps → Develop apps');
+    console.log('  → Create app → Admin API scopes: write_products, read_products');
+    console.log('  → Install → reveal Admin API access token.');
     console.log('');
     process.exit(1);
   }
