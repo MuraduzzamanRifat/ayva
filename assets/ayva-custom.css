@@ -2593,6 +2593,43 @@ textarea:focus {
 }
 
 /* ==========================================================================
+   AYVA HEADER — remove gap between header and first hero section
+   ========================================================================== */
+
+.section-header {
+  margin-bottom: 0 !important;
+}
+
+main#MainContent {
+  margin: 0 !important;
+  padding-top: 0 !important;
+}
+
+main#MainContent > .shopify-section:first-child {
+  margin-top: 0 !important;
+}
+
+/* Slightly tighter header to match AYVA's thin top strip */
+@media (min-width: 990px) {
+  .header {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+}
+@media (max-width: 989px) {
+  .header {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+}
+
+/* Hero section must sit flush against the header */
+.ayva-hero,
+.shopify-section:has(> .ayva-hero) {
+  margin-top: 0 !important;
+}
+
+/* ==========================================================================
    AYVA FOOTER — pixel-match ayvaofficial.com footer
    ========================================================================== */
 
