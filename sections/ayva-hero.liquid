@@ -69,11 +69,12 @@
     {%- if section.settings.image == blank and section.settings.image_url == blank -%}
       <div class="ayva-hero__placeholder">Upload hero image in theme editor</div>
     {%- else -%}
+      {%- assign _hero_alt = section.settings.image.alt | default: shop.name -%}
       {%- render 'ayva-image',
         picker: section.settings.image,
         url: section.settings.image_url,
         placeholder: 'lifestyle-1',
-        alt: shop.name,
+        alt: _hero_alt,
         widths: '800,1200,1600,2000,2400',
         sizes: '100vw',
         loading: 'eager',

@@ -53,24 +53,29 @@ const headers = {
 
 // Scrub the access token from any text about to be thrown / logged.
 function redact(s) {
-  if (!s) return s;
+  if (!s || !TOKEN) return s;
   return String(s).split(TOKEN).join('[REDACTED]');
 }
 
-// Wrap fetch with 429-retry honoring Retry-After; max 3 attempts.
+// Wrap fetch with 429-retry honoring Retry-After; up to 4 total attempts.
+// Caller-supplied headers are overridden by our auth header so a bad caller
+// can't accidentally clear the token.
 async function shopifyFetch(path, init = {}, attempt = 1) {
+  const MAX_ATTEMPTS = 4;
   const res = await fetch(`https://${STORE}/admin/api/${API_VERSION}${path}`, {
     ...init,
-    headers: { ...headers, ...(init.headers || {}) },
+    headers: { ...(init.headers || {}), ...headers },
   });
-  if (res.status === 429 && attempt < 4) {
+  if (res.status === 429 && attempt < MAX_ATTEMPTS) {
     const retryAfter = Number(res.headers.get('retry-after')) || 2;
     await new Promise((r) => setTimeout(r, retryAfter * 1000));
     return shopifyFetch(path, init, attempt + 1);
   }
   if (!res.ok) {
-    const body = await res.text().catch(() => '');
-    throw new Error(`${init.method || 'GET'} ${path} failed: ${res.status} ${redact(body)}`);
+    const body = await res.text().catch((e) => `<body read failed: ${e.message}>`);
+    throw new Error(
+      `${init.method || 'GET'} ${path} failed after ${attempt} attempt(s): ${res.status} ${redact(body)}`
+    );
   }
   return res.json();
 }

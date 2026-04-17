@@ -22,6 +22,7 @@
   assign height = height | default: 1200
 -%}
 {%- if picker != blank -%}
+  {%- assign _alt = picker.alt | default: alt -%}
   {{
     picker
     | image_url: width: 2400
@@ -29,12 +30,22 @@
       loading: loading,
       widths: widths,
       sizes: sizes,
-      alt: alt,
+      alt: _alt,
       fetchpriority: fetchpriority
   }}
 {%- elsif url != blank -%}
+  {%- comment -%}
+    Accept https URLs, protocol-relative (//cdn...), and root-relative (/assets/...).
+    Reject http:, javascript:, data:, and anything else — falls to placeholder.
+  {%- endcomment -%}
+  {%- assign _first_two = url | slice: 0, 2 -%}
+  {%- assign _first_one = url | slice: 0, 1 -%}
   {%- assign _protocol = url | split: '://' | first | downcase -%}
-  {%- if _protocol == 'https' -%}
+  {%- assign _url_safe = false -%}
+  {%- if _protocol == 'https' -%}{%- assign _url_safe = true -%}{%- endif -%}
+  {%- if _first_two == '//' -%}{%- assign _url_safe = true -%}{%- endif -%}
+  {%- if _first_one == '/' and _first_two != '//' -%}{%- assign _url_safe = true -%}{%- endif -%}
+  {%- if _url_safe -%}
     <img
       src="{{ url | escape }}"
       alt="{{ alt | escape }}"

@@ -2677,6 +2677,28 @@ textarea:focus {
 }
 
 /* ==========================================================================
+   AYVA image broken-state (onerror fallback via snippets/ayva-image.liquid)
+   ========================================================================== */
+
+.ayva-img-broken {
+  position: relative;
+  min-height: 180px;
+  background: #f4ece2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ayva-img-broken::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #c7b9a5;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* ==========================================================================
    AYVA HEADER — remove gap between header and first hero section
    ========================================================================== */
 

@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    # Intentionally NOT triggering on templates/page.*.json changes — those
+    # are content edits. To register a new page, add its {title, handle,
+    # template_suffix} to PAGES in setup-shopify-pages.mjs (which IS watched
+    # here), or run the workflow manually via workflow_dispatch.
     paths:
       - setup-shopify-pages.mjs
       - .github/workflows/setup-shopify-pages.yml
