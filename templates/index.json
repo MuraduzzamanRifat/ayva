@@ -1,28 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "ayva_hero": {
       "type": "ayva-hero",
       "settings": {
-        "button_text": "SHOP NOW"
+        "image_left": "shopify://shop_images/ChatGPT_Image_Apr_16_2026_07_31_49_PM_1.png",
+        "button_text": "SHOP NOW",
+        "button_link": ""
       }
     },
     "ayva_bestsellers": {
       "type": "featured-collection",
       "settings": {
-        "title": "SHOP OUR BESTSELLERS",
-        "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
+        "title": "SHOP OUR BESTSELLERS",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "columns_desktop": 4,
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": false,
-        "enable_desktop_slider": false,
+        "view_all_style": "solid",
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "enable_quick_add": false,
+        "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 52,
@@ -36,12 +52,15 @@
           "type": "collection_card",
           "settings": {
             "title": "All bags",
+            "link": "",
+            "underline": false
           }
         },
         "col_new": {
           "type": "collection_card",
           "settings": {
             "title": "NEW",
+            "link": "",
             "underline": true
           }
         },
@@ -49,16 +68,26 @@
           "type": "collection_card",
           "settings": {
             "title": "Bag charms",
+            "link": "",
+            "underline": false
           }
         },
         "col_everyday": {
           "type": "collection_card",
           "settings": {
             "title": "AYVA Everyday",
+            "link": "",
+            "underline": false
           }
         }
       },
-      "block_order": ["col_allbags", "col_new", "col_charms", "col_everyday"]
+      "block_order": [
+        "col_allbags",
+        "col_new",
+        "col_charms",
+        "col_everyday"
+      ],
+      "settings": {}
     },
     "ayva_more_than_pretty": {
       "type": "ayva-image-text",
@@ -67,7 +96,8 @@
         "subtitle": "DESIGNED IN STOCKHOLM",
         "heading": "MORE THAN PRETTY BAGS",
         "text": "<p>At AYVA, we believe bags should do more than carry your things.</p><p>They should carry your mood, your memories, your moment.</p><p>Inspired by the effortless charm of European street style, our designs blend soft structure, rich textures, and playful details to bring elegance into your everyday.</p><p>From morning coffee runs to late-night walks</p>",
-        "button_text": "BESTSELLERS"
+        "button_text": "BESTSELLERS",
+        "button_link": ""
       }
     },
     "ayva_big_or_small_heading": {
@@ -89,17 +119,25 @@
         "col_everyday": {
           "type": "collection_card",
           "settings": {
-            "title": "AYVA Everyday"
+            "title": "AYVA Everyday",
+            "image_url": "",
+            "link": ""
           }
         },
         "col_mini": {
           "type": "collection_card",
           "settings": {
-            "title": "AYVA Mini"
+            "title": "AYVA Mini",
+            "image_url": "",
+            "link": ""
           }
         }
       },
-      "block_order": ["col_everyday", "col_mini"]
+      "block_order": [
+        "col_everyday",
+        "col_mini"
+      ],
+      "settings": {}
     },
     "ayva_style_function": {
       "type": "ayva-image-text",
@@ -108,15 +146,16 @@
         "subtitle": "STYLE MEETS FUNCTION",
         "heading": "BUILT FOR YOUR EVERYDAY",
         "text": "<p>Every AYVA bag is thoughtfully designed to keep up with real life — not just runway life.</p><p>From the stitching to the straps, every detail is made to blend elegance with ease.</p><p>We believe in smart beauty: bags that carry your laptop, lip gloss, leftovers and still look chic at dinner.</p><p>No fuss. No compromise. Just everyday charm done right.</p>",
-        "button_text": "FIND YOUR EVERYDAY FAVORITE"
+        "button_text": "FIND YOUR EVERYDAY FAVORITE",
+        "button_link": ""
       }
     },
     "ayva_shop_the_look": {
       "type": "ayva-shop-the-look",
       "settings": {
         "product_title": "The Brooklyn Bag",
-        "sale_price": "\u20ac54,99",
-        "compare_price": "\u20ac99,00"
+        "sale_price": "€54,99",
+        "compare_price": "€99,00"
       }
     },
     "ayva_brand_pillars": {
@@ -150,17 +189,21 @@
           }
         }
       },
-      "block_order": ["pillar_1", "pillar_2", "pillar_3"],
+      "block_order": [
+        "pillar_1",
+        "pillar_2",
+        "pillar_3"
+      ],
       "settings": {
         "title": "",
         "heading_size": "h2",
         "image_width": "full",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "none",
-        "button_label": "",
-        "button_link": "",
         "color_scheme": "scheme-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
