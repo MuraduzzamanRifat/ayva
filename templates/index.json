@@ -54,7 +54,8 @@
           "type": "collection_card",
           "settings": {
             "title": "All bags",
-            "link": "",
+            "image_url": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop",
+            "link": "/collections/all",
             "underline": false
           }
         },
@@ -62,7 +63,8 @@
           "type": "collection_card",
           "settings": {
             "title": "Just in",
-            "link": "",
+            "image_url": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop",
+            "link": "/collections/all",
             "underline": true
           }
         },
@@ -70,7 +72,8 @@
           "type": "collection_card",
           "settings": {
             "title": "Charms",
-            "link": "",
+            "image_url": "https://images.pexels.com/photos/1895019/pexels-photo-1895019.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop",
+            "link": "/collections/all",
             "underline": false
           }
         },
@@ -78,7 +81,8 @@
           "type": "collection_card",
           "settings": {
             "title": "The Everyday Edit",
-            "link": "",
+            "image_url": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop",
+            "link": "/collections/all",
             "underline": false
           }
         }
