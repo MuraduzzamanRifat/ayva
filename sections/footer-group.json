@@ -6,10 +6,10 @@
       "type": "footer",
       "blocks": {
         "footer-information": {
-          "type": "text",
+          "type": "link_list",
           "settings": {
             "heading": "Information",
-            "subtext": "<p><a href=\"/pages/about-us\">About us</a></p><p><a href=\"/pages/privacy-policy\">Privacy policy</a></p><p><a href=\"/pages/refund-policy\">Refund &amp; returns</a></p><p><a href=\"/pages/shipping-policy\">Shipping policy</a></p><p><a href=\"/pages/terms-of-service\">Terms of service</a></p>"
+            "menu": "footer-info"
           }
         },
         "footer-contact": {

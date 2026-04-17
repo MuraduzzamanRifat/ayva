@@ -555,3 +555,65 @@
 .ayva-reviews__item header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .ayva-reviews__item header strong { font-size: 13px; font-weight: 600; }
 .ayva-reviews__item p { font-size: 14px; line-height: 1.6; color: var(--ayva-fg-2); margin: 0; }
+
+.ayva-policy {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 64px 20px 80px;
+  color: var(--ayva-fg);
+  font-family: inherit;
+}
+@media (min-width: 750px) {
+  .ayva-policy { padding: 96px 40px 112px; }
+}
+.ayva-policy__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ayva-fg-3);
+  margin: 0 0 12px;
+}
+.ayva-policy__heading {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+@media (min-width: 750px) {
+  .ayva-policy__heading { font-size: 40px; }
+}
+.ayva-policy__meta {
+  font-size: 13px;
+  color: var(--ayva-fg-3);
+  margin: 0 0 40px;
+}
+.ayva-policy__body {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ayva-fg-2);
+}
+.ayva-policy__body h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ayva-fg);
+  margin: 40px 0 12px;
+  letter-spacing: -0.005em;
+}
+.ayva-policy__body h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 28px 0 8px;
+}
+.ayva-policy__body p { margin: 0 0 16px; }
+.ayva-policy__body ul,
+.ayva-policy__body ol { margin: 0 0 16px; padding-left: 22px; }
+.ayva-policy__body li { margin: 0 0 6px; }
+.ayva-policy__body a {
+  color: var(--ayva-fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ayva-policy__body a:hover { text-decoration-thickness: 2px; }
+.ayva-policy__body strong { color: var(--ayva-fg); font-weight: 600; }
+.ayva-policy__body hr { border: 0; border-top: 1px solid var(--ayva-border); margin: 40px 0; }
