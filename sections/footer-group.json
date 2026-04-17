@@ -5,11 +5,11 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-information": {
-          "type": "link_list",
+        "footer-support": {
+          "type": "text",
           "settings": {
-            "heading": "Information",
-            "menu": "footer-info"
+            "heading": "Support",
+            "subtext": "<p><a href=\"/pages/about-us\">About us</a></p><p><a href=\"/pages/privacy-policy\">Privacy policy</a></p><p><a href=\"/pages/refund-policy\">Refund policy</a></p><p><a href=\"/pages/shipping-policy\">Shipping policy</a></p><p><a href=\"/pages/terms-of-service\">Terms of service</a></p>"
           }
         },
         "footer-contact": {
@@ -28,7 +28,7 @@
         }
       },
       "block_order": [
-        "footer-information",
+        "footer-support",
         "footer-contact",
         "footer-company"
       ],
