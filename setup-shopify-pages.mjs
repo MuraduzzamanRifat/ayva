@@ -51,42 +51,51 @@ const headers = {
   Accept: 'application/json',
 };
 
+// Scrub the access token from any text about to be thrown / logged.
+function redact(s) {
+  if (!s) return s;
+  return String(s).split(TOKEN).join('[REDACTED]');
+}
+
+// Wrap fetch with 429-retry honoring Retry-After; max 3 attempts.
+async function shopifyFetch(path, init = {}, attempt = 1) {
+  const res = await fetch(`https://${STORE}/admin/api/${API_VERSION}${path}`, {
+    ...init,
+    headers: { ...headers, ...(init.headers || {}) },
+  });
+  if (res.status === 429 && attempt < 4) {
+    const retryAfter = Number(res.headers.get('retry-after')) || 2;
+    await new Promise((r) => setTimeout(r, retryAfter * 1000));
+    return shopifyFetch(path, init, attempt + 1);
+  }
+  if (!res.ok) {
+    const body = await res.text().catch(() => '');
+    throw new Error(`${init.method || 'GET'} ${path} failed: ${res.status} ${redact(body)}`);
+  }
+  return res.json();
+}
+
 async function findByHandle(handle) {
-  const res = await fetch(
-    `https://${STORE}/admin/api/${API_VERSION}/pages.json?handle=${encodeURIComponent(handle)}`,
-    { headers }
-  );
-  if (!res.ok) throw new Error(`GET pages failed: ${res.status} ${await res.text()}`);
-  const { pages } = await res.json();
+  const { pages } = await shopifyFetch(`/pages.json?handle=${encodeURIComponent(handle)}`);
   return pages?.[0] ?? null;
 }
 
 async function createPage({ title, handle, template_suffix }) {
-  const res = await fetch(
-    `https://${STORE}/admin/api/${API_VERSION}/pages.json`,
-    {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        page: { title, handle, template_suffix, body_html: '', published: true },
-      }),
-    }
-  );
-  if (!res.ok) throw new Error(`POST page "${handle}" failed: ${res.status} ${await res.text()}`);
-  return (await res.json()).page;
+  const { page } = await shopifyFetch('/pages.json', {
+    method: 'POST',
+    body: JSON.stringify({
+      page: { title, handle, template_suffix, body_html: '', published: true },
+    }),
+  });
+  return page;
 }
 
 async function updateTemplate(id, template_suffix) {
-  const res = await fetch(
-    `https://${STORE}/admin/api/${API_VERSION}/pages/${id}.json`,
-    {
-      method: 'PUT',
-      headers,
-      body: JSON.stringify({ page: { id, template_suffix } }),
-    }
-  );
-  if (!res.ok) throw new Error(`PUT page ${id} failed: ${res.status} ${await res.text()}`);
-  return (await res.json()).page;
+  const { page } = await shopifyFetch(`/pages/${id}.json`, {
+    method: 'PUT',
+    body: JSON.stringify({ page: { id, template_suffix } }),
+  });
+  return page;
 }
 
 (async () => {
@@ -107,7 +116,7 @@ async function updateTemplate(id, template_suffix) {
         console.log(`  [created]  /pages/${spec.handle}  (template: page.${spec.template_suffix})`);
       }
     } catch (err) {
-      console.error(`  [failed]   /pages/${spec.handle}  — ${err.message}`);
+      console.error(`  [failed]   /pages/${spec.handle}  — ${redact(err.message)}`);
     }
   }
 

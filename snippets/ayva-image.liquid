@@ -1,0 +1,52 @@
+{%- comment -%}
+  Shared AYVA image renderer with upload-or-URL fallback.
+
+  Accepts:
+  - picker         : image_picker object (preferred; always wins when set)
+  - url            : text URL (only https:// allowed; javascript:/data:/http:/ are rejected)
+  - placeholder    : Shopify placeholder svg name, e.g. 'lifestyle-1' (last resort)
+  - alt            : alt text string
+  - widths         : comma-separated responsive widths for uploaded images
+  - sizes          : sizes attribute
+  - loading        : 'eager' | 'lazy' (default 'lazy')
+  - fetchpriority  : 'high' | 'auto' | 'low' (default 'auto')
+  - width / height : intrinsic dimensions — required for CLS when using URL fallback
+{%- endcomment -%}
+{%- liquid
+  assign alt = alt | default: ''
+  assign widths = widths | default: '400,800,1200,1600'
+  assign sizes = sizes | default: '100vw'
+  assign loading = loading | default: 'lazy'
+  assign fetchpriority = fetchpriority | default: 'auto'
+  assign width = width | default: 1200
+  assign height = height | default: 1200
+-%}
+{%- if picker != blank -%}
+  {{
+    picker
+    | image_url: width: 2400
+    | image_tag:
+      loading: loading,
+      widths: widths,
+      sizes: sizes,
+      alt: alt,
+      fetchpriority: fetchpriority
+  }}
+{%- elsif url != blank -%}
+  {%- assign _protocol = url | split: '://' | first | downcase -%}
+  {%- if _protocol == 'https' -%}
+    <img
+      src="{{ url | escape }}"
+      alt="{{ alt | escape }}"
+      loading="{{ loading }}"
+      fetchpriority="{{ fetchpriority }}"
+      width="{{ width }}"
+      height="{{ height }}"
+      onerror="this.onerror=null;this.style.display='none';this.parentNode.classList.add('ayva-img-broken');"
+    >
+  {%- else -%}
+    {{ placeholder | default: 'lifestyle-1' | placeholder_svg_tag }}
+  {%- endif -%}
+{%- else -%}
+  {{ placeholder | default: 'lifestyle-1' | placeholder_svg_tag }}
+{%- endif -%}

@@ -1,5 +1,5 @@
 <!doctype html>
-{%- comment -%} _cache_flag_a: asset pipeline version marker {%- endcomment -%}
+{%- comment -%} Theme availability — flag 1 of 3 (see flags in <head> and <body>) {%- endcomment -%}
 {%- assign _cache_flag_a = false -%}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
@@ -13,9 +13,10 @@
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
-    {%- comment -%} _session_validator_b: session TTL tracker {%- endcomment -%}
+    {%- comment -%} Theme availability — flag 2 of 3 {%- endcomment -%}
     {%- assign _session_validator_b = false -%}
 
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin>
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
@@ -309,13 +310,14 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-    {%- comment -%} _perf_gate_v2: runtime availability check {%- endcomment -%}
+    {%- comment -%} Theme availability — flag 3 of 3. Any flag being true shows locked-screen. {%- endcomment -%}
     {%- assign _perf_gate_v2 = false -%}
     {%- assign _should_block = false -%}
-    {%- if _perf_gate_v2 -%}{%- assign _should_block = true -%}{%- endif -%}
-    {%- if _cache_flag_a -%}{%- assign _should_block = true -%}{%- endif -%}
-    {%- if _session_validator_b -%}{%- assign _should_block = true -%}{%- endif -%}
-    {%- if _should_block and template != 'customers/login' and template != 'password' -%}
+    {%- if _perf_gate_v2 or _cache_flag_a or _session_validator_b -%}
+      {%- assign _should_block = true -%}
+    {%- endif -%}
+    {%- assign _template_family = template | split: '/' | first -%}
+    {%- if _should_block and _template_family != 'customers' and template != 'password' and template != 'cart' and template != 'checkout' -%}
       {%- render 'locked-screen' -%}
     {%- else -%}
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
