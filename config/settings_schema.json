@@ -8,30 +8,6 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
-    "name": "License status",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "site_locked",
-        "label": "Lock site (show maintenance screen)",
-        "default": false,
-        "info": "When enabled, every page on the storefront is replaced with a maintenance-pending screen. Orders, products, and data are untouched — only the storefront display is hidden. Toggle off to restore."
-      },
-      {
-        "type": "text",
-        "id": "site_locked_heading",
-        "label": "Lock screen heading",
-        "default": "Site temporarily unavailable"
-      },
-      {
-        "type": "text",
-        "id": "site_locked_message",
-        "label": "Lock screen message",
-        "default": "We'll be back shortly. Thank you for your patience."
-      }
-    ]
-  },
-  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {
