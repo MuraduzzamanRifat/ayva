@@ -1,0 +1,309 @@
+{%- liquid
+  assign product_form_id = 'product-form-ayva-' | append: section.id
+  assign current_variant = product.selected_or_first_available_variant
+  assign on_sale = false
+  if current_variant.compare_at_price and current_variant.compare_at_price > current_variant.price
+    assign on_sale = true
+    assign discount_pct = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
+  endif
+-%}
+
+{{ 'ayva-product.css' | asset_url | stylesheet_tag }}
+{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+<product-info
+  id="AyvaProduct-{{ section.id }}"
+  class="ayva-product"
+  data-section="{{ section.id }}"
+  data-product-id="{{ product.id }}"
+  data-update-url="true"
+  data-url="{{ product.url }}"
+>
+  <div class="ayva-product__container">
+    {%- if section.settings.show_breadcrumbs -%}
+      <nav class="ayva-breadcrumbs" aria-label="breadcrumb">
+        <a href="{{ routes.root_url }}">Home</a>
+        <span class="ayva-breadcrumbs__sep">/</span>
+        {%- if collection -%}
+          <a href="{{ collection.url }}">{{ collection.title | upcase }}</a>
+          <span class="ayva-breadcrumbs__sep">/</span>
+        {%- elsif product.collections.first -%}
+          <a href="{{ product.collections.first.url }}">{{ product.collections.first.title | upcase }}</a>
+          <span class="ayva-breadcrumbs__sep">/</span>
+        {%- endif -%}
+        <span class="ayva-breadcrumbs__current">{{ product.title }}</span>
+      </nav>
+    {%- endif -%}
+
+    <div class="ayva-product__grid">
+      {%- comment -%} LEFT: Gallery {%- endcomment -%}
+      <div class="ayva-gallery">
+        {%- if product.media.size > 0 -%}
+          <div class="ayva-gallery__main" id="AyvaGalleryMain-{{ section.id }}">
+            {%- for media in product.media -%}
+              <div
+                class="ayva-gallery__slide{% if forloop.first %} is-active{% endif %}"
+                data-media-id="{{ media.id }}"
+              >
+                {%- if media.media_type == 'image' -%}
+                  {{
+                    media
+                    | image_url: width: 1600
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '400, 600, 800, 1000, 1200, 1600',
+                      sizes: '(min-width: 990px) 60vw, 100vw',
+                      alt: media.alt | default: product.title
+                  }}
+                {%- else -%}
+                  {{ media | media_tag: image_size: '1600x', autoplay: true, loop: true, muted: true }}
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+
+          {%- if product.media.size > 1 -%}
+            <div class="ayva-gallery__thumbs" role="list">
+              {%- for media in product.media -%}
+                <button
+                  type="button"
+                  class="ayva-gallery__thumb{% if forloop.first %} is-active{% endif %}"
+                  data-thumb-id="{{ media.id }}"
+                  aria-label="{{ 'products.product.media.image' | t }} {{ forloop.index }}"
+                >
+                  {{
+                    media.preview_image
+                    | image_url: width: 300
+                    | image_tag: loading: 'lazy', widths: '150,300', alt: media.alt | default: product.title
+                  }}
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- else -%}
+          <div class="ayva-gallery__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} RIGHT: Info {%- endcomment -%}
+      <div class="ayva-info">
+        <h1 class="ayva-info__title">{{ product.title | escape }}</h1>
+
+        {%- if section.settings.show_rating -%}
+          <div class="ayva-info__rating">
+            <span class="ayva-stars" aria-hidden="true">
+              {%- for i in (1..5) -%}<svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 17.27l5.18 3.73-1.64-6.36L20.55 9.5l-6.45-.57L12 3 9.9 8.93 3.45 9.5l5.01 5.14L6.82 21z"/></svg>{%- endfor -%}
+            </span>
+            <span class="ayva-info__rating-text">{{ section.settings.rating_text }}</span>
+          </div>
+        {%- endif -%}
+
+        <div class="ayva-info__price" id="AyvaPrice-{{ section.id }}">
+          {%- if on_sale -%}
+            <span class="ayva-price__sale">{{ current_variant.price | money }}</span>
+            <span class="ayva-price__compare">{{ current_variant.compare_at_price | money }}</span>
+            <span class="ayva-price__off">-{{ discount_pct }}% off</span>
+          {%- else -%}
+            <span class="ayva-price__sale">{{ current_variant.price | money }}</span>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.show_promo_strip and section.settings.promo_text != blank -%}
+          <div class="ayva-promo-strip">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/>
+              <circle cx="7" cy="7" r="1"/>
+            </svg>
+            <span>{{ section.settings.promo_text }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- unless product.has_only_default_variant -%}
+          <div class="ayva-variants">
+            {%- for option in product.options_with_values -%}
+              <div class="ayva-variants__group" data-option-index="{{ forloop.index0 }}">
+                <div class="ayva-variants__label">
+                  <span>{{ option.name }}:</span>
+                  <strong data-selected-value>{{ option.selected_value }}</strong>
+                </div>
+                <div class="ayva-variants__options" role="radiogroup" aria-label="{{ option.name }}">
+                  {%- for value in option.values -%}
+                    <input
+                      type="radio"
+                      id="Ayva-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+                      name="options[{{ option.name | escape }}]"
+                      value="{{ value | escape }}"
+                      form="{{ product_form_id }}"
+                      {% if option.selected_value == value %}checked{% endif %}
+                    >
+                    <label
+                      for="Ayva-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+                      class="ayva-variants__pill"
+                    >
+                      {{ value }}
+                    </label>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endfor -%}
+
+            <script type="application/json" data-selected-variant>
+              {{ current_variant | json }}
+            </script>
+          </div>
+        {%- endunless -%}
+
+        <div class="ayva-buy">
+          {%- if current_variant.available -%}
+            {%- form 'product',
+              product,
+              id: product_form_id,
+              class: 'ayva-buy__form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            -%}
+              <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+              <button
+                type="submit"
+                name="add"
+                class="ayva-btn ayva-btn--primary"
+                data-atc-button
+              >
+                <span>Add to cart — {{ current_variant.price | money }}</span>
+              </button>
+              {%- if section.settings.show_dynamic_checkout -%}
+                {{ form | payment_button }}
+              {%- endif -%}
+            {%- endform -%}
+          {%- else -%}
+            <button type="button" class="ayva-btn ayva-btn--disabled" disabled>
+              Sold Out — Notify Me When It's Available
+            </button>
+            {%- if section.settings.show_notify_form -%}
+              <form action="/contact" method="post" class="ayva-notify" accept-charset="UTF-8">
+                <input type="hidden" name="form_type" value="contact">
+                <input type="hidden" name="utf8" value="✓">
+                <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title }} is back in stock. Variant: {{ current_variant.title }}">
+                <label class="ayva-notify__label" for="AyvaNotify-{{ section.id }}">Product notification for <strong>{{ product.title }}</strong></label>
+                <div class="ayva-notify__row">
+                  <input type="email" required name="contact[email]" id="AyvaNotify-{{ section.id }}" placeholder="Your email" class="ayva-notify__input">
+                  <button type="submit" class="ayva-btn ayva-btn--outline">Notify Me</button>
+                </div>
+              </form>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.show_shipping_line -%}
+          <div class="ayva-shipping">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+            <span>{{ section.settings.shipping_text }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_payment_badges -%}
+          <div class="ayva-payments" aria-label="Accepted payment methods">
+            {%- for type in shop.enabled_payment_types -%}
+              {{ type | payment_type_svg_tag: class: 'ayva-payments__icon' }}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_description and product.description != blank -%}
+          <div class="ayva-description">
+            <h2 class="ayva-description__title">{{ product.title }}</h2>
+            <div class="ayva-description__body rte">{{ product.description }}</div>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.money_back_text != blank -%}
+          <details class="ayva-collapsible">
+            <summary>
+              <span>{{ section.settings.money_back_heading }}</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="ayva-collapsible__chev"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="ayva-collapsible__body rte">{{ section.settings.money_back_text }}</div>
+          </details>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Mobile sticky ATC {%- endcomment -%}
+  {%- if section.settings.show_sticky_atc and current_variant.available -%}
+    <div class="ayva-sticky-atc" aria-hidden="true">
+      <a href="#AyvaProduct-{{ section.id }}" class="ayva-sticky-atc__link">
+        <span>Add to cart — {{ current_variant.price | money }}</span>
+      </a>
+    </div>
+  {%- endif -%}
+</product-info>
+
+<script>
+  (function () {
+    var root = document.getElementById('AyvaProduct-{{ section.id }}');
+    if (!root) return;
+
+    var thumbs = root.querySelectorAll('.ayva-gallery__thumb');
+    var slides = root.querySelectorAll('.ayva-gallery__slide');
+    thumbs.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-thumb-id');
+        thumbs.forEach(function (t) { t.classList.remove('is-active'); });
+        slides.forEach(function (s) { s.classList.toggle('is-active', s.getAttribute('data-media-id') === id); });
+        btn.classList.add('is-active');
+      });
+    });
+
+    root.querySelectorAll('.ayva-variants__group').forEach(function (group) {
+      var radios = group.querySelectorAll('input[type="radio"]');
+      var label = group.querySelector('[data-selected-value]');
+      radios.forEach(function (r) {
+        r.addEventListener('change', function () {
+          if (r.checked && label) label.textContent = r.value;
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "AYVA Product Main",
+  "tag": "section",
+  "class": "section ayva-product-section",
+  "settings": [
+    { "type": "header", "content": "Breadcrumbs & Rating" },
+    { "type": "checkbox", "id": "show_breadcrumbs", "label": "Show breadcrumbs", "default": true },
+    { "type": "checkbox", "id": "show_rating", "label": "Show rating badge", "default": true },
+    { "type": "text", "id": "rating_text", "label": "Rating text", "default": "4.87/5 OUT OF 100,000+ CUSTOMERS" },
+
+    { "type": "header", "content": "Promo & Shipping" },
+    { "type": "checkbox", "id": "show_promo_strip", "label": "Show promo strip", "default": true },
+    { "type": "text", "id": "promo_text", "label": "Promo text", "default": "2nd bag 40% OFF" },
+    { "type": "checkbox", "id": "show_shipping_line", "label": "Show free shipping line", "default": true },
+    { "type": "text", "id": "shipping_text", "label": "Shipping line", "default": "Free shipping on all orders" },
+    { "type": "checkbox", "id": "show_payment_badges", "label": "Show payment badges", "default": true },
+
+    { "type": "header", "content": "Buy Buttons" },
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Show dynamic checkout (Shop Pay etc.)", "default": true },
+    { "type": "checkbox", "id": "show_notify_form", "label": "Show notify-me form when sold out", "default": true },
+
+    { "type": "header", "content": "Description & Collapsible" },
+    { "type": "checkbox", "id": "show_description", "label": "Show product description", "default": true },
+    { "type": "text", "id": "money_back_heading", "label": "Money-back heading", "default": "30-Day Money Back Guarantee" },
+    { "type": "richtext", "id": "money_back_text", "label": "Money-back content", "default": "<p>Not satisfied? Return your item within 30 days for a full refund — no questions asked.</p>" },
+
+    { "type": "header", "content": "Mobile" },
+    { "type": "checkbox", "id": "show_sticky_atc", "label": "Show mobile sticky Add to Cart", "default": true }
+  ],
+  "presets": [
+    { "name": "AYVA Product Main" }
+  ]
+}
+{% endschema %}

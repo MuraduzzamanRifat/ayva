@@ -1,216 +1,78 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
-      "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title"
-        },
-        "caption": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
-            "text_style": "subtitle"
-          }
-        },
-        "price": {
-          "type": "price"
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector"
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "description": {
-          "type": "description"
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "vendor",
-        "title",
-        "caption",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
-      ],
+      "type": "ayva-product-main",
       "settings": {
-        "enable_sticky_info": true,
-        "gallery_layout": "stacked",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "show_breadcrumbs": true,
+        "show_rating": true,
+        "rating_text": "4.87/5 OUT OF 100,000+ CUSTOMERS",
+        "show_promo_strip": true,
+        "promo_text": "2nd bag 40% OFF",
+        "show_shipping_line": true,
+        "shipping_text": "Free shipping on all orders",
+        "show_payment_badges": true,
+        "show_dynamic_checkout": true,
+        "show_notify_form": true,
+        "show_description": true,
+        "money_back_heading": "30-Day Money Back Guarantee",
+        "money_back_text": "<p>Not satisfied? Return your item within 30 days for a full refund — no questions asked. Items must be unused with original packaging. Email <a href=\"mailto:hey@ayvaofficial.com\">hey@ayvaofficial.com</a> to start a return.</p>",
+        "show_sticky_atc": true
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
-      "blocks": {
-        "image-with-text-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "image-with-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
-      ],
+    "complete-the-look": {
+      "type": "ayva-complete-the-look",
       "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "scheme-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Complete the look:",
+        "products_to_show": 3
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column-0": {
-          "type": "column",
-          "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column-1": {
-          "type": "column",
-          "settings": {
-            "title": "Hassle-Free Exchanges",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column-0",
-        "column-1"
-      ],
+    "charms": {
+      "type": "ayva-charms-grid",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "We love bag charms!",
+        "cta_label": "Shop Now",
+        "cta_link": "/collections/all",
+        "products_to_show": 6
       }
     },
-    "related-products": {
-      "type": "related-products",
+    "faq": {
+      "type": "ayva-faq",
+      "blocks": {
+        "q1": { "type": "faq", "settings": { "question": "Does it feel high quality in real life?", "answer": "<p>Yes — we obsess over materials. Every bag is crafted in smooth vegan leather with solid metal hardware. Customers regularly tell us it feels far more premium than the price suggests.</p>" } },
+        "q2": { "type": "faq", "settings": { "question": "Will it fit my everyday essentials?", "answer": "<p>Absolutely. Our bags are designed to comfortably hold your phone, wallet, keys, sunglasses, and small makeup pouch — with room to spare.</p>" } },
+        "q3": { "type": "faq", "settings": { "question": "Is AYVA a real and safe brand to order from?", "answer": "<p>100%. AYVA is a registered Swedish company (AOE Ecom AB, Reg# 559458-2925). We ship worldwide, offer a 30-day money-back guarantee, and have served 100,000+ customers.</p>" } },
+        "q4": { "type": "faq", "settings": { "question": "What if the color looks different in real life?", "answer": "<p>Colors are photographed in natural light and can vary slightly by monitor. If the color isn't what you expected, return within 30 days for a full refund.</p>" } },
+        "q5": { "type": "faq", "settings": { "question": "Why is the price this level?", "answer": "<p>We sell direct — no middlemen, no department-store markup. You get designer-level quality at a fraction of the cost.</p>" } },
+        "q6": { "type": "faq", "settings": { "question": "What if I change my mind after ordering?", "answer": "<p>No stress. You have 30 days from delivery to return for a full refund. Reach out to hey@ayvaofficial.com and we'll handle it.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
       "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "heading": "Frequently asked questions"
+      }
+    },
+    "reviews": {
+      "type": "ayva-reviews",
+      "blocks": {
+        "r1": { "type": "review", "settings": { "author": "Anonymous", "stars": 5, "body": "so cuteeee" } }
+      },
+      "block_order": ["r1"],
+      "settings": {
+        "heading": "Customer Reviews",
+        "average_rating": "4.87",
+        "total_reviews": 1,
+        "pct_5": 100,
+        "pct_4": 0,
+        "pct_3": 0,
+        "pct_2": 0,
+        "pct_1": 0
       }
     }
   },
   "order": [
     "main",
-    "image-with-text",
-    "multicolumn",
-    "related-products"
+    "complete-the-look",
+    "charms",
+    "faq",
+    "reviews"
   ]
 }
