@@ -9,7 +9,7 @@
           "type": "text",
           "settings": {
             "heading": "Support",
-            "subtext": "<p><a href=\"/pages/about-us\">About us</a></p><p><a href=\"/pages/privacy-policy\">Privacy policy</a></p><p><a href=\"/pages/refund-policy\">Refund policy</a></p><p><a href=\"/pages/shipping-policy\">Shipping policy</a></p><p><a href=\"/pages/terms-of-service\">Terms of service</a></p>"
+            "subtext": "<p><a href=\"/pages/about-us\">About Us</a></p><p><a href=\"/pages/privacy-policy\">Privacy Policy</a></p><p><a href=\"/pages/refund-policy\">Refund Policy</a></p><p><a href=\"/pages/shipping-policy\">Shipping Policy</a></p><p><a href=\"/pages/terms-of-service\">Terms of Service</a></p><p><a href=\"/pages/ambassador-program\">Ambassador Program</a></p>"
           }
         },
         "footer-contact": {
