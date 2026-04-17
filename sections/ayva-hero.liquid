@@ -1,143 +1,113 @@
-<!-- AYVA Hero Banner: Two images side-by-side with centered SHOP NOW -->
 {%- style -%}
-  .ayva-hero {
+  #AyvaHero-{{ section.id }} {
     position: relative;
     width: 100%;
     overflow: hidden;
+    min-height: {{ section.settings.min_height_desktop }}vh;
+    display: flex;
+    align-items: stretch;
   }
-  .ayva-hero__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    min-height: 85vh;
-  }
-  .ayva-hero__grid--single {
-    grid-template-columns: 1fr;
-  }
-  @media screen and (max-width: 749px) {
-    .ayva-hero__grid {
-      grid-template-columns: 1fr;
-      min-height: auto;
+  @media (max-width: 749px) {
+    #AyvaHero-{{ section.id }} {
+      min-height: {{ section.settings.min_height_mobile }}vh;
     }
   }
-  .ayva-hero__image {
+  #AyvaHero-{{ section.id }} .ayva-hero__image {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    position: absolute;
+    inset: 0;
   }
-  .ayva-hero__image img {
+  #AyvaHero-{{ section.id }} .ayva-hero__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
-  .ayva-hero__cta {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+  #AyvaHero-{{ section.id }} .ayva-hero__cta {
+    position: relative;
+    margin: auto;
+    z-index: 2;
     background: rgba(255, 255, 255, 0.95);
-    padding: 2.4rem 4rem;
+    padding: 20px 40px;
     text-align: center;
   }
-  @media screen and (max-width: 749px) {
-    .ayva-hero__cta {
-      position: relative;
-      top: auto;
-      left: auto;
-      transform: none;
-      padding: 2rem 3rem;
-      margin: -2rem auto 0;
-      width: 80%;
-      z-index: 10;
+  @media (max-width: 749px) {
+    #AyvaHero-{{ section.id }} .ayva-hero__cta {
+      padding: 16px 32px;
     }
   }
-  .ayva-hero__btn {
+  #AyvaHero-{{ section.id }} .ayva-hero__btn {
     display: inline-block;
-    font-family: var(--ayva-font-body);
-    font-size: 1.1rem;
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.18em;
     color: #000;
     background: transparent;
     border: 2px solid #000;
-    padding: 1.2rem 3.6rem;
+    padding: 14px 40px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background .2s, color .2s;
   }
-  .ayva-hero__btn:hover {
+  #AyvaHero-{{ section.id }} .ayva-hero__btn:hover {
     background: #000;
     color: #fff;
   }
-  .ayva-hero__placeholder {
+  #AyvaHero-{{ section.id }} .ayva-hero__placeholder {
     width: 100%;
-    height: 100%;
-    min-height: 400px;
+    min-height: 60vh;
     background: #f0ede8;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #999;
-    font-size: 1.4rem;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
 {%- endstyle -%}
 
-<section class="ayva-hero">
-  <div class="ayva-hero__grid{% if section.settings.image_right == blank %} ayva-hero__grid--single{% endif %}">
-    <div class="ayva-hero__image">
-      {%- if section.settings.image_left != blank -%}
-        {{ section.settings.image_left | image_url: width: 2000 | image_tag: loading: 'eager', widths: '800,1200,1600,2000', sizes: '(min-width: 750px) 50vw, 100vw' }}
-      {%- else -%}
-        <div class="ayva-hero__placeholder">Upload hero image in theme editor</div>
-      {%- endif -%}
-    </div>
-    {%- if section.settings.image_right != blank -%}
-    <div class="ayva-hero__image">
-      {{ section.settings.image_right | image_url: width: 2000 | image_tag: loading: 'eager', widths: '800,1200,1600,2000', sizes: '(min-width: 750px) 50vw, 100vw' }}
-    </div>
+<section id="AyvaHero-{{ section.id }}" class="ayva-hero">
+  <div class="ayva-hero__image">
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '800,1200,1600,2000,2400',
+          sizes: '100vw',
+          alt: section.settings.image.alt | default: shop.name | escape
+      }}
+    {%- else -%}
+      <div class="ayva-hero__placeholder">Upload hero image in theme editor</div>
     {%- endif -%}
   </div>
-  <div class="ayva-hero__cta">
-    <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="ayva-hero__btn">
-      {{ section.settings.button_text | default: 'SHOP NOW' }}
-    </a>
-  </div>
+  {%- if section.settings.button_text != blank -%}
+    <div class="ayva-hero__cta">
+      <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="ayva-hero__btn">
+        {{ section.settings.button_text | escape }}
+      </a>
+    </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
 {
   "name": "AYVA Hero Banner",
+  "tag": "section",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "image_left",
-      "label": "Banner image (left or full-width)"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_right",
-      "label": "Banner image (right, optional)"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "SHOP NOW"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link"
-    }
+    { "type": "image_picker", "id": "image", "label": "Hero image (single full-width)" },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "SHOP NOW" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "range", "id": "min_height_desktop", "label": "Desktop height (vh)", "min": 50, "max": 100, "step": 5, "default": 85, "unit": "vh" },
+    { "type": "range", "id": "min_height_mobile", "label": "Mobile height (vh)", "min": 40, "max": 100, "step": 5, "default": 60, "unit": "vh" }
   ],
   "presets": [
-    {
-      "name": "AYVA Hero Banner"
-    }
+    { "name": "AYVA Hero Banner" }
   ]
 }
 {% endschema %}

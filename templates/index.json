@@ -12,9 +12,11 @@
     "ayva_hero": {
       "type": "ayva-hero",
       "settings": {
-        "image_left": "shopify://shop_images/ChatGPT_Image_Apr_16_2026_07_31_49_PM_1.png",
+        "image": "shopify://shop_images/ChatGPT_Image_Apr_16_2026_07_31_49_PM_1.png",
         "button_text": "SHOP NOW",
-        "button_link": ""
+        "button_link": "/collections/all",
+        "min_height_desktop": 85,
+        "min_height_mobile": 60
       }
     },
     "ayva_bestsellers": {
@@ -90,21 +92,25 @@
       "settings": {}
     },
     "ayva_more_than_pretty": {
-      "type": "ayva-image-text",
+      "type": "ayva-brand-text",
       "settings": {
-        "image_position": "left",
-        "subtitle": "FROM STOCKHOLM, WITH INTENTION",
+        "eyebrow": "FROM STOCKHOLM, WITH INTENTION",
         "heading": "A BAG WITH SOMETHING TO SAY",
-        "text": "<p>A bag isn't just something you carry — it's a small signature, a daily choice, a quiet way of showing up as yourself.</p><p>We draw on the clean-lined confidence of Scandinavian craft and the lived-in ease of European streetwear. Soft shapes, considered textures, hardware that earns its place — nothing decorative for its own sake.</p><p>Morning, midday, after dark — every piece is made to move with you.</p>",
+        "body": "<p>A bag isn't just something you carry — it's a small signature, a daily choice, a quiet way of showing up as yourself.</p><p>We draw on the clean-lined confidence of Scandinavian craft and the lived-in ease of European streetwear. Soft shapes, considered textures, hardware that earns its place — nothing decorative for its own sake.</p><p>Morning, midday, after dark — every piece is made to move with you.</p>",
         "button_text": "SHOP THE EDIT",
-        "button_link": ""
+        "button_link": "/collections/all",
+        "text_size": "large",
+        "text_alignment": "center",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "ayva_big_or_small_heading": {
       "type": "ayva-brand-text",
       "settings": {
         "heading": "SHAPES FOR EVERY MOMENT",
-        "subheading": "",
         "text_size": "large",
         "text_alignment": "center",
         "background_color": "#ffffff",
@@ -147,15 +153,7 @@
         "heading": "PIECES THAT KEEP UP",
         "text": "<p>Every bag begins with one question: does this actually work for the way you live? Not the runway version — the real one. Commutes, errands, long dinners, early starts.</p><p>So we obsess over the quiet things — stitch density, strap drop, how a zip sits in your hand. Beauty you notice first; utility you rely on for years.</p><p>Enough room for the laptop, the gloss, the leftovers — still polished across the table at dinner.</p>",
         "button_text": "FIND YOUR NEXT FAVOURITE",
-        "button_link": ""
-      }
-    },
-    "ayva_shop_the_look": {
-      "type": "ayva-shop-the-look",
-      "settings": {
-        "product_title": "The Brooklyn Bag",
-        "sale_price": "€54,99",
-        "compare_price": "€99,00"
+        "button_link": "/collections/all"
       }
     },
     "ayva_brand_pillars": {
@@ -204,11 +202,19 @@
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "none",
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 52,
+        "padding_top": 16,
         "padding_bottom": 52
+      }
+    },
+    "ayva_shop_the_look": {
+      "type": "ayva-shop-the-look",
+      "settings": {
+        "product_title": "The Brooklyn Bag",
+        "sale_price": "€54,99",
+        "compare_price": "€99,00"
       }
     }
   },
@@ -220,7 +226,7 @@
     "ayva_big_or_small_heading",
     "ayva_big_small_collections",
     "ayva_style_function",
-    "ayva_shop_the_look",
-    "ayva_brand_pillars"
+    "ayva_brand_pillars",
+    "ayva_shop_the_look"
   ]
 }
