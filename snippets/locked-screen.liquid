@@ -1,0 +1,62 @@
+{%- comment -%}
+  Site lock / maintenance screen.
+  Rendered in layout/theme.liquid in place of the normal storefront
+  when settings.site_locked is true. Data (products, orders, customers)
+  is untouched — only the storefront display is suppressed.
+{%- endcomment -%}
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0a0a;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+  }
+  body { min-height: 100vh; }
+  .site-locked {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+  }
+  .site-locked__wrap {
+    max-width: 520px;
+    width: 100%;
+  }
+  .site-locked__mark {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    line-height: 38px;
+    margin: 0 auto 32px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+  }
+  .site-locked__heading {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+  .site-locked__msg {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+  }
+</style>
+<div class="site-locked" role="alertdialog" aria-live="polite">
+  <div class="site-locked__wrap">
+    <span class="site-locked__mark" aria-hidden="true">—</span>
+    <h1 class="site-locked__heading">{{ settings.site_locked_heading | default: 'Site temporarily unavailable' | escape }}</h1>
+    <p class="site-locked__msg">{{ settings.site_locked_message | default: "We'll be back shortly. Thank you for your patience." | escape }}</p>
+  </div>
+</div>
