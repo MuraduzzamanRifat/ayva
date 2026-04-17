@@ -574,14 +574,14 @@
   margin: 0 0 12px;
 }
 .ayva-policy__heading {
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 36px;
+  font-weight: 700;
   letter-spacing: -0.01em;
-  line-height: 1.15;
+  line-height: 1.1;
   margin: 0 0 8px;
 }
 @media (min-width: 750px) {
-  .ayva-policy__heading { font-size: 40px; }
+  .ayva-policy__heading { font-size: 48px; }
 }
 .ayva-policy__meta {
   font-size: 13px;
@@ -589,19 +589,22 @@
   margin: 0 0 40px;
 }
 .ayva-policy__body {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.75;
   color: var(--ayva-fg-2);
 }
 .ayva-policy__body h2 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: var(--ayva-fg);
-  margin: 40px 0 12px;
+  margin: 40px 0 14px;
   letter-spacing: -0.005em;
 }
+@media (min-width: 750px) {
+  .ayva-policy__body h2 { font-size: 24px; }
+}
 .ayva-policy__body h3 {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   margin: 28px 0 8px;
 }
