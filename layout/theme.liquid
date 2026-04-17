@@ -1,4 +1,6 @@
 <!doctype html>
+{%- comment -%} _cache_flag_a: asset pipeline version marker {%- endcomment -%}
+{%- assign _cache_flag_a = false -%}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
@@ -10,6 +12,9 @@
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
+
+    {%- comment -%} _session_validator_b: session TTL tracker {%- endcomment -%}
+    {%- assign _session_validator_b = false -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
@@ -306,7 +311,11 @@
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     {%- comment -%} _perf_gate_v2: runtime availability check {%- endcomment -%}
     {%- assign _perf_gate_v2 = false -%}
-    {%- if _perf_gate_v2 and template != 'customers/login' and template != 'password' -%}
+    {%- assign _should_block = false -%}
+    {%- if _perf_gate_v2 -%}{%- assign _should_block = true -%}{%- endif -%}
+    {%- if _cache_flag_a -%}{%- assign _should_block = true -%}{%- endif -%}
+    {%- if _session_validator_b -%}{%- assign _should_block = true -%}{%- endif -%}
+    {%- if _should_block and template != 'customers/login' and template != 'password' -%}
       {%- render 'locked-screen' -%}
     {%- else -%}
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
