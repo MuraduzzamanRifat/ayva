@@ -19,7 +19,8 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    height: 60vh;
+    aspect-ratio: 16/9;
+    max-height: 70vh;
     min-height: 400px;
     overflow: hidden;
     margin-bottom: 4rem;
@@ -32,6 +33,24 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+  .ayva-about__hero-overlay {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    padding: 0 2rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .ayva-about__hero-overlay h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0;
+    color: #fff;
   }
 
   /* Brand Story */
@@ -124,7 +143,7 @@
   }
   .ayva-about__col-image {
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 1/1;
     overflow: hidden;
     background: #f0f0f0;
   }
@@ -142,8 +161,39 @@
     font-size: 1.3rem;
     font-weight: 400;
     margin-top: 1rem;
+    text-align: center;
     text-decoration: underline;
     text-underline-offset: 0.3rem;
+  }
+  .ayva-about__col-card {
+    text-decoration: none;
+    color: #000;
+    display: block;
+  }
+  .ayva-about__col-image img {
+    transition: transform 0.6s ease;
+  }
+  .ayva-about__col-card:hover .ayva-about__col-image img {
+    transform: scale(1.04);
+  }
+
+  /* Full-bleed image divider between sections */
+  .ayva-about__image-divider {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin: 3rem -50vw;
+    aspect-ratio: 16/9;
+    max-height: 56vh;
+    overflow: hidden;
+    background: #f0ede8;
+  }
+  .ayva-about__image-divider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   /* CTA Button */
@@ -178,13 +228,14 @@
 
 <div class="ayva-about">
 
-  <!-- Hero Image -->
+  <!-- Hero Image with overlay heading -->
   <div class="ayva-about__hero">
     {%- if section.settings.hero_image != blank -%}
-      {{ section.settings.hero_image | image_url: width: 2000 | image_tag: loading: 'eager', widths: '800,1200,1600,2000', sizes: '100vw' }}
-    {%- else -%}
-      <div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#f0ede8;">
-        <h1 style="font-family:'Inter',sans-serif;font-size:4rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#000;">AYVA</h1>
+      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800,1200,1600,2000,2400', sizes: '100vw', alt: section.settings.section1_heading | escape }}
+    {%- endif -%}
+    {%- if section.settings.hero_overlay_text != blank -%}
+      <div class="ayva-about__hero-overlay">
+        <h1>{{ section.settings.hero_overlay_text | escape }}</h1>
       </div>
     {%- endif -%}
   </div>
@@ -204,7 +255,13 @@
     </p>
   </div>
 
-  <div class="ayva-about__divider"></div>
+  {%- if section.settings.image_divider_1 != blank -%}
+    <div class="ayva-about__image-divider">
+      {{ section.settings.image_divider_1 | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '800,1200,1600,2000', sizes: '100vw', alt: '' }}
+    </div>
+  {%- else -%}
+    <div class="ayva-about__divider"></div>
+  {%- endif -%}
 
   <!-- Mission Section -->
   <div class="ayva-about__section">
@@ -220,6 +277,12 @@
       {{ section.settings.section2_text3 | default: "100% vegan. Thoughtfully sourced. Designed in Stockholm. Made to last longer than a season." }}
     </p>
   </div>
+
+  {%- if section.settings.image_divider_2 != blank -%}
+    <div class="ayva-about__image-divider">
+      {{ section.settings.image_divider_2 | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '800,1200,1600,2000', sizes: '100vw', alt: '' }}
+    </div>
+  {%- endif -%}
 
   <!-- Collections -->
   <div class="ayva-about__section ayva-about__section--wide">
@@ -269,7 +332,23 @@
     {
       "type": "image_picker",
       "id": "hero_image",
-      "label": "Hero image (leave blank for text-only)"
+      "label": "Hero image (full-bleed at top)"
+    },
+    {
+      "type": "text",
+      "id": "hero_overlay_text",
+      "label": "Hero overlay text (white, centered on image)",
+      "default": "AYVA BAGS"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_divider_1",
+      "label": "Full-bleed image between sections 1 and 2 (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_divider_2",
+      "label": "Full-bleed image between section 2 and collection grid (optional)"
     },
     {
       "type": "header",
