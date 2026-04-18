@@ -1,14 +1,4 @@
 {
-  "sections": {
-    "refund": {
-      "type": "ayva-policy-page",
-      "settings": {
-        "eyebrow": "",
-        "heading": "Refund policy",
-        "updated_date": "1 April 2026",
-        "content": "<p>We want you to love what you ordered. If something isn't quite right, you have 30 days from the day your order arrives to return it for a refund.</p><h2>Return Window</h2><p>You have <strong>30 days from delivery</strong> to request a return. EU customers also have a statutory 14-day cooling-off period on top of our standard return window.</p><h2>What Can Be Returned</h2><p>To qualify for a refund, items must be:</p><ul><li>unused and unworn;</li><li>in their original packaging;</li><li>with all original tags still attached;</li><li>accompanied by proof of purchase (order number or confirmation email).</li></ul><h2>What Can't Be Returned</h2><ul><li>Final-sale or clearance items;</li><li>Gift cards;</li><li>Personalised or custom-made items;</li><li>Items that have been used, washed, altered, or damaged by the customer.</li></ul><h2>How to Start a Return</h2><p>Email <a href=\"mailto:hello@yourstore.com\">hello@yourstore.com</a> with your order number and a short description of the reason for your return. We'll reply within 2 business days with the return address and step-by-step instructions.</p><h2>Return Shipping</h2><p>You are responsible for the cost of return shipping unless the item arrived damaged, defective, or incorrect. We recommend using a tracked service — we can't refund items that are lost on their way back to us.</p><p>A flat return-handling fee may apply; this will be communicated when we approve your return. The fee is waived for defective or incorrect items.</p><h2>Damaged, Defective, or Incorrect Items</h2><p>Please inspect your order as soon as it arrives. If anything is damaged, defective, or not what you ordered, contact us within <strong>48 hours of delivery</strong> and include photos. We'll replace it or refund it — whichever you prefer — and cover the return shipping.</p><h2>Exchanges</h2><p>The fastest way to get the colour, size, or style you wanted is to place a new order and return the original item for a refund once you receive the replacement.</p><h2>When Your Refund Arrives</h2><p>Once we receive and inspect your return, we'll email you to confirm the outcome. Approved refunds are issued to the original payment method within <strong>10 business days</strong>. Depending on your bank, it can take an additional 3–5 business days for the refund to appear on your statement.</p><h2>Late or Missing Refunds</h2><p>If you haven't received your refund within 15 business days of our confirmation email, please first check with your bank and then email us at <a href=\"mailto:hello@yourstore.com\">hello@yourstore.com</a> so we can chase it on our end.</p><h2>Contact</h2><p>Any questions: <a href=\"mailto:hello@yourstore.com\">hello@yourstore.com</a>.</p>"
-      }
-    }
-  },
-  "order": ["refund"]
+  "sections": {},
+  "order": []
 }
