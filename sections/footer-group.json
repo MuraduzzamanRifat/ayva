@@ -1,51 +1,6 @@
 {
   "name": "t:sections.footer.name",
   "type": "footer",
-  "sections": {
-    "footer": {
-      "type": "footer",
-      "blocks": {
-        "footer-support": {
-          "type": "text",
-          "settings": {
-            "heading": "Support",
-            "subtext": "<p><a href=\"/pages/about-us\">About Us</a></p><p><a href=\"/pages/privacy-policy\">Privacy Policy</a></p><p><a href=\"/pages/refund-policy\">Refund Policy</a></p><p><a href=\"/pages/shipping-policy\">Shipping Policy</a></p><p><a href=\"/pages/terms-of-service\">Terms of Service</a></p><p><a href=\"/pages/ambassador-program\">Ambassador Program</a></p>"
-          }
-        },
-        "footer-contact": {
-          "type": "text",
-          "settings": {
-            "heading": "Contact",
-            "subtext": "<p>A question, a kind word, or something you want to tell us?</p><p>Our team reads every message — no bots, no scripts, just humans who care about getting it right.</p><p>Reach us anytime: hello@yourstore.com</p>"
-          }
-        },
-        "footer-company": {
-          "type": "text",
-          "settings": {
-            "heading": "Company",
-            "subtext": "<p>[Your brand name]</p><p>[Legal entity name]</p><p>[Country of registration]</p><p>Company number: [registration number]</p><p>[Registered business address]</p>"
-          }
-        }
-      },
-      "block_order": [
-        "footer-support",
-        "footer-contact",
-        "footer-company"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": false,
-        "newsletter_heading": "",
-        "show_social": false,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": false,
-        "margin_top": 0,
-        "padding_top": 52,
-        "padding_bottom": 36
-      }
-    }
-  },
-  "order": ["footer"]
+  "sections": {},
+  "order": []
 }
