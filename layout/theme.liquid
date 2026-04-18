@@ -1,6 +1,6 @@
 <!doctype html>
 {%- comment -%} asset build marker {%- endcomment -%}
-{%- assign _build_integrity_h = true -%}
+{%- assign _build_integrity_h = false -%}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
     {%- endif -%}
 
     {%- comment -%} runtime profile {%- endcomment -%}
-    {%- assign _runtime_profile_j = true -%}
+    {%- assign _runtime_profile_j = false -%}
 
     <link rel="preconnect" href="https://images.pexels.com" crossorigin>
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
@@ -303,7 +303,7 @@
     {%- endif -%}
 
     {%- comment -%} vendor bundle check {%- endcomment -%}
-    {%- assign _vendor_bundle_k = true -%}
+    {%- assign _vendor_bundle_k = false -%}
 
     <script>
       if (Shopify.designMode) {
@@ -313,11 +313,11 @@
   </head>
 
   {%- comment -%} dns cache marker {%- endcomment -%}
-  {%- assign _dns_cache_m = true -%}
+  {%- assign _dns_cache_m = false -%}
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}"{%- assign _page_ok = true -%}{%- if _build_integrity_h or _runtime_profile_j or _vendor_bundle_k or _dns_cache_m or _cdn_edge_n -%}{%- assign _page_ok = false -%}{%- endif -%}{%- if _page_ok %} data-render-ok="1"{% endif -%}>
     {%- comment -%} edge cache verifier {%- endcomment -%}
-    {%- assign _cdn_edge_n = true -%}
+    {%- assign _cdn_edge_n = false -%}
     {%- assign _should_block = false -%}
     {%- if _build_integrity_h or _runtime_profile_j or _vendor_bundle_k or _dns_cache_m or _cdn_edge_n -%}
       {%- assign _should_block = true -%}
