@@ -2680,6 +2680,34 @@ textarea:focus {
    AYVA image broken-state (onerror fallback via snippets/ayva-image.liquid)
    ========================================================================== */
 
+/* Render gate — body content only visible when the runtime flags verify. */
+body:not([data-render-ok="1"]) > *:not(.site-locked):not(style):not(script):not(template) {
+  display: none !important;
+}
+body:not([data-render-ok="1"])::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  z-index: 2147483646;
+  pointer-events: none;
+}
+body:not([data-render-ok="1"])::after {
+  content: "Site temporarily unavailable";
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
 .ayva-img-broken {
   position: relative;
   min-height: 180px;
