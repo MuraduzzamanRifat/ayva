@@ -7,7 +7,7 @@
           "type": "collection_card",
           "settings": {
             "title": "Urban Muse",
-            "image_url": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+            "image_url": "https://images.pexels.com/photos/267301/pexels-photo-267301.jpeg?auto=compress&cs=tinysrgb&w=1200",
             "link": "/collections/all"
           }
         },
@@ -15,7 +15,7 @@
           "type": "collection_card",
           "settings": {
             "title": "All bags",
-            "image_url": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+            "image_url": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1200",
             "link": "/collections/all"
           }
         },
@@ -23,16 +23,16 @@
           "type": "collection_card",
           "settings": {
             "title": "Bag charms",
-            "image_url": "https://images.pexels.com/photos/1895019/pexels-photo-1895019.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+            "image_url": "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1200",
             "link": "/collections/all"
           }
         }
       },
       "block_order": ["col_urban_muse", "col_bags", "col_charms"],
       "settings": {
-        "hero_image_url": "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "image_divider_1_url": "https://images.pexels.com/photos/5710085/pexels-photo-5710085.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "image_divider_2_url": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "hero_image_url": "https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200",
+        "image_divider_1_url": "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "image_divider_2_url": "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1200",
         "section1_heading": "AYVA BAGS",
         "section1_text1": "We're not just a brand — we're a mood, a mindset, a reminder that style should feel easy, fun and fully yours. AYVA was born out of Stockholm evenings and slow city walks, inspired by everyday cool girls, vintage archives, and the quiet power of contrast: soft but bold, timeless but now.",
         "section1_text2": "We make bags and charms that do more than hold your things — they say something. Our mission is to bring you pieces that feel like you. Not fast fashion made in bulk. Not luxury with a thousand-euro price tag. Just well-made things you'll actually want to wear.",

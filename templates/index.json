@@ -12,7 +12,7 @@
     "ayva_hero": {
       "type": "ayva-hero",
       "settings": {
-        "image_url": "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "image_url": "https://images.pexels.com/photos/267301/pexels-photo-267301.jpeg?auto=compress&cs=tinysrgb&w=1200",
         "button_text": "SHOP NOW",
         "button_link": "/collections/all",
         "min_height_desktop": 85,
@@ -54,7 +54,7 @@
           "type": "collection_card",
           "settings": {
             "title": "All bags",
-            "image_url": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop",
+            "image_url": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1200",
             "link": "/collections/all",
             "underline": false
           }
@@ -63,7 +63,7 @@
           "type": "collection_card",
           "settings": {
             "title": "Just in",
-            "image_url": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop",
+            "image_url": "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1200",
             "link": "/collections/all",
             "underline": true
           }
@@ -72,7 +72,7 @@
           "type": "collection_card",
           "settings": {
             "title": "Charms",
-            "image_url": "https://images.pexels.com/photos/1895019/pexels-photo-1895019.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop",
+            "image_url": "https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200",
             "link": "/collections/all",
             "underline": false
           }
@@ -81,7 +81,7 @@
           "type": "collection_card",
           "settings": {
             "title": "The Everyday Edit",
-            "image_url": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop",
+            "image_url": "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1200",
             "link": "/collections/all",
             "underline": false
           }
@@ -130,7 +130,7 @@
           "type": "collection_card",
           "settings": {
             "title": "The Everyday Edit",
-            "image_url": "https://images.pexels.com/photos/5710085/pexels-photo-5710085.jpeg?auto=compress&cs=tinysrgb&w=1400&h=933&fit=crop",
+            "image_url": "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1200",
             "link": "/collections/all"
           }
         },
@@ -138,7 +138,7 @@
           "type": "collection_card",
           "settings": {
             "title": "The Mini Edit",
-            "image_url": "https://images.pexels.com/photos/7679656/pexels-photo-7679656.jpeg?auto=compress&cs=tinysrgb&w=1400&h=933&fit=crop",
+            "image_url": "https://images.pexels.com/photos/6046227/pexels-photo-6046227.jpeg?auto=compress&cs=tinysrgb&w=1200",
             "link": "/collections/all"
           }
         }
@@ -153,7 +153,7 @@
       "type": "ayva-image-text",
       "settings": {
         "image_position": "left",
-        "image_url": "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "image_url": "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1200",
         "subtitle": "DESIGNED WITH PURPOSE",
         "heading": "PIECES THAT KEEP UP",
         "text": "<p>Every bag begins with one question: does this actually work for the way you live? Not the runway version — the real one. Commutes, errands, long dinners, early starts.</p><p>So we obsess over the quiet things — stitch density, strap drop, how a zip sits in your hand. Beauty you notice first; utility you rely on for years.</p><p>Enough room for the laptop, the gloss, the leftovers — still polished across the table at dinner.</p>",
@@ -217,8 +217,8 @@
     "ayva_shop_the_look": {
       "type": "ayva-shop-the-look",
       "settings": {
-        "lifestyle_image_url": "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        "product_image_url": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "lifestyle_image_url": "https://images.pexels.com/photos/3261069/pexels-photo-3261069.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "product_image_url": "https://images.pexels.com/photos/267301/pexels-photo-267301.jpeg?auto=compress&cs=tinysrgb&w=1200",
         "product_title": "The Brooklyn Bag",
         "sale_price": "€54,99",
         "compare_price": "€99,00"
